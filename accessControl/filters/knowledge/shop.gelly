@@ -1,0 +1,3 @@
+filter ($session: Session) on ShopKnowledge [
+  where shopId == $session.shopId
+]

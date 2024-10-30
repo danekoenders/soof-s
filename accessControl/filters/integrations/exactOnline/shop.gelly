@@ -1,0 +1,3 @@
+filter ($session: Session) on ExactOnline [
+  where shopId == $session.shopId
+]

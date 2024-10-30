@@ -1,0 +1,3 @@
+filter ($session: Session) on Plan [
+  where shopId == $session.shopId
+]

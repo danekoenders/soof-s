@@ -1,0 +1,3 @@
+filter ($session: Session) on ChatSession [
+  where shopId == $session.shopId
+]
