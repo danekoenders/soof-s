@@ -5,7 +5,23 @@ import { applyParams, save, ActionOptions, CreateChatbotActionContext } from "ga
  */
 export async function run({ params, record, logger, api, connections, session }) {
   applyParams(params, record);
-  
+
+  record.functions = {
+    sendToCustomerSupport: true,
+    fetchProductRecommendation: true,
+    fetchProductByTitle: true,
+    fetchParcelDataByEmail: true,
+    fetchParcelDataByOrderId: true,
+    sendInvoice: false,
+  };
+
+  await save(record);
+};
+
+/**
+ * @param { CreateChatbotActionContext } context
+ */
+export async function onSuccess({ params, record, logger, api, connections }) {
   const shop = await api.shopifyShop.findOne(record.shopId, {
     select: {
       name: true,
@@ -208,23 +224,8 @@ export async function run({ params, record, logger, api, connections, session })
     throw new Error("Failed to create assistant");
   }
 
-  record.functions = {
-    sendToCustomerSupport: true,
-    fetchProductRecommendation: true,
-    fetchProductByTitle: true,
-    fetchParcelDataByEmail: true,
-    fetchParcelDataByOrderId: true,
-    sendInvoice: false,
-  };
   record.assistant = assistant.id;
   await save(record);
-};
-
-/**
- * @param { CreateChatbotActionContext } context
- */
-export async function onSuccess({ params, record, logger, api, connections }) {
-  // Your logic goes here
 };
 
 /** @type { ActionOptions } */

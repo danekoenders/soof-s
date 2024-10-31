@@ -11,6 +11,13 @@ export async function run({ params, record, logger, api, connections, session })
     throw new Error("You are not authorized to update an assistant for this shop");
   }
 
+  await save(record);
+};
+
+/**
+ * @param { UpdateChatbotActionContext } context
+ */
+export async function onSuccess({ params, record, logger, api, connections }) {
   const shop = await api.shopifyShop.findOne(record.shopId, {
     select: {
       name: true,
@@ -212,15 +219,6 @@ export async function run({ params, record, logger, api, connections, session })
   if (!assistant.id) {
     throw new Error("Failed to update assistant");
   }
-
-  await save(record);
-};
-
-/**
- * @param { UpdateChatbotActionContext } context
- */
-export async function onSuccess({ params, record, logger, api, connections }) {
-  // Your logic goes here
 };
 
 /** @type { ActionOptions } */
