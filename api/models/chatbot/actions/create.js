@@ -5,7 +5,7 @@ import { applyParams, save, ActionOptions, CreateChatbotActionContext } from "ga
  */
 export async function run({ params, record, logger, api, connections, session }) {
   applyParams(params, record);
-
+  
   const shop = await api.shopifyShop.findOne(record.shopId, {
     select: {
       name: true,

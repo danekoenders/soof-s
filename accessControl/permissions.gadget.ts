@@ -44,6 +44,9 @@ export const permissions: GadgetPermissions = {
           read: {
             filter: "accessControl/filters/knowledge/shop.gelly",
           },
+          actions: {
+            update: true,
+          },
         },
         plan: {
           read: {
