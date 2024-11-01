@@ -5,9 +5,7 @@ import {
   Spinner,
   Text,
   Banner,
-  AccountConnection,
   BlockStack,
-  Link,
 } from "@shopify/polaris";
 import {
   ClockIcon,
@@ -16,7 +14,6 @@ import {
 import { api } from "../api";
 import { useMantle } from '@heymantle/react';
 import { useNavigate } from "react-router-dom";
-import { TitleBar } from "@shopify/app-bridge-react";
 import SetupWizard from "../components/setupWizard/SetupWizard";
 
 const gadgetMetaQuery = `
@@ -41,13 +38,6 @@ export default function () {
   const [{ data: metaData, fetching: fetchingGadgetMeta }] = useQuery({
     query: gadgetMetaQuery,
   });
-
-  const connectionTerms = data?.connected ? null : (
-    <p>
-      By clicking <strong>Connect Store</strong>, you agree to accept Soof AI’s{' '}
-      <Link target="_blank" url="https://soof.ai/terms">terms and conditions</Link>.
-    </p>
-  );
 
   if (error) {
     return (
@@ -94,25 +84,14 @@ export default function () {
             {subscription?.active ?
               <>
                 <Banner
-                  title="Store is connected"
+                  title="Actively subscribed"
                   tone="success"
                   icon={ConnectIcon}
                 >
                   <Text variant="bodyMd" as="p">
-                    Your store is actively connected to Soof AI. Edit the store by clicking the button below or visiting <Link target="_blank" url={`${process.env.GADGET_PUBLIC_SOOF_APP_DOMAIN}/dashboard/${data?.soofShopId}`}>app.soof.ai</Link>.
+                    Your subscription is active.
                   </Text>
                 </Banner>
-                <AccountConnection
-                  accountName={data?.name}
-                  connected={data?.connected}
-                  title="Soof AI"
-                  action={{
-                    content: data?.connected ? "Settings" : "Connect Store",
-                    onAction: handleStoreConnect,
-                  }}
-                  details={data?.connected ? `Store ${data?.soofShopId} is connected` : "No store connected"}
-                  termsOfService={connectionTerms}
-                />
               </>
               :
               <Banner

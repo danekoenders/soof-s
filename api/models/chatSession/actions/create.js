@@ -1,17 +1,17 @@
 import { applyParams, save, ActionOptions, CreateChatSessionActionContext } from "gadget-server";
-import { v4 as uuidv4 } from 'uuid';
-
-/**
- * @param { CreateChatSessionActionContext } context
- */
+import { getCustomer } from "../../../utils/mantle-api/customer";
+import { sendUsageChat } from "../../../utils/mantle-api/usageEvent";
 
 export const params = {
-  origin: {
+  myshopifyDomain: {
     type: "string",
     required: true,
   },
 };
 
+/**
+ * @param { CreateChatSessionActionContext } context
+ */
 export async function run({ params, record, logger, api, connections }) {
   const chatbot = await api.chatbot.findFirst({
     select: {
@@ -19,37 +19,31 @@ export async function run({ params, record, logger, api, connections }) {
       assistant: true,
       shop: {
         id: true,
-        plan: {
-          id: true,
-          chats: true,
-          chatLimit: true,
-          activePlan: true,
-          trialDays: true,
-        }
+        mantleApiToken: true,
       },
     },
     filter: {
       shop: {
-        myshopifyDomain: { equals: params.origin }
+        myshopifyDomain: { equals: params.myshopifyDomain }
       }
     }
   });
 
-  if (!chatbot.shop.plan.currentPlan && chatbot.shop.plan.trialDays === 0) {
+  params.mantleApiToken = chatbot.shop.mantleApiToken;
+  const customer = await getCustomer({ customerApiToken: params.mantleApiToken });
+  
+  if (!customer.subscription || !customer.subscription.active) {
     throw new Error("Plan is not active");
   }
 
-  if (chatbot.shop.plan.chats >= chatbot.shop.plan.chatLimit) {
-    throw new Error("Chat limit exceeded");
+  if (customer.subscription.usageBalanceUsed >= customer.subscription.usageCappedAmount) {
+    throw new Error("Plan usage has been exceeded");
   }
 
   applyParams(params, record);
 
-  const sessionToken = uuidv4();
+  const sessionToken = crypto.randomUUID();
   const refId = await generateReferenceId(api);
-  params.plan = {
-    id: chatbot.shop.plan.id,
-  }
 
   const thread = await connections.openai.beta.threads.create({}, {
     headers: {
@@ -109,9 +103,11 @@ async function generateReferenceId(api) {
  * @param { CreateChatSessionActionContext } context
  */
 export async function onSuccess({ params, record, logger, api, connections }) {
-  await api.plan.update(params.plan.id, {
-    chats: params.plan.chats + 1,
-  })
+  const usageEvent = await sendUsageChat({ customerApiToken: params.mantleApiToken });
+
+  if (!usageEvent.success) {
+    throw new Error("Failed to send chat usage event");
+  }
 };
 
 /** @type { ActionOptions } */
