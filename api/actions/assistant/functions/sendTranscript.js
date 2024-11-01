@@ -1,15 +1,14 @@
 import { SendTranscriptGlobalActionContext, DefaultEmailTemplates } from "gadget-server";
 import { formatTranscript } from "../../../utils/functions";
 
-/**
- * @param { SendTranscriptGlobalActionContext } context
- */
-
 export const params = {
   sessionId: { type: "string" },
   lastMessage: { type: "string" }
 };
 
+/**
+ * @param { SendTranscriptGlobalActionContext } context
+ */
 export async function run({ params, logger, api, connections, emails }) {
   const chatSession = await api.chatSession.findOne(params.sessionId, {
     select: {
@@ -19,7 +18,7 @@ export async function run({ params, logger, api, connections, emails }) {
         id: true,
         createdAt: true,
         supportEmail: true,
-        customName: true,
+        name: true,
       },
     },
   });

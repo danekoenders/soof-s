@@ -13,7 +13,7 @@ export const params = {
  */
 export async function run({ params, logger, api, connections, emails }) {
   const order = await fetchOrder(params.shopifyShopId, params.orderId);
-
+  
   if (!order.email) {
     return ({
       success: false,

@@ -19,15 +19,16 @@ export default async function route({ request, reply, api, logger, connections }
       select: {
         id: true,
         email: true,
-        assistant: true,
         transcript: true,
         rlIsLimited: true,
         rlLastMessageTimestamp: true,
         rlMessageCount: true,
+        chatbot: {
+          assistant: true,
+        },
         shop: {
           id: true,
-          customName: true,
-          shopifyShopId: true,
+          name: true,
         },
         thread: true,
         expiresAt: true,
@@ -69,7 +70,7 @@ export default async function route({ request, reply, api, logger, connections }
 
       const run = await connections.openai.beta.threads.runs.create(
         thread,
-        { assistant_id: session.assistant }
+        { assistant_id: session.chatbot.assistant }
       );
 
       do {

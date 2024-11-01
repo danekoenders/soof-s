@@ -1,9 +1,5 @@
 import { FetchProductDataGlobalActionContext, logger } from "gadget-server";
 
-/**
- * @param { FetchProductDataGlobalActionContext } context
- */
-
 export const params = {
   type: { type: "string" },
   shopifyShopId: { type: "string" },
@@ -11,6 +7,9 @@ export const params = {
   title: { type: "string" }
 };
 
+/**
+ * @param { FetchProductDataGlobalActionContext } context
+ */
 export async function run({ params, logger, api, connections }) {
   if (params.type === "productRecommendation") {
     const response = await productRecommendation(logger, params.shopifyShopId, params.searchQuery);
