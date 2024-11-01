@@ -46,8 +46,11 @@ export async function onSuccess({ params, record, logger, api, connections }) {
   let formattedPopularProducts;
   let formattedDeliveryCountries;
 
-  if (shop.knowledge.popularProducts && shop.knowledge.deliveryCountries) {
-    formattedPopularProducts = shop.knowledge.popularProducts.map(product => `${product}`).join(", ");
+  if (shop.knowledge.popularProducts) {
+    formattedPopularProducts = shop.knowledge.popularProducts.map(product => `${product.title}`).join(", ");
+  }
+
+  if (shop.knowledge.deliveryCountries) {
     formattedDeliveryCountries = shop.knowledge.deliveryCountries?.map(deliveryCountry => `${deliveryCountry}`).join(", ");
   }
 

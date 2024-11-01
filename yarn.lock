@@ -644,17 +644,17 @@
   dependencies:
     "@sentry/types" "7.118.0"
 
-"@shopify/app-bridge-react@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@shopify/app-bridge-react/-/app-bridge-react-4.0.0.tgz#8c4cccda96e6a73c039d5b2e5c212f99be570a15"
-  integrity sha512-a300DQIyYmNl5jNFHXsAICMfafY6LizXnaG5ElaAumfoIt28owgM8daDm9BwBkHSroHArvJuZS96kpDzTVg1+Q==
+"@shopify/app-bridge-react@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@shopify/app-bridge-react/-/app-bridge-react-4.1.5.tgz#711c2ac9c44de40dae2e3e06e01a5820caa5eeae"
+  integrity sha512-5OX+bUYkvvTvz6ZsZFOFYoVTrgTxG+L4cCcesw0vaYMvOkUA7JAXJI4/g4ZwTQC9Kl+BwklXN/9IhC952cBz7A==
   dependencies:
-    "@shopify/app-bridge-types" "^0.0.7"
+    "@shopify/app-bridge-types" "0.0.15"
 
-"@shopify/app-bridge-types@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@shopify/app-bridge-types/-/app-bridge-types-0.0.7.tgz#7610970b4cedab1dac2ce39ae2af5611fc5ee06e"
-  integrity sha512-x2A86xSjBPaB4rDufkY+pGH2UK8gR/rvjeXGwttIjir1l70ELHnZj+eGzHShmBitCbVoN3fkBrDnFLZdjWqyLg==
+"@shopify/app-bridge-types@0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@shopify/app-bridge-types/-/app-bridge-types-0.0.15.tgz#f5b7fbb57eb5b9c4497d8c36ac8986ddd2770f4e"
+  integrity sha512-7hi/DeLU5/3c7wtc+vij3T9Ga/UXtPG60v7o3hgEm1cysLQuwwHKD37uq5b3HzE6D+0ZHz26RW7LPiGU8VLOww==
 
 "@shopify/polaris-icons@^8.1.0", "@shopify/polaris-icons@^8.11.1":
   version "8.11.1"

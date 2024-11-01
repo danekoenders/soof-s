@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {
   Card,
+  Form,
   FormLayout,
   TextField,
-  Button,
   Banner,
   Layout,
   Checkbox,
@@ -12,9 +12,11 @@ import {
   BlockStack,
   Text,
 } from '@shopify/polaris';
+import { SaveBar } from '@shopify/app-bridge-react';
 import { useAction, useFindFirst } from '@gadgetinc/react';
 import { api } from '../../api';
 import { PopularProductsList } from './KnowledgeSettings/PopularProductsList';
+import { DeliveryCountriesCombobox } from './KnowledgeSettings/DeliveryCountriesCombobox';
 
 export default function KnowledgeSettings() {
   const initialDataRef = useRef(null);
@@ -24,7 +26,7 @@ export default function KnowledgeSettings() {
   const [deliveryAmount, setDeliveryAmount] = useState('');
   const [freeDeliveryAmount, setFreeDeliveryAmount] = useState('');
   const [returnAndRefundPolicy, setReturnAndRefundPolicy] = useState('');
-  const [deliveryCountries, setDeliveryCountries] = useState(['']);
+  const [deliveryCountries, setDeliveryCountries] = useState([]);
   const [maxDeliveryDays, setMaxDeliveryDays] = useState('');
   const [minDeliveryDays, setMinDeliveryDays] = useState('');
   const [returnAddress, setReturnAddress] = useState('');
@@ -66,7 +68,7 @@ export default function KnowledgeSettings() {
       setDeliveryAmount(data.deliveryAmount || '');
       setFreeDeliveryAmount(data.freeDeliveryAmount || '');
       setReturnAndRefundPolicy(data.returnAndRefundPolicy || '');
-      setDeliveryCountries(data.deliveryCountries || ['']);
+      setDeliveryCountries(data.deliveryCountries || []);
       setMaxDeliveryDays(data.maxDeliveryDays?.toString() || '');
       setMinDeliveryDays(data.minDeliveryDays?.toString() || '');
       setReturnAddress(data.returnAddress || '');
@@ -78,22 +80,20 @@ export default function KnowledgeSettings() {
           : []
       );
 
-      if (!initialDataRef.current) {
-        initialDataRef.current = {
-          deliveryAmount: data.deliveryAmount || '',
-          freeDeliveryAmount: data.freeDeliveryAmount || '',
-          returnAndRefundPolicy: data.returnAndRefundPolicy || '',
-          deliveryCountries: data.deliveryCountries || [''],
-          maxDeliveryDays: data.maxDeliveryDays?.toString() || '',
-          minDeliveryDays: data.minDeliveryDays?.toString() || '',
-          returnAddress: data.returnAddress || '',
-          popularProducts: data.popularProducts || [],
-          productCategory: data.productCategory || '',
-          paymentOptions: data.paymentOptions
-            ? data.paymentOptions.split(', ').map((option) => option.trim())
-            : [],
-        };
-      }
+      initialDataRef.current = {
+        deliveryAmount: data.deliveryAmount || '',
+        freeDeliveryAmount: data.freeDeliveryAmount || '',
+        returnAndRefundPolicy: data.returnAndRefundPolicy || '',
+        deliveryCountries: data.deliveryCountries || [],
+        maxDeliveryDays: data.maxDeliveryDays?.toString() || '',
+        minDeliveryDays: data.minDeliveryDays?.toString() || '',
+        returnAddress: data.returnAddress || '',
+        popularProducts: data.popularProducts || [],
+        productCategory: data.productCategory || '',
+        paymentOptions: data.paymentOptions
+          ? data.paymentOptions.split(', ').map((option) => option.trim())
+          : [],
+      };
     }
   }, [data]);
 
@@ -107,9 +107,7 @@ export default function KnowledgeSettings() {
     }
   }, [updateData, updateError]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = async () => {
     if (!areRequiredFieldsFilled()) {
       setShowErrors(true);
       shopify.toast.show('Missing required fields', {
@@ -133,11 +131,14 @@ export default function KnowledgeSettings() {
 
     await updateKnowledge({
       id: data.id,
-      knowledge: knowledgeData,
+      ...knowledgeData,
     });
 
+    // Update initialDataRef to current form values after saving
     initialDataRef.current = { ...knowledgeData };
+
     setShowErrors(false);
+    shopify.saveBar.hide('my-save-bar');
   };
 
   const handleReset = () => {
@@ -153,6 +154,8 @@ export default function KnowledgeSettings() {
       setProductCategory(initialDataRef.current.productCategory);
       setPaymentOptions(initialDataRef.current.paymentOptions);
     }
+    setShowErrors(false);
+    shopify.saveBar.hide('my-save-bar');
   };
 
   const areRequiredFieldsFilled = () => {
@@ -169,7 +172,7 @@ export default function KnowledgeSettings() {
   };
 
   const handleSelectPopularProducts = async () => {
-    const existingProductIds = popularProducts.map(product => product.id);
+    const existingProductIds = popularProducts.map((product) => product.id);
 
     const selectedProducts = await shopify.resourcePicker({
       type: 'product',
@@ -178,26 +181,10 @@ export default function KnowledgeSettings() {
       selectionIds: existingProductIds,
       filter: {
         variants: false,
-      }
+      },
     });
 
     setPopularProducts(selectedProducts);
-  };
-
-  const handleDeliveryCountryChange = (value, index) => {
-    const newDeliveryCountries = [...deliveryCountries];
-    newDeliveryCountries[index] = value;
-    setDeliveryCountries(newDeliveryCountries);
-  };
-
-  const handleAddDeliveryCountry = () => {
-    setDeliveryCountries([...deliveryCountries, '']);
-  };
-
-  const handleRemoveDeliveryCountry = (index) => {
-    const newDeliveryCountries = [...deliveryCountries];
-    newDeliveryCountries.splice(index, 1);
-    setDeliveryCountries(newDeliveryCountries);
   };
 
   const handlePaymentOptionClick = (option) => {
@@ -207,6 +194,42 @@ export default function KnowledgeSettings() {
       setPaymentOptions([...paymentOptions, option]);
     }
   };
+
+  const isFormDirty = () => {
+    if (!initialDataRef.current) return false;
+
+    return (
+      deliveryAmount !== initialDataRef.current.deliveryAmount ||
+      freeDeliveryAmount !== initialDataRef.current.freeDeliveryAmount ||
+      returnAndRefundPolicy !== initialDataRef.current.returnAndRefundPolicy ||
+      JSON.stringify(deliveryCountries) !== JSON.stringify(initialDataRef.current.deliveryCountries) ||
+      maxDeliveryDays !== initialDataRef.current.maxDeliveryDays ||
+      minDeliveryDays !== initialDataRef.current.minDeliveryDays ||
+      returnAddress !== initialDataRef.current.returnAddress ||
+      JSON.stringify(popularProducts) !== JSON.stringify(initialDataRef.current.popularProducts) ||
+      productCategory !== initialDataRef.current.productCategory ||
+      JSON.stringify(paymentOptions) !== JSON.stringify(initialDataRef.current.paymentOptions)
+    );
+  };
+
+  useEffect(() => {
+    if (isFormDirty()) {
+      shopify.saveBar.show('my-save-bar');
+    } else {
+      shopify.saveBar.hide('my-save-bar');
+    }
+  }, [
+    deliveryAmount,
+    freeDeliveryAmount,
+    returnAndRefundPolicy,
+    deliveryCountries,
+    maxDeliveryDays,
+    minDeliveryDays,
+    returnAddress,
+    popularProducts,
+    productCategory,
+    paymentOptions,
+  ]);
 
   if (fetching) {
     return (
@@ -228,178 +251,177 @@ export default function KnowledgeSettings() {
   }
 
   return (
-    <form data-save-bar onSubmit={handleSubmit} onReset={handleReset}>
-      <Layout>
-        <Layout.AnnotatedSection
-          title="Products"
-          description="Manage your shop's product information."
-        >
-          <Card sectioned>
-            <FormLayout>
-              <BlockStack gap={300}>
-                <BlockStack>
-                  <Text variant='headingMd'>Products Category</Text>
-                  <Text variant='bodyMd'>Your products category desscribes the type of products you sell.</Text>
+    <>
+      <SaveBar id="my-save-bar">
+        <button variant="primary" onClick={handleSubmit}>
+          Save
+        </button>
+        <button onClick={handleReset}>Discard</button>
+      </SaveBar>
+      <Form>
+        <Layout>
+          <Layout.AnnotatedSection
+            title="Products"
+            description="Manage your shop's product information."
+          >
+            <Card sectioned>
+              <FormLayout>
+                <BlockStack gap={300}>
+                  <BlockStack>
+                    <Text variant="headingMd">Products Category</Text>
+                    <Text variant="bodyMd">
+                      Your products category describes the type of products you sell.
+                    </Text>
+                  </BlockStack>
+                  <TextField
+                    label="Products Category"
+                    value={productCategory}
+                    onChange={(value) => setProductCategory(value)}
+                    error={
+                      showErrors && productCategory === '' ? 'Product Category is required' : ''
+                    }
+                    helpText="e.g. Vitamins or Smartphone Accessories"
+                  />
                 </BlockStack>
+                <BlockStack gap={300}>
+                  <BlockStack>
+                    <Text variant="headingMd">Popular Products</Text>
+                    <Text variant="bodyMd">
+                      Select the products you want Soof to feature.
+                    </Text>
+                  </BlockStack>
+                  <PopularProductsList
+                    popularProducts={popularProducts}
+                    handleSelectPopularProducts={handleSelectPopularProducts}
+                  />
+                  {showErrors && popularProducts.length === 0 && (
+                    <Banner tone="critical">
+                      At least one popular product is required.
+                    </Banner>
+                  )}
+                </BlockStack>
+              </FormLayout>
+            </Card>
+          </Layout.AnnotatedSection>
+
+          {/* Shipping Section */}
+          <Layout.AnnotatedSection
+            title="Shipping"
+            description="Set your shipping rates and delivery times."
+          >
+            <Card sectioned>
+              <FormLayout>
                 <TextField
-                  label="Products Category"
-                  value={productCategory}
-                  onChange={(value) => setProductCategory(value)}
+                  label="Delivery Amount"
+                  placeholder="$0.00"
+                  value={deliveryAmount}
+                  onChange={(value) => {
+                    const strippedValue = value.replace('$', '');
+                    const regex = /^\d*\.?\d*$/;
+                    if (regex.test(strippedValue)) {
+                      setDeliveryAmount('$' + strippedValue);
+                    }
+                  }}
                   error={
-                    showErrors && productCategory === '' ? 'Product Category is required' : ''
+                    showErrors && deliveryAmount === '' ? 'Delivery Amount is required' : ''
                   }
-                  helpText="e.g. Vitamins or Smartphone Accessories"
                 />
-              </BlockStack>
-              <BlockStack gap={300}>
-                <BlockStack>
-                  <Text variant='headingMd'>Popular Products</Text>
-                  <Text variant='bodyMd'>Select the products you want Soof to feature.</Text>
-                </BlockStack>
-                <PopularProductsList
-                  popularProducts={popularProducts}
-                  handleSelectPopularProducts={handleSelectPopularProducts}
+                <TextField
+                  label="Free Delivery Amount"
+                  placeholder="$0.00"
+                  value={freeDeliveryAmount}
+                  onChange={(value) => {
+                    const strippedValue = value.replace('$', '');
+                    const regex = /^\d*\.?\d*$/;
+                    if (regex.test(strippedValue)) {
+                      setFreeDeliveryAmount('$' + strippedValue);
+                    }
+                  }}
                 />
-                {showErrors && popularProducts.length === 0 && (
-                  <Banner status="critical">
-                    At least one popular product is required.
+                <TextField
+                  label="Minimum Delivery Days"
+                  placeholder="1"
+                  type="number"
+                  value={minDeliveryDays}
+                  onChange={(value) => setMinDeliveryDays(value)}
+                  error={
+                    showErrors && minDeliveryDays === ''
+                      ? 'Minimum Delivery Days is required'
+                      : ''
+                  }
+                />
+                <TextField
+                  label="Maximum Delivery Days"
+                  placeholder="2"
+                  type="number"
+                  value={maxDeliveryDays}
+                  onChange={(value) => setMaxDeliveryDays(value)}
+                  error={
+                    showErrors && maxDeliveryDays === ''
+                      ? 'Maximum Delivery Days is required'
+                      : ''
+                  }
+                />
+                <DeliveryCountriesCombobox
+                  deliveryCountries={deliveryCountries}
+                  setDeliveryCountries={setDeliveryCountries}
+                />
+              </FormLayout>
+            </Card>
+          </Layout.AnnotatedSection>
+
+          {/* Payment Options Section */}
+          <Layout.AnnotatedSection
+            title="Payment Options"
+            description="Select the payment methods you accept."
+          >
+            <Card sectioned>
+              <BlockStack spacing="tight">
+                {paymentOptionsList.map((option) => (
+                  <Checkbox
+                    key={option}
+                    label={option}
+                    checked={paymentOptions.includes(option)}
+                    onChange={() => handlePaymentOptionClick(option)}
+                  />
+                ))}
+                {showErrors && paymentOptions.length === 0 && (
+                  <Banner tone="critical">
+                    At least one payment option is required.
                   </Banner>
                 )}
               </BlockStack>
-            </FormLayout>
-          </Card>
-        </Layout.AnnotatedSection>
+            </Card>
+          </Layout.AnnotatedSection>
 
-        {/* Shipping Section */}
-        <Layout.AnnotatedSection
-          title="Shipping"
-          description="Set your shipping rates and delivery times."
-        >
-          <Card sectioned>
-            <FormLayout>
-              <TextField
-                label="Delivery Amount"
-                placeholder='$0.00'
-                value={deliveryAmount}
-                onChange={(value) => {
-                  const strippedValue = value.replace('$', '');
-                  const regex = /^\d*\.?\d*$/;
-                  if (regex.test(strippedValue)) {
-                    setDeliveryAmount('$' + strippedValue);
-                  }
-                }}
-                error={
-                  showErrors && deliveryAmount === '' ? 'Delivery Amount is required' : ''
-                }
-              />
-              <TextField
-                label="Free Delivery Amount"
-                placeholder='$0.00'
-                value={freeDeliveryAmount}
-                onChange={(value) => {
-                  const strippedValue = value.replace('$', '');
-                  const regex = /^\d*\.?\d*$/;
-                  if (regex.test(strippedValue)) {
-                    setFreeDeliveryAmount('$' + strippedValue);
-                  }
-                }}
-              />
-              <TextField
-                label="Minimum Delivery Days"
-                placeholder='1'
-                type="number"
-                value={minDeliveryDays}
-                onChange={(value) => setMinDeliveryDays(value)}
-                error={
-                  showErrors && minDeliveryDays === ''
-                    ? 'Minimum Delivery Days is required'
-                    : ''
-                }
-              />
-              <TextField
-                label="Maximum Delivery Days"
-                placeholder='2'
-                type="number"
-                value={maxDeliveryDays}
-                onChange={(value) => setMaxDeliveryDays(value)}
-                error={
-                  showErrors && maxDeliveryDays === ''
-                    ? 'Maximum Delivery Days is required'
-                    : ''
-                }
-              />
-            </FormLayout>
-            <BlockStack>
-              {deliveryCountries.map((country, index) => (
-                <BlockStack key={index} alignment="center">
-                  <TextField
-                    label={`Delivery Country ${index + 1}`}
-                    value={country}
-                    onChange={(value) => handleDeliveryCountryChange(value, index)}
-                  />
-                  <Button
-                    icon="delete"
-                    onClick={() => handleRemoveDeliveryCountry(index)}
-                    disabled={deliveryCountries.length === 1}
-                  />
-                </BlockStack>
-              ))}
-              <Button onClick={handleAddDeliveryCountry}>Add Country</Button>
-            </BlockStack>
-          </Card>
-        </Layout.AnnotatedSection>
-
-        {/* Payment Options Section */}
-        <Layout.AnnotatedSection
-          title="Payment Options"
-          description="Select the payment methods you accept."
-        >
-          <Card sectioned>
-            <BlockStack spacing="tight">
-              {paymentOptionsList.map((option) => (
-                <Checkbox
-                  key={option}
-                  label={option}
-                  checked={paymentOptions.includes(option)}
-                  onChange={() => handlePaymentOptionClick(option)}
+          {/* Policies Section */}
+          <Layout.AnnotatedSection
+            title="Policies"
+            description="Provide your return address and refund policy."
+          >
+            <Card sectioned>
+              <FormLayout>
+                <TextField
+                  label="Return Address"
+                  value={returnAddress}
+                  onChange={(value) => setReturnAddress(value)}
                 />
-              ))}
-              {showErrors && paymentOptions.length === 0 && (
-                <Banner status="critical">
-                  At least one payment option is required.
-                </Banner>
-              )}
-            </BlockStack>
-          </Card>
-        </Layout.AnnotatedSection>
-
-        {/* Policies Section */}
-        <Layout.AnnotatedSection
-          title="Policies"
-          description="Provide your return address and refund policy."
-        >
-          <Card sectioned>
-            <FormLayout>
-              <TextField
-                label="Return Address"
-                value={returnAddress}
-                onChange={(value) => setReturnAddress(value)}
-              />
-              <TextField
-                label="Return and Refund Policy"
-                value={returnAndRefundPolicy}
-                onChange={(value) => setReturnAndRefundPolicy(value)}
-                multiline
-                error={
-                  showErrors && returnAndRefundPolicy === ''
-                    ? 'Return and Refund Policy is required'
-                    : ''
-                }
-              />
-            </FormLayout>
-          </Card>
-        </Layout.AnnotatedSection>
-      </Layout>
-    </form>
+                <TextField
+                  label="Return and Refund Policy"
+                  value={returnAndRefundPolicy}
+                  onChange={(value) => setReturnAndRefundPolicy(value)}
+                  multiline
+                  error={
+                    showErrors && returnAndRefundPolicy === ''
+                      ? 'Return and Refund Policy is required'
+                      : ''
+                  }
+                />
+              </FormLayout>
+            </Card>
+          </Layout.AnnotatedSection>
+        </Layout>
+      </Form>
+    </>
   );
 }

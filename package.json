@@ -15,7 +15,7 @@
     "@heymantle/react": "^0.0.30",
     "@pinecone-database/pinecone": "^3.0.3",
     "@sentry/node": "^7.17.3",
-    "@shopify/app-bridge-react": "4.0.0",
+    "@shopify/app-bridge-react": "^4.1.5",
     "@shopify/polaris": "^12.0.0",
     "@shopify/polaris-icons": "^8.1.0",
     "color": "^4.2.3",
