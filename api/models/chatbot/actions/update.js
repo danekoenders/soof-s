@@ -4,11 +4,15 @@ import { applyParams, save, ActionOptions, UpdateChatbotActionContext } from "ga
  * @param { UpdateChatbotActionContext } context
  */
 export async function run({ params, record, logger, api, connections, session }) {
-  const sessionShopId = session.get('shop');
-  applyParams(params, record);
+  if (session) {
+    const sessionShopId = session.get('shop');
+    applyParams(params, record);
 
-  if (record.shopId !== sessionShopId) {
-    throw new Error("You are not authorized to update an assistant for this shop");
+    if (record.shopId !== sessionShopId) {
+      throw new Error("You are not authorized to update an assistant for this shop");
+    }
+  } else {
+    applyParams(params, record);
   }
 
   await save(record);
