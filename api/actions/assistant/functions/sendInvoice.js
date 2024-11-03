@@ -1,20 +1,40 @@
-import { SendInvoiceGlobalActionContext, DefaultEmailTemplates } from "gadget-server";
-import { fetchToken } from "../utils/integrations/exactOnline";
+import { AssistantFunctionsSendInvoiceGlobalActionContext, DefaultEmailTemplates } from "gadget-server";
+import { fetchToken } from "../../../utils/integrations/exactOnline";
 import { generateAnonymousEmail } from "../../../utils/functions";
 
 export const params = {
   orderId: { type: "string" },
   shopId: { type: "string" },
-  shopifyShopId: { type: "string" },
 };
 
 /**
- * @param { SendInvoiceGlobalActionContext } context
+ * @param { AssistantFunctionsSendInvoiceGlobalActionContext } context
  */
 export async function run({ params, logger, api, connections, emails }) {
-  const order = await fetchOrder(params.shopifyShopId, params.orderId);
+  let { orderId } = params;
+  const { shopId } = params;
+
+  if (!orderId.startsWith("#")) {
+    orderId = `#${orderId}`;
+  }
+
+  const order = await api.shopifyOrder.maybeFindFirst({
+    select: {
+      email: true,
+      name: true,
+      shop: {
+        name: true,
+      }
+    },
+    filter: {
+      AND: [
+        { shop: { equals: shopId } },
+        { name: { equals: orderId } },
+      ]
+    }
+  })
   
-  if (!order.email) {
+  if (!order) {
     return ({
       success: false,
       message: "Incorrect order ID, please try again.",
@@ -24,7 +44,7 @@ export async function run({ params, logger, api, connections, emails }) {
   const emailAnonymous = generateAnonymousEmail(order.email);
 
   const dateNow = new Date(Date.now());
-  const exactOnlineToken = await fetchToken({ api, shopId: params.shopId, dateNow });
+  const exactOnlineToken = await fetchToken({ api, shopId, dateNow });
 
   if (!exactOnlineToken) {
     throw new Error("No Exact Online integration found for this shop");
@@ -137,7 +157,7 @@ export async function run({ params, logger, api, connections, emails }) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Factuur</title>
+        <title>Factuur van je bestelling bij <%- shopName %></title>
         <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -170,7 +190,8 @@ export async function run({ params, logger, api, connections, emails }) {
     </head>
     <body>
         <div class="email-container">
-            <p>test</p>
+            <h1>Factuur van je bestelling</h1>
+            <p>Beste klant, de factuur van bestelling: <%- orderName %> factuur is bijgevoegd in de bijlage.</p>
         </div>
     </body>
     </html>
@@ -179,8 +200,11 @@ export async function run({ params, logger, api, connections, emails }) {
   try {
     await emails.sendMail({
       to: 'dane.koenders@gmail.com',
-      subject: `Factuur van je bestelling`,
-      html: DefaultEmailTemplates.renderEmailTemplate(CustomTemplate),
+      subject: `Factuur van je bestelling bij ${order.shop.name}`,
+      html: DefaultEmailTemplates.renderEmailTemplate(CustomTemplate, {
+        shopName: order.shop.name,
+        orderName: order.name,
+      }),
       attachments: [
         {
           filename: `${params.orderId}.pdf`,
@@ -198,27 +222,4 @@ export async function run({ params, logger, api, connections, emails }) {
     instructions: "Inform the customer with the full email address.",
     email: emailAnonymous
   };
-}
-
-async function fetchOrder(shopifyShopId, orderId) {
-  const encodedOrderId = encodeURIComponent(orderId);
-
-  try {
-    const url = `${process.env.SHOPIFY_APP_DOMAIN}/api/appBridge/order?orderId=${encodedOrderId}`;
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Authorization': process.env.SHOPIFY_APP_AUTH,
-        "X-Shopify-Shop-Id": shopifyShopId,
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(`Check Soof Shopify Bridge logs.`);
-    }
-
-    return await response.json();
-  } catch (error) {
-    throw new Error(`Failed to fetch order: ${error}`);
-  }
 }

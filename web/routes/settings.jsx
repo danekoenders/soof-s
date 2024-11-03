@@ -3,7 +3,7 @@ import { Page, Tabs } from '@shopify/polaris';
 import GeneralSettings from '../components/settings/GeneralSettings';
 import KnowledgeSettings from '../components/settings/KnowledgeSettings';
 
-export default function ChatbotLayout() {
+export default function SettingsLayout() {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleTabChange = (selectedTabIndex) => setSelectedTab(selectedTabIndex);

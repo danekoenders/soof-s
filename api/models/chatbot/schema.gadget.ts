@@ -9,7 +9,7 @@ export const schema: GadgetModel = {
   fields: {
     assistant: {
       type: "string",
-      validations: { required: true, unique: true },
+      validations: { unique: true },
       storageKey: "4gcCamQmQmnp",
     },
     chatSessions: {

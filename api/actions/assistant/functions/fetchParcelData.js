@@ -1,9 +1,4 @@
-import { FetchParcelDataGlobalActionContext, DefaultEmailTemplates } from "gadget-server";
-import { bridgeApi } from "../utils/bridgeApi";
-
-/**
- * @param { FetchParcelDataGlobalActionContext } context
- */
+import { AssistantFunctionsFetchParcelDataGlobalActionContext } from "gadget-server";
 
 export const params = {
   orderId: { type: "string" },
@@ -11,18 +6,22 @@ export const params = {
   shopId: { type: "string", required: true },
 };
 
+/**
+ * @param { AssistantFunctionsFetchParcelDataGlobalActionContext } context
+ */
 export async function run({ params, logger, api, connections }) {
   let orderId = params.orderId;
-  if (orderId.startsWith("#")) {
-    orderId = orderId.slice(1);
-  }
 
-  if (params.orderId) {
-    const response = await getOrder({ orderId, shopId: params.shopId });
+  if (orderId) {
+    if (orderId.startsWith("#")) {
+      orderId = orderId.slice(1);
+    }
+
+    const response = await getOrder({ api, orderId, shopId: params.shopId });
     return response;
 
   } else if (params.email) {
-    const response = await getOrder({ email: params.email, shopId: params.shopId });
+    const response = await getOrder({ api, email: params.email, shopId: params.shopId });
     return response;
 
   } else {
@@ -33,9 +32,9 @@ export async function run({ params, logger, api, connections }) {
   }
 };
 
-async function getOrder({ orderId, email, shopId }) {
+async function getOrder({ api, orderId, email, shopId }) {
   if (orderId) {
-    const order = await bridgeApi.shopifyOrder.maybeFindFirst({
+    const order = await api.shopifyOrder.maybeFindFirst({
       select: {
         id: true,
         fulfillmentStatus: true,
@@ -67,18 +66,24 @@ async function getOrder({ orderId, email, shopId }) {
     if (order) {
       return ({
         success: true,
-        order: order,
+        order: {
+          id: order.id,
+          orderNumber: order.orderNumber,
+          orderStatusUrl: order.orderStatusUrl,
+          financialStatus: order.financialStatus,
+          currentTotalPrice: order.currentTotalPrice,
+        },
         tracking: order.fulfillments.edges.length > 0,
       })
     } else {
       return ({
         success: false,
         status: "No order found with that ID",
-        tracking: order.fulfillments.edges.length > 0,
+        tracking: false,
       });
     }
   } else if (email) {
-    const order = await bridgeApi.shopifyOrder.maybeFindFirst({
+    const order = await api.shopifyOrder.maybeFindFirst({
       select: {
         id: true,
         fulfillmentStatus: true,
@@ -110,14 +115,20 @@ async function getOrder({ orderId, email, shopId }) {
     if (order) {
       return ({
         success: true,
-        order: order,
+        order: {
+          id: order.id,
+          orderNumber: order.orderNumber,
+          orderStatusUrl: order.orderStatusUrl,
+          financialStatus: order.financialStatus,
+          currentTotalPrice: order.currentTotalPrice,
+        },
         tracking: order.fulfillments.edges.length > 0,
       })
     } else {
       return ({
         success: false,
         status: "No order found with that email",
-        tracking: order.fulfillments.edges.length > 0,
+        tracking: false,
       });
     }
   }

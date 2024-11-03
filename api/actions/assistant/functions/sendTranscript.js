@@ -1,4 +1,4 @@
-import { SendTranscriptGlobalActionContext, DefaultEmailTemplates } from "gadget-server";
+import { AssistantFunctionsSendTranscriptGlobalActionContext, DefaultEmailTemplates } from "gadget-server";
 import { formatTranscript } from "../../../utils/functions";
 
 export const params = {
@@ -7,7 +7,7 @@ export const params = {
 };
 
 /**
- * @param { SendTranscriptGlobalActionContext } context
+ * @param { AssistantFunctionsSendTranscriptGlobalActionContext } context
  */
 export async function run({ params, logger, api, connections, emails }) {
   const chatSession = await api.chatSession.findOne(params.sessionId, {

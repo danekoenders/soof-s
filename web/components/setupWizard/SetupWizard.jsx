@@ -103,7 +103,7 @@ export default function SetupWizard({ data }) {
                                         size="large"
                                         icon={ConnectIcon}
                                         variant="primary"
-                                        url={`${process.env.GADGET_PUBLIC_SOOF_APP_DOMAIN}/new/shopify/${data?.shopConnection.token}`}
+                                        url={`${process.env.GADGET_PUBLIC_SOOF_APP_DOMAIN}/new/shopify/${data?.shopConnection?.token}`}
                                         external
                                     >
                                         Connect Store using Account

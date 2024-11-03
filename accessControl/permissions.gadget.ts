@@ -25,19 +25,14 @@ export const permissions: GadgetPermissions = {
             filter: "accessControl/filters/chatSession/shop.gelly",
           },
         },
-        "integrations/availableIntegrations": {
-          read: {
-            filter:
-              "accessControl/filters/integrations/availableIntegrations/shop.gelly",
-          },
-          actions: {
-            update: true,
-          },
-        },
         "integrations/exactOnline": {
           read: {
             filter:
               "accessControl/filters/integrations/exactOnline/shop.gelly",
+          },
+          actions: {
+            update: true,
+            updateToken: true,
           },
         },
         knowledge: {

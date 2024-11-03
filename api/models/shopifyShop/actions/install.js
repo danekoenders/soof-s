@@ -30,12 +30,6 @@ export async function onSuccess({ params, record, logger, api, connections }) {
     },
   })
 
-  const availableIntegrationsRecord = await api.integrations.availableIntegrations.create({
-    shop: {
-      _link: record.id,
-    }
-  });
-
   const exactOnlineRecord = await api.integrations.exactOnline.create({
     shop: {
       _link: record.id,
@@ -46,11 +40,23 @@ export async function onSuccess({ params, record, logger, api, connections }) {
   const chatbotRecord = await api.chatbot.create({
     shop: {
       _link: record.id,
-    },
+    }
   });
 
-  if (!planRecord || !availableIntegrationsRecord || !exactOnlineRecord || !knowledgeRecord || !chatbotRecord) {
+  if (!planRecord || !exactOnlineRecord || !knowledgeRecord || !chatbotRecord) {
     throw new Error("Failed to create records");
+  }
+
+  const shopifySyncRecord = await api.shopifySync.run({
+    domain: record.myshopifyDomain,
+    shop: {
+      _link: record.id,
+    },
+    models: ["shopifyProduct", "shopifyProductImage", "shopifyProductOption", "shopifyProductVariant", "shopifyOrder"],
+  });
+
+  if (!shopifySyncRecord) {
+    throw new Error("Failed to sync Shopify data");
   }
 };
 

@@ -10,7 +10,7 @@ export const params = {
  * @param { UtilsFetchShopPoliciesGlobalActionContext } context
  */
 export async function run({ params, logger, api, connections }) {
-
+  // TODO: this function is not yet implemented, WIP.
 };
 
 /**

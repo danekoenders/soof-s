@@ -134,7 +134,6 @@ export default function KnowledgeSettings() {
       ...knowledgeData,
     });
 
-    // Update initialDataRef to current form values after saving
     initialDataRef.current = { ...knowledgeData };
 
     setShowErrors(false);
@@ -247,7 +246,7 @@ export default function KnowledgeSettings() {
   }
 
   if (error) {
-    return <Banner status="critical">Error: {error.message}</Banner>;
+    return <Banner tone="critical">Error: {error.message}</Banner>;
   }
 
   return (

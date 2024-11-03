@@ -29,13 +29,15 @@ export default function GeneralSettings() {
       primaryColor: true,
       secondaryColor: true,
       functions: true,
+      shop: {
+        exactOnline: {
+          state: true,
+        }
+      }
     },
   });
 
   const [{ data: updateData, error: updateError }, update] = useAction(api.chatbot.update);
-  const [{ data: availableIntegrationsData }, fetchAvailableIntegrations] = useFindFirst(
-    api.integrations.availableIntegrations
-  );
 
   const [customName, setCustomName] = useState('');
   const [primaryColorText, setPrimaryColorText] = useState('#000000');
@@ -46,7 +48,6 @@ export default function GeneralSettings() {
 
   useEffect(() => {
     fetchChatbot();
-    fetchAvailableIntegrations();
   }, []);
 
   useEffect(() => {
@@ -65,7 +66,6 @@ export default function GeneralSettings() {
 
       setFunctions(data.functions || {});
 
-      // Always update initialDataRef when data changes
       initialDataRef.current = {
         customName: data.customName || '',
         primaryColorText: data.primaryColor || '#000000',
@@ -82,7 +82,6 @@ export default function GeneralSettings() {
   useEffect(() => {
     if (updateData) {
       shopify.toast.show('Settings saved');
-      // Update initialDataRef after saving
       initialDataRef.current = {
         customName,
         primaryColorText,
@@ -213,7 +212,7 @@ export default function GeneralSettings() {
   }
 
   if (error) {
-    return <Banner status="critical">Error: {error.message}</Banner>;
+    return <Banner tone="critical">Error: {error.message}</Banner>;
   }
 
   return (
@@ -324,7 +323,7 @@ export default function GeneralSettings() {
                       label="Send invoices using Exact Online (by Order ID)"
                       checked={functions.sendInvoice || false}
                       onChange={(checked) => setFunctions({ ...functions, sendInvoice: checked })}
-                      disabled={!availableIntegrationsData?.exactOnline}
+                      disabled={data?.shop.exactOnline.state !== 'has-token'}
                     />
                   </BlockStack>
                 </FormLayout>

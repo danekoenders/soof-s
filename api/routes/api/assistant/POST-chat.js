@@ -28,7 +28,6 @@ export default async function route({ request, reply, api, logger, connections }
         },
         shop: {
           id: true,
-          name: true,
         },
         thread: true,
         expiresAt: true,
@@ -48,7 +47,7 @@ export default async function route({ request, reply, api, logger, connections }
     let response;
 
     if (params.functionObj) {
-      const functionResponse = await api.assistant.functions[params.functionObj.name]({
+      const functionResponse = await api.assistant.frontendFunctions[params.functionObj.name]({
         session: session,
         functionParams: params.functionObj.params,
       });
@@ -57,8 +56,9 @@ export default async function route({ request, reply, api, logger, connections }
         response = await handleResponse({
           connections: connections,
           thread: thread,
-          type: 'frontEndFunction',
+          type: 'frontendFunction',
           output: functionResponse,
+          functionName: params.functionObj.name,
         });
       }
     } else if (params.message) {
@@ -106,12 +106,12 @@ export default async function route({ request, reply, api, logger, connections }
               if (funcName === "fetchParcelDataByOrderId") {
                 finalOutput = await api.assistant.functions.fetchParcelData({
                   orderId: funcArguments.orderId,
-                  shopId: session.shop.shopifyShopId,
+                  shopId: session.shop.id,
                 });
               } else if (funcName === "fetchParcelDataByEmail") {
                 finalOutput = await api.assistant.functions.fetchParcelData({
                   email: session.email,
-                  shopId: session.shop.shopifyShopId,
+                  shopId: session.shop.id,
                 });
               }
               toolsOutput.push({
@@ -124,7 +124,7 @@ export default async function route({ request, reply, api, logger, connections }
               finalOutput = await api.assistant.functions.fetchProductData(
                 {
                   type: "productRecommendation",
-                  shopifyShopId: session.shop.shopifyShopId,
+                  shopId: session.shop.id,
                   searchQuery: funcArguments.searchQuery,
                 }
               );
@@ -163,7 +163,6 @@ export default async function route({ request, reply, api, logger, connections }
               finalOutput = await api.assistant.functions.sendInvoice({
                 orderId: funcArguments.orderId,
                 shopId: session.shop.id,
-                shopifyShopId: session.shop.shopifyShopId,
               });
               toolsOutput.push({
                 tool_call_id: action.id,
@@ -273,10 +272,11 @@ async function handleResponse(params) {
       );
       throw new Error(`No reply found after fetching`);
     }
-  } else if (params.type === "frontEndFunction") {
+  } else if (params.type === "frontendFunction") {
     return {
       type: params.type,
-      reply: params.functionOutput,
+      reply: params.output,
+      frontendFunction: params.functionName,
     };
   } else if (params.type === "fetchParcelData") {
     if (params.output.success === true) {
@@ -294,16 +294,12 @@ async function handleResponse(params) {
                 }
               },
             },
-            { label: "Details", function: { name: "viewOrderDetails" } },
           ],
         };
       } else {
         return {
           type: "orderTracking",
           order: params.output.order,
-          options: [
-            { label: "Details", function: { name: "viewOrderDetails" } },
-          ],
         };
       }
     } else if (params.output.success === false) {

@@ -37,8 +37,8 @@ export async function onSuccess({ params, record, logger, api, connections }) {
         deliveryAmount: true,
         freeDeliveryAmount: true,
       },
-      availableIntegrations: {
-        exactOnline: true,
+      exactOnline: {
+        state: true,
       }
     },
   });
@@ -147,7 +147,7 @@ export async function onSuccess({ params, record, logger, api, connections }) {
       }
     },
     sendInvoice: {
-      enabled: shop.availableIntegrations.exactOnline ? record.functions.sendInvoice : false,
+      enabled: shop.exactOnline.state === "has-token" ? record.functions.sendInvoice : false,
       function: {
         name: "sendInvoice",
         description: "Send an invoice of an order to a customer. This is an already generated invoice of an order that is sent to the customer by email.",

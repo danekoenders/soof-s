@@ -4,7 +4,7 @@ import {
   useGadget,
 } from "@gadgetinc/react-shopify-app-bridge";
 import { NavMenu } from "@shopify/app-bridge-react";
-import { Page, Spinner, Text, Box, Card } from "@shopify/polaris";
+import { Page, Spinner, Text, Card } from "@shopify/polaris";
 import { useEffect } from "react";
 import {
   Outlet,
@@ -21,9 +21,12 @@ import PlansPage from "../routes/plans";
 import { api } from "../api";
 import { MantleProvider } from "@heymantle/react";
 import { useFindFirst } from "@gadgetinc/react";
-import ChatbotLayout from "../routes/settings";
 import ChatsLayout from "../routes/chats";
 import IntegrationsLayout from "../routes/integrations";
+import SettingsLayout from "../routes/settings";
+import ChatDetail from "./chats/ChatDetail";
+import CallbacksLayout from "../routes/callbacks";
+import ExactOnline from "./callbacks/ExactOnline";
 
 function Error404() {
   const navigate = useNavigate();
@@ -45,10 +48,15 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Index />} />
-        <Route path="/chats" element={<ChatsLayout />} />
-        <Route path="/settings" element={<ChatbotLayout />} />
-        <Route path="/integrations" element={<IntegrationsLayout />} />
-        <Route path="/plans" element={<PlansPage />} />
+        <Route path="chats" element={<ChatsLayout />}>
+          <Route path=":chatRef" element={<ChatDetail />} />
+        </Route>
+        <Route path="settings" element={<SettingsLayout />} />
+        <Route path="integrations" element={<IntegrationsLayout />} />
+        <Route path="plans" element={<PlansPage />} />
+        <Route path="callbacks" element={<CallbacksLayout />}>
+          <Route path="exactOnline" element={<ExactOnline />} />
+        </Route>
         <Route path="*" element={<Error404 />} />
       </Route>
     )
@@ -115,7 +123,7 @@ function EmbeddedApp() {
       </div>
     );
   }
-  
+
   return (
     <MantleProvider
       appId={process.env.GADGET_PUBLIC_MANTLE_APP_ID}
@@ -141,6 +149,7 @@ function UnauthenticatedApp() {
           <Text variant="headingLg" as="h1">
             App must be viewed in the Shopify Admin
           </Text>
+          <Outlet />
         </Card>
       </div>
     </Page>
