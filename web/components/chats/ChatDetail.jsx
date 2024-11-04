@@ -9,7 +9,6 @@ import {
     BlockStack,
     InlineStack,
     Box,
-    Tooltip,
 } from '@shopify/polaris';
 import ReactMarkdown from 'react-markdown';
 import CopyToClipboard from '../utils/CopyToClipboard';
@@ -53,6 +52,44 @@ const ChatDetail = ({ chatRef }) => {
         parsedTranscript = data.transcript;
     }
 
+    // Helper function to render message based on its type
+    const renderMessage = (message) => {
+        if (typeof message === 'object') {
+            switch (message.type) {
+                case 'normal':
+                    return message.reply;
+                case 'frontendFunction':
+                    return `Function: ${message.frontendFunction}`;
+                case 'orderTracking':
+                    return `Function: sendOrderTracking`;
+                case 'productRecommendation':
+                    return renderProductRecommendations(message.products);
+                default:
+                    return 'Unknown message type';
+            }
+        } else {
+            return message;
+        }
+    };
+
+    // Helper function to render product recommendations
+    const renderProductRecommendations = (products) => {
+        return (
+            <div>
+                <strong>Product Recommendations:</strong>
+                <ul>
+                    {products.map((product, idx) => (
+                        <li key={idx}>
+                            <Text variant="bodyMd" as="div">
+                                <strong>{product.title}</strong> - ${product.variants[0].node.price}
+                            </Text>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
+    };
+
     return (
         <Box padding='400'>
             <InlineStack align='space-between'>
@@ -94,11 +131,13 @@ const ChatDetail = ({ chatRef }) => {
                                         borderRadius: '12px',
                                     }}
                                 >
-                                    <ReactMarkdown>
-                                        {typeof entry.message === 'object'
-                                            ? entry.message.reply
-                                            : entry.message}
-                                    </ReactMarkdown>
+                                    {entry.role === 'assistant' && typeof entry.message === 'object' && entry.message.type === 'productRecommendation' ? (
+                                        renderProductRecommendations(entry.message.products)
+                                    ) : (
+                                        <ReactMarkdown>
+                                            {renderMessage(entry.message)}
+                                        </ReactMarkdown>
+                                    )}
                                 </div>
                             </div>
                         ))

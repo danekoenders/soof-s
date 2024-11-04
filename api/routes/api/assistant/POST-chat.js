@@ -235,7 +235,7 @@ export default async function route({ request, reply, api, logger, connections }
       return reply.type("application/json").send(response);
     }
   } catch (error) {
-    throw new Error(error.message); // To capture and rethrow the exact error message
+    throw new Error(error.message);
   }
 }
 
@@ -286,7 +286,7 @@ async function handleResponse(params) {
           order: params.output.order,
           options: [
             {
-              label: "Stuur Tracking",
+              label: "Send Tracking",
               function: {
                 name: "sendOrderTracking",
                 params: {
@@ -324,7 +324,7 @@ async function handleResponse(params) {
         run: params.run,
         type: "normal",
         options: [
-          { label: "Wat bieden jullie aan?", value: "Wat voor producten bieden jullie aan?" },
+          { label: "What products do you sell?", value: "What kind of products do you sell?" },
         ],
         logger: params.logger,
       });

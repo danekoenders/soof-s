@@ -50,7 +50,7 @@ export async function run({ params, logger, api, connections, emails }) {
         <div class="trackingButton">
           <a href="${trackingUrl}" target="_blank" style="text-decoration: none;">
             <button style="background-color: #0056b3; color: #ffffff; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer;">
-              Bekijk Tracking Pagina
+              View Tracking Page
             </button>
           </a>
         </div>
@@ -102,8 +102,8 @@ export async function run({ params, logger, api, connections, emails }) {
     </head>
     <body>
         <div class="email-container">
-            <h1>Volg je bestelling</h1>
-            <p>Je bestelling is onderweg! Bekijk de tracking informatie hieronder:</p>
+            <h1>Follow your order</h1>
+            <p>Your order is on it's way! Watch the live tracking below:</p>
             ${trackingButtons}
         </div>
     </body>
@@ -113,7 +113,7 @@ export async function run({ params, logger, api, connections, emails }) {
     try {
       await emails.sendMail({
         to: order.email,
-        subject: `Volg je bestelling`,
+        subject: `Follow your order`,
         html: DefaultEmailTemplates.renderEmailTemplate(CustomTemplate)
       });
     } catch (error) {
@@ -122,8 +122,8 @@ export async function run({ params, logger, api, connections, emails }) {
 
     return {
       success: true,
-      message: `Ik heb de tracking informatie verstuurd naar:
-      ${emailAnonymous}. Veel plezier alvast met je bestelling!`,
+      message: `I have sent an email with tracking information to:
+      ${emailAnonymous}. Have fun with your order!`,
     };
   } else {
     return {

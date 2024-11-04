@@ -157,7 +157,7 @@ export async function run({ params, logger, api, connections, emails }) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Factuur van je bestelling bij <%- shopName %></title>
+        <title>Invoice of your order at <%- shopName %></title>
         <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -190,8 +190,8 @@ export async function run({ params, logger, api, connections, emails }) {
     </head>
     <body>
         <div class="email-container">
-            <h1>Factuur van je bestelling</h1>
-            <p>Beste klant, de factuur van bestelling: <%- orderName %> factuur is bijgevoegd in de bijlage.</p>
+            <h1>Invoice of your order</h1>
+            <p>The invoice of your order: <%- orderName %> has been added to the attachments of this email.</p>
         </div>
     </body>
     </html>
@@ -200,7 +200,7 @@ export async function run({ params, logger, api, connections, emails }) {
   try {
     await emails.sendMail({
       to: 'dane.koenders@gmail.com',
-      subject: `Factuur van je bestelling bij ${order.shop.name}`,
+      subject: `Invoice of your order at ${order.shop.name}`,
       html: DefaultEmailTemplates.renderEmailTemplate(CustomTemplate, {
         shopName: order.shop.name,
         orderName: order.name,
