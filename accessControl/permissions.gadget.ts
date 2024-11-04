@@ -48,6 +48,12 @@ export const permissions: GadgetPermissions = {
             filter: "accessControl/filters/plan/shop.gelly",
           },
         },
+        shopifyAsset: {
+          read: {
+            filter:
+              "accessControl/filters/shopify/shopifyAsset.gelly",
+          },
+        },
         shopifyCollection: {
           read: {
             filter:
@@ -114,6 +120,12 @@ export const permissions: GadgetPermissions = {
         shopifySync: {
           read: {
             filter: "accessControl/filters/shopify/shopifySync.gelly",
+          },
+        },
+        shopifyTheme: {
+          read: {
+            filter:
+              "accessControl/filters/shopify/shopifyTheme.gelly",
           },
         },
       },

@@ -52,7 +52,7 @@ export async function onSuccess({ params, record, logger, api, connections }) {
     shop: {
       _link: record.id,
     },
-    models: ["shopifyProduct", "shopifyProductImage", "shopifyProductOption", "shopifyProductVariant", "shopifyOrder"],
+    models: ["shopifyProduct", "shopifyProductImage", "shopifyProductOption", "shopifyProductVariant", "shopifyOrder", "shopifyAsset", "shopifyTheme"],
   });
 
   if (!shopifySyncRecord) {

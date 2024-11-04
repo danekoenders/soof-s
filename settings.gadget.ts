@@ -9,6 +9,7 @@ export const settings: GadgetSettings = {
       shopify: {
         apiVersion: "2024-10",
         enabledModels: [
+          "shopifyAsset",
           "shopifyCollection",
           "shopifyFulfillment",
           "shopifyOrder",
@@ -16,6 +17,7 @@ export const settings: GadgetSettings = {
           "shopifyProductImage",
           "shopifyProductOption",
           "shopifyProductVariant",
+          "shopifyTheme",
         ],
         type: "partner",
         scopes: [
@@ -25,6 +27,7 @@ export const settings: GadgetSettings = {
           "read_legal_policies",
           "read_online_store_pages",
           "read_online_store_navigation",
+          "read_themes",
         ],
       },
       openai: true,

@@ -15,6 +15,7 @@ import {
 import { Modal, TitleBar } from '@shopify/app-bridge-react';
 import ChatDetail from '../components/chats/ChatDetail';
 import { useParams, useNavigate } from 'react-router-dom';
+import NoticeHeader from '../components/shared/NoticeHeader';
 
 const ChatsLayout = () => {
   const NUM_ON_PAGE = 25;
@@ -117,6 +118,7 @@ const ChatsLayout = () => {
   return (
     <Page title="Chats">
       <Layout>
+        <NoticeHeader />
         <Layout.Section>
           <BlockStack gap={200}>
             <Card>

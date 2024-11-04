@@ -36,11 +36,17 @@ export const schema: GadgetModel = {
       child: { model: "plan", belongsToField: "shop" },
       storageKey: "_iPesn5bBk0e",
     },
+    setupCompleted: {
+      type: "boolean",
+      default: false,
+      storageKey: "F6DR3CmgUvMY",
+    },
   },
   shopify: {
     fields: [
       "address1",
       "address2",
+      "assets",
       "checkoutApiSupported",
       "city",
       "collections",
@@ -99,6 +105,7 @@ export const schema: GadgetModel = {
       "syncs",
       "taxShipping",
       "taxesIncluded",
+      "themes",
       "timezone",
       "transactionalSmsDisabled",
       "weightUnit",

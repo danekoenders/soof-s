@@ -116,7 +116,7 @@ import {
     const terms = connected ? null : (
       <Text>
         By clicking <strong>Connect</strong>, you agree to accept Soof AI’s{' '}
-        <Link url="https://example.com/terms">terms and conditions</Link>.
+        <Link target="_blank" url="https://soof.ai/terms-of-service-shopify-app/">terms and conditions</Link>.
       </Text>
     );
   
