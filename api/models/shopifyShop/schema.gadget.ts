@@ -30,7 +30,10 @@ export const schema: GadgetModel = {
       child: { model: "knowledge", belongsToField: "shop" },
       storageKey: "iqjoa5YgWNN3",
     },
-    mantleApiToken: { type: "string", storageKey: "Az23x9TxdxEE" },
+    mantleApiToken: {
+      type: "encryptedString",
+      storageKey: "Az23x9TxdxEE::String-Az23x9TxdxEE",
+    },
     plan: {
       type: "hasOne",
       child: { model: "plan", belongsToField: "shop" },

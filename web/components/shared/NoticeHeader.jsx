@@ -28,25 +28,27 @@ export default function NoticeHeader() {
     }
 
     return (
-        <Layout.Section>
-            <BlockStack gap="400">
-                {subscription && subscription.active === false && (new Date() > new Date(subscription.trialExpiresAt)) && (
-                    <Banner
-                        title="Your free trial has ended."
-                        tone="warning"
-                        icon={ClockIcon}
-                        action={{
-                            content: "Subscribe",
-                            icon: CursorIcon,
-                            onClick: () => navigate("/plans"),
-                        }}
-                    >
-                        <Text variant="bodyMd" as="p">
-                            Please select a plan to continue using our services.
-                        </Text>
-                    </Banner>
-                )}
-            </BlockStack>
-        </Layout.Section>
+        <>
+            {subscription && subscription.active === false && (new Date() > new Date(subscription.trialExpiresAt)) && (
+                <Layout.Section>
+                    <BlockStack gap="400">
+                        <Banner
+                            title="Your free trial has ended."
+                            tone="warning"
+                            icon={ClockIcon}
+                            action={{
+                                content: "Subscribe",
+                                icon: CursorIcon,
+                                onClick: () => navigate("/plans"),
+                            }}
+                        >
+                            <Text variant="bodyMd" as="p">
+                                Please select a plan to continue using our services.
+                            </Text>
+                        </Banner>
+                    </BlockStack>
+                </Layout.Section>
+            )}
+        </>
     );
 }

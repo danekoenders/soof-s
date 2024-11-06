@@ -1,45 +1,46 @@
-import { useFindFirst, useQuery } from "@gadgetinc/react";
+import { useFindFirst } from "@gadgetinc/react";
 import {
   Layout,
   Page,
   Spinner,
   Text,
+  Banner,
+  Image,
+  Card,
+  BlockStack,
+  MediaCard,
+  List,
+  Box,
 } from "@shopify/polaris";
 import { api } from "../api";
 import SetupWizard from "../components/setupWizard/SetupWizard";
-import NoticeHeader from "../components/shared/NoticeHeader";
+import { useMantle } from "@heymantle/react";
+import { ExternalIcon } from "@shopify/polaris-icons";
+import SoofImage from "../public/soof-on-iphone.png"
 
-const gadgetMetaQuery = `
-  query {
-    gadgetMeta {
-      slug
-      editURL
-      environmentSlug
-    }
-  }
-`;
-
-export default function () {
+export default function OverviewPage() {
+  const { subscription, customer, plans } = useMantle();
   const [{ data, fetching, error }] = useFindFirst(api.shopifyShop, {
     select: {
+      id: true,
       name: true,
       myshopifyDomain: true,
+      setupCompleted: true,
     },
     live: true,
-  });
-  const [{ data: metaData, fetching: fetchingGadgetMeta }] = useQuery({
-    query: gadgetMetaQuery,
   });
 
   if (error) {
     return (
       <Page title="Error">
-        <Text variant="bodyMd" as="p">{error.message}</Text>
+        <Text variant="bodyMd" as="p">
+          {error.message}
+        </Text>
       </Page>
     );
   }
 
-  if (fetching || fetchingGadgetMeta) {
+  if (fetching) {
     return (
       <div
         style={{
@@ -50,19 +51,69 @@ export default function () {
           width: "100%",
         }}
       >
-        <Spinner accessibilityLabel="Spinner example" size="large" />
+        <Spinner accessibilityLabel="Loading" size="large" />
       </div>
     );
   }
 
   return (
-    <Page title={"Overview"}>
+    <Page title="Overview">
       <Layout>
-        <NoticeHeader />
-        <Layout.Section>
-          <SetupWizard data={data} />
-        </Layout.Section>
+        {/* Setup Wizard */}
+        {!data.setupCompleted ? (
+          <Layout.Section>
+            <SetupWizard data={data} />
+          </Layout.Section>
+        ) : (
+          <>
+            <Layout.Section>
+              <MediaCard
+                title="Getting Started"
+                primaryAction={{
+                  content: 'Getting started',
+                  icon: ExternalIcon,
+                  url: `https://docs.soof.ai/`,
+                  target: '_blank',
+                }}
+                description={
+                  <List type="bullet">
+                    <List.Item>Engage your customers like never before.</List.Item>
+                    <List.Item>Increase sales with personalized interactions.</List.Item>
+                    <List.Item>24/7 customer support without extra staff.</List.Item>
+                  </List>
+                }
+                size='small'
+              >
+                <BlockStack align="center" inlineAlign="center">
+                  <img
+                    alt="Soof on iPhone"
+                    width="50%"
+                    height="100%"
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                    }}
+                    src={SoofImage}
+                  />
+                </BlockStack>
+              </MediaCard>
+            </Layout.Section>
+
+            <Layout.Section>
+              <Card title="Chat Sessions" sectioned>
+                <BlockStack align='center' inlineAlign='center' gap="200">
+                <Text variant='headingLg' as="h3">
+                  Chat usage
+                </Text>
+                <Text variant='headingMd'  as="p">
+                  {customer?.usage.Chats.currentValue}
+                </Text>
+                </BlockStack>
+              </Card>
+            </Layout.Section>
+          </>
+        )}
       </Layout>
-    </Page>
+    </Page >
   );
 }

@@ -1,15 +1,20 @@
+import { useAction } from "@gadgetinc/react";
 import { PlanCardStack, PlanCardType } from "@heymantle/polaris";
 import { useMantle } from "@heymantle/react";
 import { BlockStack, Button, Card, Layout, Text } from "@shopify/polaris";
-import { ConnectIcon, PersonIcon, CursorIcon, AppsIcon } from "@shopify/polaris-icons";
+import { ConnectIcon, PersonIcon, CursorIcon, AppsIcon, ExternalIcon } from "@shopify/polaris-icons";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { api } from "../../api";
 
 export default function SetupWizard({ data }) {
+    const navigate = useNavigate();
     const [currentStep, setCurrentStep] = useState(1);
     const { subscription, customer, plans, subscribe } = useMantle();
     const [searchParams] = useSearchParams();
     const stepParam = searchParams.get('step');
+
+    const [{ data: updateData, fetching: updateFetching, error: updateError }, updateShop] = useAction(api.shopifyShop.update);
 
     useEffect(() => {
         if (stepParam) {
@@ -30,6 +35,17 @@ export default function SetupWizard({ data }) {
         id: 2,
         title: 'Connect Store',
     }];
+
+    const handleEnableExtension = async () => {
+        const response = await updateShop({
+            id: data.id,
+            setupCompleted: true,
+        });
+        
+        if (response.data.setupCompleted === true) {
+            window.open(`https://${data.myshopifyDomain}/admin/themes/current/editor?context=apps&activateAppId=12ce97d9-0cfd-4370-b945-ee218d44b892/soof-chat`, "_blank");
+        }
+    }
 
     return (
         <Layout>
@@ -86,12 +102,14 @@ export default function SetupWizard({ data }) {
                                     Cool! Now that you have selected a plan, we can complete the setup by enabling the extension.
                                     <br></br>Our extension will add the embedded chat window to your store directly.
                                 </Text>
+                                <Text as="p" alignment="center">
+                                    Press the button below & press <b>save</b> to enable the extension.
+                                </Text>
                                 <Button
                                     size="large"
-                                    icon={CursorIcon}
+                                    icon={ExternalIcon}
                                     variant="primary"
-                                    url={`https://${data.myshopifyDomain}/admin/themes/current/editor?context=apps&activateAppId=12ce97d9-0cfd-4370-b945-ee218d44b892/soof-chat`}
-                                    target="_blank"
+                                    onClick={handleEnableExtension}
                                 >
                                     Enable Extension
                                 </Button>

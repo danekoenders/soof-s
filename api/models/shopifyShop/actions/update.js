@@ -4,8 +4,23 @@ import { identifyShop } from '../../../services/mantle'
 /**
  * @param { UpdateShopifyShopActionContext } context
  */
-export async function run({ params, record, logger, api, connections }) {
-  applyParams(params, record);
+export async function run({ params, record, logger, api, connections, session }) {
+  
+
+  if (session) {
+    const sessionShopId = session.get('shop');
+
+    if (sessionShopId !== record.id) {
+      throw new Error('Unauthorized');
+    }
+
+    logger.info(params)
+
+    record.setupCompleted = params.shopifyShop.setupCompleted;
+  } else {
+    applyParams(params, record);
+  }
+  
   await preventCrossShopDataAccess(params, record);
   await save(record);
 };

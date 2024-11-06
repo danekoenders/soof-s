@@ -144,7 +144,7 @@ import {
         <AccountConnection
           accountName={accountName}
           connected={connected}
-          title="Exact Online"
+          title="Exact Online Account"
           action={{
             content: buttonText,
             onAction: handleAction,
