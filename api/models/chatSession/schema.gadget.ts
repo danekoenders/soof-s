@@ -30,7 +30,7 @@ export const schema: GadgetModel = {
       type: "string",
       validations: {
         required: true,
-        stringLength: { min: 1, max: 2 },
+        stringLength: { min: 1, max: 5 },
       },
       storageKey: "tAfkOQIuZxRG",
     },
