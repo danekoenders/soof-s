@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Tilauksen seuranta",
+                    "description": "Tilauksesi on matkalla! Katso reaaliaikainen seuranta alla:",
+                    "trackingButton": "Näytä seurantatiedot",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Olen lähettänyt sähköpostin seurantatiedoilla osoitteeseen:",
+                            "second": ". Nautinnollista tilausta!"
+                        },
+                        "failed": "Tilaustasi ei ole vielä lähetetty. Kun se lähetetään, saat sähköpostitse seurantatiedot."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Tilauksesi lasku osoitteessa",
+                    "description": {
+                        "first": "Tilauksesi lasku:",
+                        "second": "on liitetty tähän sähköpostiin. Jos sinulla on kysyttävää, ota meihin yhteyttä."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Mitä tuotteita myytte?",
+                                "value": "Mitä tuotteita myytte?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

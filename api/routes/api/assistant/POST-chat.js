@@ -1,5 +1,6 @@
 import { RouteContext } from "gadget-server";
 import { verifySignature } from "../../../utils/shopify-proxy/signature";
+import { translate } from "../../../utils/i18next";
 
 /**
  * Route handler for GET chat
@@ -12,13 +13,14 @@ export default async function route({ request, reply, api, logger, connections }
     throw new Error("Unauthorized");
   }
 
-  const params = request.body;
+  const body = request.body;
 
   try {
-    const session = await api.chatSession.findByToken(params.sessionToken, {
+    const session = await api.chatSession.findByToken(body.sessionToken, {
       select: {
         id: true,
         email: true,
+        localLanguage: true,
         transcript: true,
         rlIsLimited: true,
         rlLastMessageTimestamp: true,
@@ -46,10 +48,10 @@ export default async function route({ request, reply, api, logger, connections }
     let runCompleted = false;
     let response;
 
-    if (params.functionObj) {
-      const functionResponse = await api.assistant.frontendFunctions[params.functionObj.name]({
-        session: session,
-        functionParams: params.functionObj.params,
+    if (body.functionObj) {
+      const functionResponse = await api.assistant.frontendFunctions[body.functionObj.name]({
+        localLanguage: body.localLanguage,
+        functionParams: body.functionObj.params,
       });
 
       if (functionResponse.success) {
@@ -58,14 +60,14 @@ export default async function route({ request, reply, api, logger, connections }
           thread: thread,
           type: 'frontendFunction',
           output: functionResponse,
-          functionName: params.functionObj.name,
+          functionName: body.functionObj.name,
         });
       }
-    } else if (params.message) {
+    } else if (body.message) {
       // Beginning OpenAI request
       await connections.openai.beta.threads.messages.create(
         thread,
-        { role: "user", content: params.message }
+        { role: "user", content: body.message }
       );
 
       const run = await connections.openai.beta.threads.runs.create(
@@ -151,7 +153,7 @@ export default async function route({ request, reply, api, logger, connections }
               type = "normal"
               finalOutput = await api.assistant.functions.sendTranscript({
                 sessionId: session.id,
-                lastMessage: params.message
+                lastMessage: body.message
               });
               toolsOutput.push({
                 tool_call_id: action.id,
@@ -163,6 +165,7 @@ export default async function route({ request, reply, api, logger, connections }
               finalOutput = await api.assistant.functions.sendInvoice({
                 orderId: funcArguments.orderId,
                 shopId: session.shop.id,
+                localLanguage: body.localLanguage,
               });
               toolsOutput.push({
                 tool_call_id: action.id,
@@ -221,8 +224,10 @@ export default async function route({ request, reply, api, logger, connections }
       await updateSession({
         api,
         session,
-        userMessage: params.message || params.functionObj.name,
-        assistantMessage: response
+        userMessage: body.message || body.functionObj.name,
+        assistantMessage: response,
+        currentLocalLanguage: body.localLanguage,
+        sessionLocalLanguage: session.localLanguage,
       });
 
       reply.headers({
@@ -324,7 +329,7 @@ async function handleResponse(params) {
         run: params.run,
         type: "normal",
         options: [
-          { label: "What products do you sell?", value: "What kind of products do you sell?" },
+          { label: `${await translate({isoCode: params.localLanguage, key: 'routes.api.assistant.chat.response.productRecommendation.option1.label'})}`, value: `${await translate({isoCode: params.localLanguage, key: 'routes.api.assistant.chat.response.productRecommendation.option1.value'})}` },
         ],
         logger: params.logger,
       });
@@ -338,7 +343,7 @@ async function handleResponse(params) {
   }
 }
 
-async function updateSession({ api, session, userMessage, assistantMessage }) {
+async function updateSession({ api, session, userMessage, assistantMessage, sessionLocalLanguage, currentLocalLanguage }) {
   const currentTime = new Date();
   const TIME_WINDOW = 1 * 60 * 1000;
   const RATE_LIMIT = 10;
@@ -353,6 +358,8 @@ async function updateSession({ api, session, userMessage, assistantMessage }) {
   }
 
   const isRateLimited = messageCount > RATE_LIMIT;
+
+
 
   if (isRateLimited) {
     await api.chatSession.update(session.id, {
@@ -384,6 +391,7 @@ async function updateSession({ api, session, userMessage, assistantMessage }) {
     rlMessageCount: messageCount,
     rlLastMessageTimestamp: currentTime.toISOString(),
     rlIsLimited: false,
+    localLanguage: sessionLocalLanguage !== currentLocalLanguage ? currentLocalLanguage : sessionLocalLanguage,
   });
 }
 

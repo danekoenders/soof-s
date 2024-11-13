@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Tracciamento dell'ordine",
+                    "description": "Il tuo ordine è in arrivo! Guarda il tracciamento in tempo reale qui sotto:",
+                    "trackingButton": "Visualizza pagina di tracciamento",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Ho inviato un'e-mail con le informazioni di tracciamento a:",
+                            "second": ". Buon divertimento con il tuo ordine!"
+                        },
+                        "failed": "Il tuo ordine non è ancora stato spedito. Quando lo sarà, riceverai un'e-mail con le informazioni di tracciamento."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Fattura del tuo ordine presso",
+                    "description": {
+                        "first": "La fattura del tuo ordine:",
+                        "second": "è stata allegata a questa e-mail. Se hai domande, ti preghiamo di contattarci."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Quali prodotti vendete?",
+                                "value": "Quali prodotti vendete?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

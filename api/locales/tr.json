@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Sipariş Takibi",
+                    "description": "Siparişiniz yolda! Aşağıdan canlı takibi izleyin:",
+                    "trackingButton": "Takip Sayfasını Görüntüle",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Takip bilgilerini içeren bir e-posta gönderdim:",
+                            "second": ". Siparişinizi keyifle bekleyin!"
+                        },
+                        "failed": "Siparişiniz henüz gönderilmedi. Gönderildiğinde, takip bilgilerini içeren bir e-posta alacaksınız."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Siparişinizin faturası",
+                    "description": {
+                        "first": "Siparişinizin faturası:",
+                        "second": "bu e-postaya eklenmiştir. Herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Hangi ürünleri satıyorsunuz?",
+                                "value": "Hangi ürünleri satıyorsunuz?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

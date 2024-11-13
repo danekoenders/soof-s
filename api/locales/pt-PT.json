@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Rastreamento de encomenda",
+                    "description": "A sua encomenda está a caminho! Veja o rastreamento ao vivo abaixo:",
+                    "trackingButton": "Ver página de rastreamento",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Enviei um e-mail com as informações de rastreamento para:",
+                            "second": ". Desfrute da sua encomenda!"
+                        },
+                        "failed": "A sua encomenda ainda não foi enviada. Quando for, receberá um e-mail com as informações de rastreamento."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Fatura da sua encomenda em",
+                    "description": {
+                        "first": "A fatura da sua encomenda:",
+                        "second": "foi anexada a este e-mail. Se tiver alguma dúvida, por favor contacte-nos."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Que produtos vendem?",
+                                "value": "Que produtos vendem?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

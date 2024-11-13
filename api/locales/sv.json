@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Beställningsspårning",
+                    "description": "Din beställning är på väg! Se live-spårningen nedan:",
+                    "trackingButton": "Visa spårningssida",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Jag har skickat ett e-postmeddelande med spårningsinformation till:",
+                            "second": ". Ha det så roligt med din beställning!"
+                        },
+                        "failed": "Din beställning har ännu inte skickats. När den skickas får du ett e-postmeddelande med spårningsinformation."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Faktura för din beställning hos",
+                    "description": {
+                        "first": "Fakturan för din beställning:",
+                        "second": "har bifogats i detta e-postmeddelande. Kontakta oss gärna om du har några frågor."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Vilka produkter säljer ni?",
+                                "value": "Vilka produkter säljer ni?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Sledování objednávky",
+                    "description": "Vaše objednávka je na cestě! Sledujte živé sledování níže:",
+                    "trackingButton": "Zobrazit stránku sledování",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Poslal(a) jsem e-mail s informacemi o sledování na:",
+                            "second": ". Užijte si svou objednávku!"
+                        },
+                        "failed": "Vaše objednávka zatím nebyla odeslána. Až bude, obdržíte e-mail s informacemi o sledování."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Faktura vaší objednávky u",
+                    "description": {
+                        "first": "Faktura vaší objednávky:",
+                        "second": "byla připojena k tomuto e-mailu. Pokud máte jakékoli dotazy, kontaktujte nás prosím."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Jaké produkty prodáváte?",
+                                "value": "Jaké produkty prodáváte?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

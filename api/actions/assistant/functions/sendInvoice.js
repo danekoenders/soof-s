@@ -1,10 +1,12 @@
 import { AssistantFunctionsSendInvoiceGlobalActionContext, DefaultEmailTemplates } from "gadget-server";
 import { fetchToken } from "../../../utils/integrations/exactOnline";
 import { generateAnonymousEmail } from "../../../utils/functions";
+import { translate } from "../../../utils/i18next";
 
 export const params = {
   orderId: { type: "string" },
   shopId: { type: "string" },
+  localLanguage: { type: "string", required: true },
 };
 
 /**
@@ -150,6 +152,7 @@ export async function run({ params, logger, api, connections, emails }) {
   }
 
   const pdfBuffer = await getPdfBuffer();
+  const emailTitle = await translate({isoCode: params.localLanguage, key: 'actions.assistant.functions.sendInvoice.title'})
 
   const CustomTemplate = `
     <!DOCTYPE html>
@@ -157,7 +160,7 @@ export async function run({ params, logger, api, connections, emails }) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Invoice of your order at <%- shopName %></title>
+        <title>${emailTitle} <%- shopName %></title>
         <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -190,8 +193,8 @@ export async function run({ params, logger, api, connections, emails }) {
     </head>
     <body>
         <div class="email-container">
-            <h1>Invoice of your order</h1>
-            <p>The invoice of your order: <%- orderName %> has been added to the attachments of this email.</p>
+            <h1>${emailTitle} <%- shopName %></h1>
+            <p>${await translate({isoCode: params.localLanguage, key: 'actions.assistant.functions.sendInvoice.description.first'})} <%- orderName %> ${await translate({isoCode: params.localLanguage, key: 'actions.assistant.functions.sendInvoice.description.second'})}</p>
         </div>
     </body>
     </html>
@@ -199,8 +202,8 @@ export async function run({ params, logger, api, connections, emails }) {
 
   try {
     await emails.sendMail({
-      to: 'dane.koenders@gmail.com',
-      subject: `Invoice of your order at ${order.shop.name}`,
+      to: order.email,
+      subject: `${emailTitle} ${order.shop.name}`,
       html: DefaultEmailTemplates.renderEmailTemplate(CustomTemplate, {
         shopName: order.shop.name,
         orderName: order.name,

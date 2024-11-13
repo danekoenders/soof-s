@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "訂單追蹤",
+                    "description": "您的訂單正在運送中！請在下方查看實時追蹤信息：",
+                    "trackingButton": "查看追蹤頁面",
+                    "returnMessage": {
+                        "success": {
+                            "first": "我已發送包含追蹤信息的電子郵件至：",
+                            "second": "。祝您愉快！"
+                        },
+                        "failed": "您的訂單尚未發貨。一旦發貨，您將收到帶有追蹤信息的電子郵件。"
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "您在...的訂單發票",
+                    "description": {
+                        "first": "您的訂單發票：",
+                        "second": "已附在此郵件中。如有任何疑問，請聯絡我們。"
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "你們賣什麼產品？",
+                                "value": "你們賣什麼產品？"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Bestellverfolgung",
+                    "description": "Ihre Bestellung ist unterwegs! Verfolgen Sie die Lieferung live unten:",
+                    "trackingButton": "Verfolgungsseite anzeigen",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Ich habe eine E-Mail mit den Sendungsverfolgungsinformationen an gesendet:",
+                            "second": ". Viel Spaß mit Ihrer Bestellung!"
+                        },
+                        "failed": "Ihre Bestellung wurde noch nicht versandt. Sobald sie versandt wird, erhalten Sie eine E-Mail mit Sendungsverfolgungsinformationen."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Rechnung Ihrer Bestellung bei",
+                    "description": {
+                        "first": "Die Rechnung Ihrer Bestellung:",
+                        "second": "ist dieser E-Mail beigefügt. Wenn Sie Fragen haben, kontaktieren Sie uns bitte."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Welche Produkte verkaufen Sie?",
+                                "value": "Welche Produkte verkaufen Sie?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

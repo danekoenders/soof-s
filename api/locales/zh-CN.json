@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "订单追踪",
+                    "description": "您的订单正在运送中！请在下方查看实时追踪信息：",
+                    "trackingButton": "查看追踪页面",
+                    "returnMessage": {
+                        "success": {
+                            "first": "我已发送包含追踪信息的电子邮件至：",
+                            "second": "。祝您使用愉快！"
+                        },
+                        "failed": "您的订单尚未发货。一旦发货，您将收到带有追踪信息的电子邮件。"
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "您在...的订单发票",
+                    "description": {
+                        "first": "您的订单发票：",
+                        "second": "已附在此邮件中。如有任何疑问，请联系我们。"
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "你们卖什么产品？",
+                                "value": "你们卖什么产品？"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

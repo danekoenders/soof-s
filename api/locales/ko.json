@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "주문 추적",
+                    "description": "주문이 배송 중입니다! 아래에서 실시간 추적을 확인하세요:",
+                    "trackingButton": "추적 페이지 보기",
+                    "returnMessage": {
+                        "success": {
+                            "first": "추적 정보를 포함한 이메일을 보냈습니다:",
+                            "second": ". 주문을 즐겁게 기다려주세요!"
+                        },
+                        "failed": "주문이 아직 발송되지 않았습니다. 발송되면 추적 정보를 포함한 이메일을 받게 됩니다."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "귀하의 주문에 대한 청구서",
+                    "description": {
+                        "first": "귀하의 주문에 대한 청구서:",
+                        "second": "이 이메일에 첨부되었습니다. 궁금한 점이 있으면 저희에게 연락해 주세요."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "어떤 제품을 판매하시나요?",
+                                "value": "어떤 제품을 판매하시나요?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

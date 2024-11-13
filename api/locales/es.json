@@ -1,0 +1,45 @@
+{
+  "actions": {
+    "assistant": {
+      "frontendFunctions": {
+        "sendOrderTracking": {
+          "title": "Seguimiento de pedido",
+          "description": "¡Tu pedido está en camino! Mira el seguimiento en vivo a continuación:",
+          "trackingButton": "Ver página de seguimiento",
+          "returnMessage": {
+            "success": {
+              "first": "He enviado un correo electrónico con la información de seguimiento a:",
+              "second": ". ¡Disfruta de tu pedido!"
+            },
+            "failed": "Tu pedido aún no ha sido enviado. Cuando lo sea, recibirás un correo electrónico con la información de seguimiento."
+          }
+        }
+      },
+      "functions": {
+        "sendInvoice": {
+          "title": "Factura de tu pedido en",
+          "description": {
+            "first": "La factura de tu pedido:",
+            "second": "ha sido adjuntada a este correo electrónico. Si tienes alguna pregunta, contáctanos."
+          }
+        }
+      }
+    }
+  },
+  "routes": {
+    "api": {
+      "assistant": {
+        "chat": {
+          "response": {
+            "productRecommendation": {
+              "option1": {
+                "label": "¿Qué productos venden?",
+                "value": "¿Qué productos venden?"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

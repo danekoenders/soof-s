@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Śledzenie zamówienia",
+                    "description": "Twoje zamówienie jest w drodze! Sprawdź śledzenie na żywo poniżej:",
+                    "trackingButton": "Zobacz stronę śledzenia",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Wysłałem e-mail z informacjami o śledzeniu na adres:",
+                            "second": ". Miłego korzystania z zamówienia!"
+                        },
+                        "failed": "Twoje zamówienie nie zostało jeszcze wysłane. Gdy zostanie wysłane, otrzymasz e-mail z informacjami o śledzeniu."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Faktura za zamówienie w",
+                    "description": {
+                        "first": "Faktura za zamówienie:",
+                        "second": "została dołączona do tej wiadomości. Jeśli masz pytania, skontaktuj się z nami."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Jakie produkty sprzedajecie?",
+                                "value": "Jakie produkty sprzedajecie?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

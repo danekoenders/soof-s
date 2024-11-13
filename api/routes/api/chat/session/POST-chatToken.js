@@ -12,13 +12,14 @@ export default async function route({ request, reply, api, logger, connections }
         throw new Error("Unauthorized");
     }
 
-    if (!request.body.email) {
+    if (!request.body.email || !request.body.localLanguage) {
         throw new Error("Required fields missing");
     }
 
     const chatSession = await api.chatSession.create({
         email: request.body.email,
         myshopifyDomain: request.query.shop,
+        localLanguage: request.body.localLanguage,
     });
 
     if (!chatSession) {

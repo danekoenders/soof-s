@@ -26,6 +26,14 @@ export const schema: GadgetModel = {
       validations: { required: true },
       storageKey: "y7JeWGy-QiTE",
     },
+    localLanguage: {
+      type: "string",
+      validations: {
+        required: true,
+        stringLength: { min: 1, max: 2 },
+      },
+      storageKey: "tAfkOQIuZxRG",
+    },
     ref: {
       type: "string",
       validations: { required: true, unique: true },

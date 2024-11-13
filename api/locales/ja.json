@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "注文追跡",
+                    "description": "ご注文は発送されました！下記でライブ追跡をご確認ください：",
+                    "trackingButton": "追跡ページを表示",
+                    "returnMessage": {
+                        "success": {
+                            "first": "追跡情報を含むメールを送信しました：",
+                            "second": "。ご注文をお楽しみください！"
+                        },
+                        "failed": "ご注文はまだ発送されていません。発送されると、追跡情報を含むメールが届きます。"
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "ご注文の請求書（宛先：",
+                    "description": {
+                        "first": "ご注文の請求書：",
+                        "second": "がこのメールに添付されています。ご質問がある場合は、お問い合わせください。"
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "どのような商品を販売していますか？",
+                                "value": "どのような商品を販売していますか？"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

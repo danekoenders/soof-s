@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Ordresporing",
+                    "description": "Din ordre er på vej! Se live-sporingen nedenfor:",
+                    "trackingButton": "Se sporingsside",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Jeg har sendt en e-mail med sporingsinformation til:",
+                            "second": ". God fornøjelse med din ordre!"
+                        },
+                        "failed": "Din ordre er endnu ikke afsendt. Når den er afsendt, vil du modtage en e-mail med sporingsinformation."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Faktura for din ordre hos",
+                    "description": {
+                        "first": "Fakturaen for din ordre:",
+                        "second": "er vedhæftet til denne e-mail. Hvis du har spørgsmål, bedes du kontakte os."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Hvilke produkter sælger I?",
+                                "value": "Hvilke produkter sælger I?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

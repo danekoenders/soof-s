@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Bestellingopsporing",
+                    "description": "Jou bestelling is op pad! Kyk na die lewendige opsporing hieronder:",
+                    "trackingButton": "Besoek Opsporingsblad",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Ek het 'n e-pos met opsporingsinligting gestuur na:",
+                            "second": ". Geniet jou bestelling!"
+                        },
+                        "failed": "Jou bestelling is nog nie versend nie. Wanneer dit versend is, sal jy 'n e-pos met opsporingsinligting ontvang."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Faktuur van jou bestelling by",
+                    "description": {
+                        "first": "Die faktuur van jou bestelling:",
+                        "second": "is by hierdie e-pos aangeheg. Kontak ons asseblief as jy enige vrae het."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Watter produkte verkoop julle?",
+                                "value": "Watter produkte verkoop julle?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

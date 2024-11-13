@@ -41,7 +41,7 @@ export default async function route({ request, reply, api, logger, connections }
             secondaryColor: chatbot.secondaryColor,
         },
         shop: {
-            customName: chatbot.shop.customName,
+            name: chatbot.shop.name,
         },
     };
 

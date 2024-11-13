@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Bestelling volgen",
+                    "description": "Je bestelling is onderweg! Bekijk de live tracking hieronder:",
+                    "trackingButton": "Bekijk volgpagina",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Ik heb een e-mail met de volginformatie gestuurd naar:",
+                            "second": ". Veel plezier met je bestelling!"
+                        },
+                        "failed": "Je bestelling is nog niet verzonden. Zodra deze verzonden is, ontvang je een e-mail met de volginformatie."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Factuur van je bestelling bij",
+                    "description": {
+                        "first": "De factuur van je bestelling:",
+                        "second": "is bij deze e-mail gevoegd. Neem contact met ons op als je vragen hebt."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Welke producten verkopen jullie?",
+                                "value": "Welke producten verkopen jullie?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "actions": {
+        "assistant": {
+            "frontendFunctions": {
+                "sendOrderTracking": {
+                    "title": "Theo dõi đơn hàng",
+                    "description": "Đơn hàng của bạn đang trên đường! Xem theo dõi trực tiếp bên dưới:",
+                    "trackingButton": "Xem trang theo dõi",
+                    "returnMessage": {
+                        "success": {
+                            "first": "Tôi đã gửi một email với thông tin theo dõi đến:",
+                            "second": ". Chúc bạn hài lòng với đơn hàng của mình!"
+                        },
+                        "failed": "Đơn hàng của bạn vẫn chưa được giao. Khi đơn hàng được gửi, bạn sẽ nhận được email với thông tin theo dõi."
+                    }
+                }
+            },
+            "functions": {
+                "sendInvoice": {
+                    "title": "Hóa đơn cho đơn hàng của bạn tại",
+                    "description": {
+                        "first": "Hóa đơn cho đơn hàng của bạn:",
+                        "second": "đã được đính kèm trong email này. Nếu bạn có câu hỏi nào, vui lòng liên hệ với chúng tôi."
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "api": {
+            "assistant": {
+                "chat": {
+                    "response": {
+                        "productRecommendation": {
+                            "option1": {
+                                "label": "Bạn bán những sản phẩm nào?",
+                                "value": "Bạn bán những sản phẩm nào?"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

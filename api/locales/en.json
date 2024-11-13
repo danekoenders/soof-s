@@ -1,0 +1,45 @@
+{
+  "actions": {
+    "assistant": {
+      "frontendFunctions": {
+        "sendOrderTracking": {
+          "title": "Order tracking",
+          "description": "Your order is on its way! Watch the live tracking below:",
+          "trackingButton": "View Tracking Page",
+          "returnMessage": {
+            "success": {
+              "first": "I have sent an email with tracking information to:",
+              "second": ". Have fun with your order!"
+            },
+            "failed": "Your order has not been shipped yet. When it is, you will receive an email with tracking information."
+          }
+        }
+      },
+      "functions": {
+        "sendInvoice": {
+          "title": "Invoice of your order at",
+          "description": {
+            "first": "The invoice of your order:",
+            "second": "has been attached to this email. If you have any questions, please contact us."
+          }
+        }
+      }
+    }
+  },
+  "routes": {
+    "api": {
+      "assistant": {
+        "chat": {
+          "response": {
+            "productRecommendation": {
+              "option1": {
+                "label": "What products do you sell?",
+                "value": "What products do you sell?"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
