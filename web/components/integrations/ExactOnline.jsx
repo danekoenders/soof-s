@@ -117,7 +117,7 @@ export default function ExactOnline() {
   const details = connected ? t('components.integrations.ExactOnline.details.connected') : t('components.integrations.ExactOnline.details.disconnected');
   const terms = connected ? null : (
     <Text>
-      {t('components.integrations.ExactOnline.terms.first')} <strong>{t('components.integrations.ExactOnline.terms.second')}</strong>{t('components.integrations.ExactOnline.terms.third')}{' '}
+      {t('components.integrations.ExactOnline.terms.first')} <strong>{t('components.integrations.ExactOnline.terms.second')}</strong> {t('components.integrations.ExactOnline.terms.third')}{' '}
       <Link target="_blank" url="https://soof.ai/terms-of-service-shopify-app/">{t('components.integrations.ExactOnline.terms.linkText')}</Link>
     </Text>
   );

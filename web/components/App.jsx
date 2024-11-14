@@ -5,7 +5,7 @@ import {
 } from "@gadgetinc/react-shopify-app-bridge";
 import { NavMenu } from "@shopify/app-bridge-react";
 import { Page, Spinner, Text, Card } from "@shopify/polaris";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Outlet,
   Route,
@@ -109,16 +109,26 @@ function EmbeddedApp() {
   const [{ data, fetching }] = useFindFirst(api.shopifyShop, {
     select: {
       mantleApiToken: true,
-    }
+    },
   });
   const [searchParams] = useSearchParams();
-  const locale = searchParams.get('locale') || 'en'; // Default to 'en' if not specified
+  const localeFromParams = searchParams.get("locale");
+  const [locale, setLocale] = useState(
+    localeFromParams || localStorage.getItem("locale") || "en"
+  );
 
   const { t } = useTranslation();
 
   useEffect(() => {
+    if (localeFromParams && localeFromParams !== locale) {
+      setLocale(localeFromParams);
+    }
+  }, [localeFromParams]);
+
+  useEffect(() => {
     if (locale) {
       i18n.changeLanguage(locale);
+      localStorage.setItem("locale", locale);
     }
   }, [locale]);
 
@@ -145,11 +155,13 @@ function EmbeddedApp() {
     >
       <Outlet />
       <NavMenu>
-        <Link to="/" rel="home">{t('app.navigation.overview')}</Link>
-        <Link to="/chats">{t('app.navigation.chats')}</Link>
-        <Link to="/settings">{t('app.navigation.settings')}</Link>
-        <Link to="/integrations">{t('app.navigation.integrations')}</Link>
-        <Link to="/plans">{t('app.navigation.plans')}</Link>
+        <Link to="/" rel="home">
+          {t("app.navigation.overview")}
+        </Link>
+        <Link to="/chats">{t("app.navigation.chats")}</Link>
+        <Link to="/settings">{t("app.navigation.settings")}</Link>
+        <Link to="/integrations">{t("app.navigation.integrations")}</Link>
+        <Link to="/plans">{t("app.navigation.plans")}</Link>
       </NavMenu>
     </MantleProvider>
   );
