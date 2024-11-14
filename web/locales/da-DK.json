@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "Appen skal vises i Shopify Admin"
+        },
+        "notFound": "Siden blev ikke fundet",
+        "navigation": {
+            "overview": "Oversigt",
+            "chats": "Chats",
+            "settings": "Indstillinger",
+            "integrations": "Integrationer",
+            "plans": "Planer"
+        }
+    },
+    "Error": "Fejl",
+    "Loading": "Indlæser",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "Chatten indlæses",
+                "productRecommendations": {
+                    "title": "Produktanbefalinger:"
+                },
+                "reference": "Reference",
+                "noTranscript": "Ingen transskription tilgængelig"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "Afbryd",
+                    "connect": "Forbind"
+                },
+                "details": {
+                    "connected": "Konto tilsluttet",
+                    "disconnected": "Ingen konto tilsluttet"
+                },
+                "terms": {
+                    "first": "Ved at klikke på",
+                    "second": "Forbind",
+                    "third": "accepterer du Soof AIs",
+                    "linkText": "servicevilkår"
+                },
+                "updating": "Opdaterer integration.."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "Leveringslande",
+                    "body": "Informer kunderne om, hvilke lande du leverer til.",
+                    "noneFound": "Ingen lande fundet, der matcher",
+                    "addLabel": "Tilføj leveringsland",
+                    "searchPlaceholder": "Søg lande"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "Populært produkt:",
+                    "selectButton": "Vælg populære produkter",
+                    "emptyState": {
+                        "heading": "Vælg populære produkter",
+                        "action": "Vælg produkter"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "Indstillinger gemt!",
+                "saveBar": {
+                    "save": "Gem",
+                    "discard": "Kassér"
+                },
+                "form": {
+                    "branding": "Branding",
+                    "name": {
+                        "label": "Navn",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "Primær farve",
+                        "helpText": "Du kan indtaste hex, rgb eller andre farveformater."
+                    },
+                    "secondaryColor": {
+                        "label": "Sekundær farve",
+                        "helpText": "Du kan indtaste hex, rgb eller andre farveformater."
+                    },
+                    "functions": {
+                        "heading": "Funktioner",
+                        "sendToCustomerSupport": "Send chat til support e-mail, når der ikke findes svar",
+                        "fetchProductRecommendation": "Hent produktanbefalinger",
+                        "fetchProductByTitle": "Hent produkt efter titel",
+                        "fetchParcelDataByEmail": "Hent realtidsdata om pakker (via e-mail)",
+                        "fetchParcelDataByOrderId": "Hent realtidsdata om pakker (via Ordre-ID)",
+                        "sendInvoice": "Send fakturaer via Exact Online (via Ordre-ID)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "Indstillinger gemt!",
+                "requiredFieldsToast": "Påkrævede felter mangler",
+                "saveBar": {
+                    "save": "Gem",
+                    "discard": "Kassér"
+                },
+                "form": {
+                    "products": {
+                        "title": "Produkter",
+                        "description": "Administrer oplysninger om dine produkter i butikken.",
+                        "productsCategory": {
+                            "heading": "Produktkategori",
+                            "body": "Din produktkategori beskriver typen af produkter, du sælger.",
+                            "label": "Produktkategori",
+                            "required": "Produktkategori er påkrævet",
+                            "helpText": "f.eks. Vitaminer eller Smartphone-tilbehør"
+                        },
+                        "popularProducts": {
+                            "heading": "Populære produkter",
+                            "body": "Vælg de produkter, du vil have Soof til at fremhæve.",
+                            "required": "Mindst ét populært produkt er påkrævet."
+                        }
+                    },
+                    "shipping": {
+                        "title": "Forsendelse",
+                        "description": "Indstil dine forsendelsespriser og leveringstider.",
+                        "deliveryAmount": {
+                            "label": "Leveringsbeløb",
+                            "required": "Leveringsbeløb er påkrævet"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "Gratis levering beløb"
+                        },
+                        "minDeliveryDays": {
+                            "label": "Minimum leveringsdage",
+                            "required": "Minimum leveringsdage er påkrævet"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "Maksimum leveringsdage",
+                            "required": "Maksimum leveringsdage er påkrævet"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "Betalingsmuligheder",
+                        "description": "Vælg de betalingsmetoder, du accepterer.",
+                        "required": "Mindst én betalingsmulighed er påkrævet."
+                    },
+                    "policies": {
+                        "title": "Politikker",
+                        "description": "Angiv din returadresse og refusionspolitik.",
+                        "returnAddress": {
+                            "label": "Returadresse"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "Retur- og refusionspolitik",
+                            "required": "Retur- og refusionspolitik er påkrævet"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "Vælg plan",
+                "connectStore": "Forbind butik"
+            },
+            "step1": {
+                "heading": "Velkommen til Soof AI! 🚀",
+                "subheading": "Vi er glade for at have dig med! Lad os komme i gang med at opsætte din konto.",
+                "chooseYourPlan": "Vælg din plan",
+                "trialMessage": "Alle planer inkluderer en gratis 7-dages prøveperiode, så prøv dem gerne!"
+            },
+            "step2": {
+                "heading": "Aktivér udvidelse",
+                "subheading": "Fedt! Nu hvor du har valgt en plan, kan vi færdiggøre opsætningen ved at aktivere udvidelsen. Vores udvidelse tilføjer chatvinduet direkte til din butik.",
+                "instructions": "Tryk på knappen nedenfor og tryk gem for at aktivere udvidelsen.",
+                "enableExtensionButton": "Aktivér udvidelse"
+            },
+            "error": {
+                "unableToSubscribe": "Kunne ikke abonnere: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "Din gratis prøveperiode er udløbet.",
+                    "action": "Opgrader nu",
+                    "message": "Vælg venligst en plan for at fortsætte med vores tjenester."
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "Kopieret til udklipsholder!"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "Chats",
+            "searchPlaceholder": "Søg...",
+            "resourceName": {
+                "singular": "chat",
+                "plural": "chats"
+            },
+            "headings": {
+                "ref": "Ref",
+                "email": "E-mail",
+                "createdAt": "Oprettet"
+            },
+            "emptyState": {
+                "heading": "Ingen chats tilgængelige",
+                "description": "Der er ingen chats at vise i øjeblikket. Start en samtale for at se den her."
+            },
+            "modalTitle": "Chat detaljer"
+        },
+        "overview": {
+            "pageTitle": "Oversigt",
+            "mediaCard": {
+                "title": "Kom i gang",
+                "primaryAction": {
+                    "content": "Kom i gang"
+                },
+                "description": {
+                    "item1": "Engager dine kunder som aldrig før.",
+                    "item2": "Øg salget med personlige interaktioner.",
+                    "item3": "24/7 kundesupport uden ekstra personale."
+                },
+                "imageAlt": "Soof på iPhone"
+            },
+            "chatSessions": {
+                "title": "Chat sessioner",
+                "chatUsage": "Chatforbrug"
+            }
+        },
+        "integrations": {
+            "pageTitle": "Integrationer",
+            "exactOnlineDescription": "Forbind din Exact Online-konto til din assistent."
+        },
+        "plans": {
+            "pageTitle": "Planer",
+            "backAction": {
+                "content": "Shop information"
+            },
+            "description": "Hver plan inkluderer en gratis 7-dages prøveperiode. Du kan til enhver tid ændre eller annullere din plan.",
+            "banner": {
+                "title": "Du er på en gratis prøveperiode",
+                "body": "Din gratis prøveperiode udløber om {days} dag(e)."
+            },
+            "cancelSubscriptionButton": "Annuller abonnement",
+            "error": {
+                "unableToSubscribe": "Kunne ikke abonnere: "
+            }
+        },
+        "settings": {
+            "general": "Generelt",
+            "knowledge": "Viden",
+            "pageTitle": "Rediger assistent"
+        }
+    }
+}

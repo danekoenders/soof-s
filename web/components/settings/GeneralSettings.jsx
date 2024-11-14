@@ -17,8 +17,10 @@ import { SaveBar } from '@shopify/app-bridge-react';
 import { useAction, useFindFirst } from '@gadgetinc/react';
 import { api } from '../../api';
 import color from 'color';
+import { useTranslation } from 'react-i18next';
 
 export default function GeneralSettings() {
+  const { t } = useTranslation();
   const initialDataRef = useRef(null);
   const [showErrors, setShowErrors] = useState(false);
 
@@ -81,7 +83,7 @@ export default function GeneralSettings() {
 
   useEffect(() => {
     if (updateData) {
-      shopify.toast.show('Settings saved');
+      shopify.toast.show(t('components.settings.GeneralSettings.updateSuccessToast'));
       initialDataRef.current = {
         customName,
         primaryColorText,
@@ -218,10 +220,8 @@ export default function GeneralSettings() {
   return (
     <>
       <SaveBar id="general-settings-save-bar">
-        <button variant="primary" onClick={handleSubmit}>
-          Save
-        </button>
-        <button onClick={handleReset}>Discard</button>
+        <button variant="primary" onClick={handleSubmit}>{t('components.settings.GeneralSettings.saveBar.save')}</button>
+        <button onClick={handleReset}>{t('components.settings.GeneralSettings.saveBar.discard')}</button>
       </SaveBar>
       <Form>
         <Layout>
@@ -230,25 +230,25 @@ export default function GeneralSettings() {
               <Card>
                 <FormLayout>
                   <Text variant="headingLg" as="h2">
-                    Branding
+                    {t('components.settings.GeneralSettings.form.branding')}
                   </Text>
                   <TextField
                     name="customName"
-                    label="Name"
+                    label={t('components.settings.GeneralSettings.form.name.label')}
                     value={customName}
                     onChange={(value) => setCustomName(value)}
                     requiredIndicator
-                    placeholder="Soof"
+                    placeholder={t('components.settings.GeneralSettings.form.name.placeholder')}
                   />
 
                   <FormLayout.Group>
                     <FormLayout>
                       <TextField
                         name="primaryColor"
-                        label="Primary Color"
+                        label={t('components.settings.GeneralSettings.form.primaryColor.label')}
                         value={primaryColorText}
                         onChange={handlePrimaryColorTextChange}
-                        helpText="You can enter hex, rgb, or other color formats."
+                        helpText={t('components.settings.GeneralSettings.form.primaryColor.helpText')}
                       />
                       <ColorPicker
                         color={primaryColorPicker}
@@ -258,10 +258,10 @@ export default function GeneralSettings() {
                     <FormLayout>
                       <TextField
                         name="secondaryColor"
-                        label="Secondary Color"
+                        label={t('components.settings.GeneralSettings.form.secondaryColor.label')}
                         value={secondaryColorText}
                         onChange={handleSecondaryColorTextChange}
-                        helpText="You can enter hex, rgb, or other color formats."
+                        helpText={t('components.settings.GeneralSettings.form.secondaryColor.helpText')}
                       />
                       <ColorPicker
                         color={secondaryColorPicker}
@@ -275,12 +275,12 @@ export default function GeneralSettings() {
               <Card>
                 <FormLayout>
                   <Text variant="headingLg" as="h2">
-                    Functions
+                    {t('components.settings.GeneralSettings.form.functions.heading')}
                   </Text>
                   <BlockStack>
                     <Checkbox
                       name="sendToCustomerSupport"
-                      label="Send chat to support email when no answer found"
+                      label={t('components.settings.GeneralSettings.form.functions.sendToCustomerSupport')}
                       checked={functions.sendToCustomerSupport || false}
                       onChange={(checked) =>
                         setFunctions({ ...functions, sendToCustomerSupport: checked })
@@ -288,7 +288,7 @@ export default function GeneralSettings() {
                     />
                     <Checkbox
                       name="fetchProductRecommendation"
-                      label="Fetch product recommendations"
+                      label={t('components.settings.GeneralSettings.form.functions.fetchProductRecommendation')}
                       checked={functions.fetchProductRecommendation || false}
                       onChange={(checked) =>
                         setFunctions({ ...functions, fetchProductRecommendation: checked })
@@ -296,7 +296,7 @@ export default function GeneralSettings() {
                     />
                     <Checkbox
                       name="fetchProductByTitle"
-                      label="Fetch product by title"
+                      label={t('components.settings.GeneralSettings.form.functions.fetchProductByTitle')}
                       checked={functions.fetchProductByTitle || false}
                       onChange={(checked) =>
                         setFunctions({ ...functions, fetchProductByTitle: checked })
@@ -304,7 +304,7 @@ export default function GeneralSettings() {
                     />
                     <Checkbox
                       name="fetchParcelDataByEmail"
-                      label="Fetch parcel data using PostNL API (by Email)"
+                      label={t('components.settings.GeneralSettings.form.functions.fetchParcelDataByEmail')}
                       checked={functions.fetchParcelDataByEmail || false}
                       onChange={(checked) =>
                         setFunctions({ ...functions, fetchParcelDataByEmail: checked })
@@ -312,7 +312,7 @@ export default function GeneralSettings() {
                     />
                     <Checkbox
                       name="fetchParcelDataByOrderId"
-                      label="Fetch parcel data using PostNL API (by Order ID)"
+                      label={t('components.settings.GeneralSettings.form.functions.fetchParcelDataByOrderId')}
                       checked={functions.fetchParcelDataByOrderId || false}
                       onChange={(checked) =>
                         setFunctions({ ...functions, fetchParcelDataByOrderId: checked })
@@ -320,7 +320,7 @@ export default function GeneralSettings() {
                     />
                     <Checkbox
                       name="sendInvoice"
-                      label="Send invoices using Exact Online (by Order ID)"
+                      label={t('components.settings.GeneralSettings.form.functions.sendInvoice')}
                       checked={functions.sendInvoice || false}
                       onChange={(checked) => setFunctions({ ...functions, sendInvoice: checked })}
                       disabled={data?.shop.exactOnline.state !== 'has-token'}

@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "App moet worden bekeken in Shopify Admin"
+        },
+        "notFound": "Pagina niet gevonden",
+        "navigation": {
+            "overview": "Overzicht",
+            "chats": "Chats",
+            "settings": "Instellingen",
+            "integrations": "Integraties",
+            "plans": "Plannen"
+        }
+    },
+    "Error": "Fout",
+    "Loading": "Laden",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "De chat wordt geladen",
+                "productRecommendations": {
+                    "title": "Productaanbevelingen:"
+                },
+                "reference": "Referentie",
+                "noTranscript": "Geen transcript beschikbaar"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "Verbreek verbinding",
+                    "connect": "Verbind"
+                },
+                "details": {
+                    "connected": "Account verbonden",
+                    "disconnected": "Geen account verbonden"
+                },
+                "terms": {
+                    "first": "Door te klikken op",
+                    "second": "Verbind",
+                    "third": "accepteert u de servicevoorwaarden van Soof AI",
+                    "linkText": "servicevoorwaarden"
+                },
+                "updating": "Integratie bijwerken.."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "Bezorglanden",
+                    "body": "Laat klanten weten in welke landen u bezorgt.",
+                    "noneFound": "Geen landen gevonden die overeenkomen met",
+                    "addLabel": "Bezorgland toevoegen",
+                    "searchPlaceholder": "Zoek landen"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "Populair product:",
+                    "selectButton": "Selecteer populaire producten",
+                    "emptyState": {
+                        "heading": "Selecteer populaire producten",
+                        "action": "Selecteer producten"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "Instellingen opgeslagen!",
+                "saveBar": {
+                    "save": "Opslaan",
+                    "discard": "Annuleren"
+                },
+                "form": {
+                    "branding": "Branding",
+                    "name": {
+                        "label": "Naam",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "Primaire kleur",
+                        "helpText": "U kunt hex, rgb of andere kleurformaten invoeren."
+                    },
+                    "secondaryColor": {
+                        "label": "Secundaire kleur",
+                        "helpText": "U kunt hex, rgb of andere kleurformaten invoeren."
+                    },
+                    "functions": {
+                        "heading": "Functies",
+                        "sendToCustomerSupport": "Stuur chat naar ondersteuningsmail wanneer geen antwoord gevonden",
+                        "fetchProductRecommendation": "Productaanbevelingen ophalen",
+                        "fetchProductByTitle": "Product ophalen op titel",
+                        "fetchParcelDataByEmail": "Pakketgegevens in realtime ophalen (op e-mail)",
+                        "fetchParcelDataByOrderId": "Pakketgegevens in realtime ophalen (op order-ID)",
+                        "sendInvoice": "Facturen verzenden met Exact Online (op order-ID)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "Instellingen opgeslagen!",
+                "requiredFieldsToast": "Vereiste velden ontbreken",
+                "saveBar": {
+                    "save": "Opslaan",
+                    "discard": "Annuleren"
+                },
+                "form": {
+                    "products": {
+                        "title": "Producten",
+                        "description": "Beheer de productinformatie van uw winkel.",
+                        "productsCategory": {
+                            "heading": "Productcategorie",
+                            "body": "Uw productcategorie beschrijft het type producten dat u verkoopt.",
+                            "label": "Productcategorie",
+                            "required": "Productcategorie is verplicht",
+                            "helpText": "bijv. Vitaminen of smartphone-accessoires"
+                        },
+                        "popularProducts": {
+                            "heading": "Populaire producten",
+                            "body": "Selecteer de producten die u wilt dat Soof toont.",
+                            "required": "Er is ten minste één populair product vereist."
+                        }
+                    },
+                    "shipping": {
+                        "title": "Verzending",
+                        "description": "Stel uw verzendkosten en levertijden in.",
+                        "deliveryAmount": {
+                            "label": "Verzendkosten",
+                            "required": "Verzendkosten zijn verplicht"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "Gratis verzending vanaf"
+                        },
+                        "minDeliveryDays": {
+                            "label": "Minimale levertijd (dagen)",
+                            "required": "Minimale levertijd is verplicht"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "Maximale levertijd (dagen)",
+                            "required": "Maximale levertijd is verplicht"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "Betaalopties",
+                        "description": "Selecteer de betaalmethoden die u accepteert.",
+                        "required": "Ten minste één betaaloptie is verplicht."
+                    },
+                    "policies": {
+                        "title": "Beleid",
+                        "description": "Vermeld uw retouradres en restitutiebeleid.",
+                        "returnAddress": {
+                            "label": "Retouradres"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "Retour- en restitutiebeleid",
+                            "required": "Retour- en restitutiebeleid is verplicht"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "Selecteer plan",
+                "connectStore": "Verbind winkel"
+            },
+            "step1": {
+                "heading": "Welkom bij Soof AI! 🚀",
+                "subheading": "We zijn blij dat u erbij bent! Laten we beginnen met het instellen van uw account.",
+                "chooseYourPlan": "Kies uw plan",
+                "trialMessage": "Alle plannen hebben een gratis proefperiode van 7 dagen, probeer het gerust uit!"
+            },
+            "step2": {
+                "heading": "Activeer extensie",
+                "subheading": "Geweldig! Nu u een plan heeft gekozen, kunnen we de installatie voltooien door de extensie in te schakelen. Onze extensie voegt direct een ingebouwd chatvenster toe aan uw winkel.",
+                "instructions": "Druk op de knop hieronder en druk op opslaan om de extensie in te schakelen.",
+                "enableExtensionButton": "Activeer extensie"
+            },
+            "error": {
+                "unableToSubscribe": "Kan niet abonneren: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "Uw gratis proefperiode is verlopen.",
+                    "action": "Nu upgraden",
+                    "message": "Selecteer een plan om onze diensten te blijven gebruiken."
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "Gekopieerd naar klembord!"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "Chats",
+            "searchPlaceholder": "Zoeken...",
+            "resourceName": {
+                "singular": "chat",
+                "plural": "chats"
+            },
+            "headings": {
+                "ref": "Ref",
+                "email": "E-mail",
+                "createdAt": "Aangemaakt op"
+            },
+            "emptyState": {
+                "heading": "Geen chats beschikbaar",
+                "description": "Er zijn momenteel geen chats om weer te geven. Start een gesprek om het hier te zien."
+            },
+            "modalTitle": "Chat detail"
+        },
+        "overview": {
+            "pageTitle": "Overzicht",
+            "mediaCard": {
+                "title": "Aan de slag",
+                "primaryAction": {
+                    "content": "Aan de slag"
+                },
+                "description": {
+                    "item1": "Betrek uw klanten zoals nooit tevoren.",
+                    "item2": "Verhoog de omzet met gepersonaliseerde interacties.",
+                    "item3": "24/7 klantenondersteuning zonder extra personeel."
+                },
+                "imageAlt": "Soof op iPhone"
+            },
+            "chatSessions": {
+                "title": "Chatsessies",
+                "chatUsage": "Chatgebruik"
+            }
+        },
+        "integrations": {
+            "pageTitle": "Integraties",
+            "exactOnlineDescription": "Verbind uw Exact Online-account met uw assistent."
+        },
+        "plans": {
+            "pageTitle": "Plannen",
+            "backAction": {
+                "content": "Winkelinformatie"
+            },
+            "description": "Elk plan bevat een gratis proefperiode van 7 dagen. U kunt uw plan op elk moment wijzigen of annuleren.",
+            "banner": {
+                "title": "U bent op een gratis proefperiode",
+                "body": "Uw gratis proefperiode verloopt over {days} dag(en)."
+            },
+            "cancelSubscriptionButton": "Abonnement annuleren",
+            "error": {
+                "unableToSubscribe": "Kan niet abonneren: "
+            }
+        },
+        "settings": {
+            "general": "Algemeen",
+            "knowledge": "Kennis",
+            "pageTitle": "Assistent bewerken"
+        }
+    }
+}

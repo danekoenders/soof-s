@@ -4,8 +4,10 @@ import { Banner, BlockStack, Layout, Text } from "@shopify/polaris";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../api";
 import { ClockIcon, CursorIcon } from "@shopify/polaris-icons";
+import { useTranslation } from "react-i18next";
 
 export default function NoticeHeader() {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const { subscription } = useMantle();
     const [{ data, fetching, error }] = useFindFirst(api.shopifyShop, {
@@ -33,17 +35,17 @@ export default function NoticeHeader() {
                 <Layout.Section>
                     <BlockStack gap="400">
                         <Banner
-                            title="Your free trial has ended."
+                            title={t("components.shared.NoticeHeader.trialEnd.title")}
                             tone="warning"
                             icon={ClockIcon}
                             action={{
-                                content: "Subscribe",
+                                content: t("components.shared.NoticeHeader.trialEnd.action"),
                                 icon: CursorIcon,
                                 onClick: () => navigate("/plans"),
                             }}
                         >
                             <Text variant="bodyMd" as="p">
-                                Please select a plan to continue using our services.
+                                {t("components.shared.NoticeHeader.trialEnd.message")}
                             </Text>
                         </Banner>
                     </BlockStack>

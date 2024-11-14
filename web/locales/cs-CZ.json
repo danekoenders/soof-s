@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "Aplikaci je třeba zobrazit v Shopify Admin"
+        },
+        "notFound": "Stránka nenalezena",
+        "navigation": {
+            "overview": "Přehled",
+            "chats": "Chaty",
+            "settings": "Nastavení",
+            "integrations": "Integrace",
+            "plans": "Plány"
+        }
+    },
+    "Error": "Chyba",
+    "Loading": "Načítání",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "Chat se načítá",
+                "productRecommendations": {
+                    "title": "Doporučené produkty:"
+                },
+                "reference": "Reference",
+                "noTranscript": "Není k dispozici žádný přepis"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "Odpojit",
+                    "connect": "Připojit"
+                },
+                "details": {
+                    "connected": "Účet připojen",
+                    "disconnected": "Žádný účet není připojen"
+                },
+                "terms": {
+                    "first": "Kliknutím na",
+                    "second": "Připojit",
+                    "third": "souhlasíte s podmínkami služby Soof AI",
+                    "linkText": "podmínky služby"
+                },
+                "updating": "Aktualizace integrace.."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "Země doručení",
+                    "body": "Upozorněte zákazníky na země, do kterých doručujete.",
+                    "noneFound": "Nenalezeny žádné země odpovídající",
+                    "addLabel": "Přidat zemi doručení",
+                    "searchPlaceholder": "Hledat země"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "Populární produkt:",
+                    "selectButton": "Vybrat populární produkty",
+                    "emptyState": {
+                        "heading": "Vyberte populární produkty",
+                        "action": "Vybrat produkty"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "Nastavení uloženo!",
+                "saveBar": {
+                    "save": "Uložit",
+                    "discard": "Zahodit"
+                },
+                "form": {
+                    "branding": "Branding",
+                    "name": {
+                        "label": "Jméno",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "Primární barva",
+                        "helpText": "Můžete zadat hex, rgb nebo jiné barevné formáty."
+                    },
+                    "secondaryColor": {
+                        "label": "Sekundární barva",
+                        "helpText": "Můžete zadat hex, rgb nebo jiné barevné formáty."
+                    },
+                    "functions": {
+                        "heading": "Funkce",
+                        "sendToCustomerSupport": "Poslat chat na e-mail podpory, pokud nebyla nalezena odpověď",
+                        "fetchProductRecommendation": "Získat doporučení produktů",
+                        "fetchProductByTitle": "Vyhledat produkt podle názvu",
+                        "fetchParcelDataByEmail": "Načíst údaje o zásilce v reálném čase (podle e-mailu)",
+                        "fetchParcelDataByOrderId": "Načíst údaje o zásilce v reálném čase (podle ID objednávky)",
+                        "sendInvoice": "Odeslat faktury pomocí Exact Online (podle ID objednávky)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "Nastavení uloženo!",
+                "requiredFieldsToast": "Chybí požadovaná pole",
+                "saveBar": {
+                    "save": "Uložit",
+                    "discard": "Zahodit"
+                },
+                "form": {
+                    "products": {
+                        "title": "Produkty",
+                        "description": "Spravujte informace o produktech ve vašem obchodě.",
+                        "productsCategory": {
+                            "heading": "Kategorie produktů",
+                            "body": "Kategorie vašich produktů popisuje, jaký typ produktů prodáváte.",
+                            "label": "Kategorie produktů",
+                            "required": "Kategorie produktů je vyžadována",
+                            "helpText": "např. Vitamíny nebo příslušenství pro smartphony"
+                        },
+                        "popularProducts": {
+                            "heading": "Populární produkty",
+                            "body": "Vyberte produkty, které chcete zobrazit jako populární.",
+                            "required": "Je vyžadován alespoň jeden populární produkt."
+                        }
+                    },
+                    "shipping": {
+                        "title": "Doprava",
+                        "description": "Nastavte si ceny dopravy a dodací lhůty.",
+                        "deliveryAmount": {
+                            "label": "Cena dopravy",
+                            "required": "Cena dopravy je povinná"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "Bezplatná doprava od"
+                        },
+                        "minDeliveryDays": {
+                            "label": "Minimální počet dní doručení",
+                            "required": "Minimální počet dní doručení je povinný"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "Maximální počet dní doručení",
+                            "required": "Maximální počet dní doručení je povinný"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "Platební možnosti",
+                        "description": "Vyberte platební metody, které přijímáte.",
+                        "required": "Je vyžadována alespoň jedna platební možnost."
+                    },
+                    "policies": {
+                        "title": "Pravidla",
+                        "description": "Uveďte svoji adresu pro vrácení zboží a zásady pro vrácení peněz.",
+                        "returnAddress": {
+                            "label": "Adresa pro vrácení"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "Zásady vrácení a refundace",
+                            "required": "Zásady vrácení a refundace jsou povinné"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "Vyberte plán",
+                "connectStore": "Připojte obchod"
+            },
+            "step1": {
+                "heading": "Vítejte v Soof AI! 🚀",
+                "subheading": "Jsme rádi, že jste s námi! Začněme nastavením vašeho účtu.",
+                "chooseYourPlan": "Vyberte svůj plán",
+                "trialMessage": "Všechny plány zahrnují 7denní bezplatnou zkušební verzi, vyzkoušejte je!"
+            },
+            "step2": {
+                "heading": "Povolit rozšíření",
+                "subheading": "Skvělé! Nyní, když jste vybrali plán, můžeme dokončit nastavení povolením rozšíření. Naše rozšíření přidá do vašeho obchodu přímo okno chatu.",
+                "instructions": "Stiskněte tlačítko níže a stiskněte uložit pro povolení rozšíření.",
+                "enableExtensionButton": "Povolit rozšíření"
+            },
+            "error": {
+                "unableToSubscribe": "Nelze se přihlásit k odběru: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "Vaše zkušební verze vypršela.",
+                    "action": "Upgradovat nyní",
+                    "message": "Pro pokračování ve službě vyberte plán."
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "Zkopírováno do schránky!"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "Chaty",
+            "searchPlaceholder": "Hledat...",
+            "resourceName": {
+                "singular": "chat",
+                "plural": "chaty"
+            },
+            "headings": {
+                "ref": "Ref",
+                "email": "E-mail",
+                "createdAt": "Vytvořeno"
+            },
+            "emptyState": {
+                "heading": "Žádné dostupné chaty",
+                "description": "Aktuálně nejsou k dispozici žádné chaty. Zahajte konverzaci, aby se zobrazila zde."
+            },
+            "modalTitle": "Detail chatu"
+        },
+        "overview": {
+            "pageTitle": "Přehled",
+            "mediaCard": {
+                "title": "Začínáme",
+                "primaryAction": {
+                    "content": "Začínáme"
+                },
+                "description": {
+                    "item1": "Zapojte své zákazníky jako nikdy předtím.",
+                    "item2": "Zvyšte prodeje s personalizovanými interakcemi.",
+                    "item3": "24/7 zákaznická podpora bez dalšího personálu."
+                },
+                "imageAlt": "Soof na iPhonu"
+            },
+            "chatSessions": {
+                "title": "Relace chatu",
+                "chatUsage": "Využití chatu"
+            }
+        },
+        "integrations": {
+            "pageTitle": "Integrace",
+            "exactOnlineDescription": "Připojte svůj účet Exact Online k vašemu asistentovi."
+        },
+        "plans": {
+            "pageTitle": "Plány",
+            "backAction": {
+                "content": "Informace o obchodu"
+            },
+            "description": "Každý plán zahrnuje 7denní bezplatnou zkušební verzi. Plán můžete kdykoli změnit nebo zrušit.",
+            "banner": {
+                "title": "Jste na bezplatné zkušební verzi",
+                "body": "Vaše bezplatná zkušební verze vyprší za {days} den/ dní."
+            },
+            "cancelSubscriptionButton": "Zrušit předplatné",
+            "error": {
+                "unableToSubscribe": "Nelze se přihlásit k odběru: "
+            }
+        },
+        "settings": {
+            "general": "Obecné",
+            "knowledge": "Znalosti",
+            "pageTitle": "Upravit asistenta"
+        }
+    }
+}

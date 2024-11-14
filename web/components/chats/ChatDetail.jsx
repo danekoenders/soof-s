@@ -12,8 +12,10 @@ import {
 } from '@shopify/polaris';
 import ReactMarkdown from 'react-markdown';
 import CopyToClipboard from '../utils/CopyToClipboard';
+import { useTranslation } from 'react-i18next';
 
 const ChatDetail = ({ chatRef }) => {
+    const { t } = useTranslation();
     const [{ data, fetching, error }, fetchChat] = useFindBy(
         api.chatSession.findByRef,
         chatRef,
@@ -33,7 +35,7 @@ const ChatDetail = ({ chatRef }) => {
 
     if (fetching) {
         return (
-            <Spinner accessibilityLabel="Loading chat details" size="large" />
+            <Spinner accessibilityLabel={t('components.chats.ChatDetail.spinnerLabel')} size="large" />
         );
     }
 
@@ -76,7 +78,7 @@ const ChatDetail = ({ chatRef }) => {
     const renderProductRecommendations = (products) => {
         return (
             <div>
-                <strong>Product Recommendations:</strong>
+                <strong>{t('components.chats.ChatDetail.productRecommendations.title')}</strong>
                 <ul>
                     {products.map((product, idx) => (
                         <li key={idx}>
@@ -94,7 +96,7 @@ const ChatDetail = ({ chatRef }) => {
         <Box padding='400'>
             <InlineStack align='space-between'>
                 <Text variant='headingMd'>
-                    Ref:{' '}
+                    {t('components.chats.ChatDetail.reference')}:{' '}
                     <CopyToClipboard
                         input={data.ref}
                         innerText={data.ref}
@@ -142,7 +144,7 @@ const ChatDetail = ({ chatRef }) => {
                             </div>
                         ))
                     ) : (
-                        <Text>No transcript available</Text>
+                        <Text>{t('components.chats.ChatDetail.noTranscript')}</Text>
                     )}
                 </BlockStack>
             </Scrollable>

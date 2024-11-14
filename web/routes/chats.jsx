@@ -16,8 +16,11 @@ import { Modal, TitleBar } from '@shopify/app-bridge-react';
 import ChatDetail from '../components/chats/ChatDetail';
 import { useParams, useNavigate } from 'react-router-dom';
 import NoticeHeader from '../components/shared/NoticeHeader';
+import { useTranslation } from 'react-i18next';
 
 const ChatsLayout = () => {
+  const { t } = useTranslation();
+
   const NUM_ON_PAGE = 25;
   const [cursor, setCursor] = useState({ first: NUM_ON_PAGE });
   const [query, setQuery] = useState('');
@@ -49,19 +52,20 @@ const ChatsLayout = () => {
     search: query,
   });
 
-  const chatItems = data?.map((chat) => ({
-    id: chat.ref,
-    email: chat.email,
-    createdAt: new Date(chat.createdAt).toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    }),
-    ref: chat.ref,
-  })) || [];
+  const chatItems =
+    data?.map((chat) => ({
+      id: chat.ref,
+      email: chat.email,
+      createdAt: new Date(chat.createdAt).toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      }),
+      ref: chat.ref,
+    })) || [];
 
   const rowMarkup = chatItems.map(({ id, ref, email, createdAt }, index) => (
     <IndexTable.Row
@@ -93,7 +97,8 @@ const ChatsLayout = () => {
   const handleSort = useCallback(
     (columnIndex) => {
       const columnKey = ['ref', 'email', 'createdAt'][columnIndex];
-      const newSortDirection = sortDirection === 'ascending' ? 'descending' : 'ascending';
+      const newSortDirection =
+        sortDirection === 'ascending' ? 'descending' : 'ascending';
       setSortDirection(newSortDirection);
       setSortColumn(columnKey);
     },
@@ -109,14 +114,16 @@ const ChatsLayout = () => {
 
   if (error) {
     return (
-      <Page title="Chats">
-        <Banner tone="critical">Error: {error.message}</Banner>
+      <Page title={t('routes.chats.pageTitle')}>
+        <Banner tone="critical">
+          {t('Error')}: {error.message}
+        </Banner>
       </Page>
     );
   }
 
   return (
-    <Page title="Chats">
+    <Page title={t('routes.chats.pageTitle')}>
       <Layout>
         <NoticeHeader />
         <Layout.Section>
@@ -127,15 +134,20 @@ const ChatsLayout = () => {
                 filters={[]}
                 onQueryChange={handleQueryChange}
                 onQueryClear={handleQueryClear}
-                queryPlaceholder="Search..."
+                queryPlaceholder={t(
+                  'routes.chats.searchPlaceholder'
+                )}
               />
               <IndexTable
-                resourceName={{ singular: 'chat', plural: 'chats' }}
+                resourceName={{
+                  singular: t('routes.chats.resourceName.singular'),
+                  plural: t('routes.chats.resourceName.plural'),
+                }}
                 itemCount={chatItems.length}
                 headings={[
-                  { title: 'Ref', sortable: true },
-                  { title: 'Email', sortable: true },
-                  { title: 'Created At', sortable: true },
+                  { title: t('routes.chats.headings.ref'), sortable: true },
+                  { title: t('routes.chats.headings.email'), sortable: true },
+                  { title: t('routes.chats.headings.createdAt'), sortable: true },
                 ]}
                 onSort={(columnIndex) => handleSort(columnIndex)}
                 sortDirection={sortDirection}
@@ -144,10 +156,10 @@ const ChatsLayout = () => {
                 loading={fetching}
                 emptyState={
                   <EmptyState
-                    heading="No chats available"
+                    heading={t('routes.chats.emptyState.heading')}
                     image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"
                   >
-                    <p>Currently, there are no chats to display. Start a conversation to see it here.</p>
+                    <p>{t('routes.chats.emptyState.description')}</p>
                   </EmptyState>
                 }
               >
@@ -163,12 +175,8 @@ const ChatsLayout = () => {
           </BlockStack>
         </Layout.Section>
       </Layout>
-      <Modal
-        id='chat-detail-modal'
-        onHide={handleModalClose}
-        open={!!chatRef}
-      >
-        <TitleBar title={'Chat detail'} />
+      <Modal id="chat-detail-modal" onHide={handleModalClose} open={!!chatRef}>
+        <TitleBar title={t('routes.chats.modalTitle')} />
         <ChatDetail chatRef={chatRef} />
       </Modal>
     </Page>

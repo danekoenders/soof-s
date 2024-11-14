@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "应用程序必须在 Shopify 管理中查看"
+        },
+        "notFound": "未找到页面",
+        "navigation": {
+            "overview": "概览",
+            "chats": "聊天",
+            "settings": "设置",
+            "integrations": "集成",
+            "plans": "计划"
+        }
+    },
+    "Error": "错误",
+    "Loading": "加载中",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "聊天加载中",
+                "productRecommendations": {
+                    "title": "产品推荐："
+                },
+                "reference": "参考",
+                "noTranscript": "没有可用的记录"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "断开连接",
+                    "connect": "连接"
+                },
+                "details": {
+                    "connected": "账户已连接",
+                    "disconnected": "没有已连接的账户"
+                },
+                "terms": {
+                    "first": "点击",
+                    "second": "连接",
+                    "third": "即表示您同意",
+                    "linkText": "Soof AI 的服务条款"
+                },
+                "updating": "正在更新集成..."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "交付国家",
+                    "body": "告知客户您可以交付的国家。",
+                    "noneFound": "未找到匹配的国家",
+                    "addLabel": "添加交付国家",
+                    "searchPlaceholder": "搜索国家"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "热门产品：",
+                    "selectButton": "选择热门产品",
+                    "emptyState": {
+                        "heading": "选择热门产品",
+                        "action": "选择产品"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "设置已保存！",
+                "saveBar": {
+                    "save": "保存",
+                    "discard": "放弃"
+                },
+                "form": {
+                    "branding": "品牌",
+                    "name": {
+                        "label": "名称",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "主色",
+                        "helpText": "您可以输入 hex、rgb 或其他颜色格式。"
+                    },
+                    "secondaryColor": {
+                        "label": "次色",
+                        "helpText": "您可以输入 hex、rgb 或其他颜色格式。"
+                    },
+                    "functions": {
+                        "heading": "功能",
+                        "sendToCustomerSupport": "当未找到答案时，将聊天发送至支持电子邮件",
+                        "fetchProductRecommendation": "获取产品推荐",
+                        "fetchProductByTitle": "按标题获取产品",
+                        "fetchParcelDataByEmail": "通过电子邮件获取实时包裹数据",
+                        "fetchParcelDataByOrderId": "通过订单 ID 获取实时包裹数据",
+                        "sendInvoice": "使用 Exact Online 发送发票（通过订单 ID）"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "设置已保存！",
+                "requiredFieldsToast": "缺少必填字段",
+                "saveBar": {
+                    "save": "保存",
+                    "discard": "放弃"
+                },
+                "form": {
+                    "products": {
+                        "title": "产品",
+                        "description": "管理商店的产品信息。",
+                        "productsCategory": {
+                            "heading": "产品类别",
+                            "body": "您的产品类别描述了您销售的产品类型。",
+                            "label": "产品类别",
+                            "required": "产品类别为必填项",
+                            "helpText": "例如：维生素或智能手机配件"
+                        },
+                        "popularProducts": {
+                            "heading": "热门产品",
+                            "body": "选择您希望 Soof 推荐的产品。",
+                            "required": "至少需要一个热门产品。"
+                        }
+                    },
+                    "shipping": {
+                        "title": "运输",
+                        "description": "设置您的运输费率和交付时间。",
+                        "deliveryAmount": {
+                            "label": "交付金额",
+                            "required": "交付金额为必填项"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "免运费金额"
+                        },
+                        "minDeliveryDays": {
+                            "label": "最短交付天数",
+                            "required": "最短交付天数为必填项"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "最长交付天数",
+                            "required": "最长交付天数为必填项"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "支付选项",
+                        "description": "选择您接受的支付方式。",
+                        "required": "至少需要一个支付选项。"
+                    },
+                    "policies": {
+                        "title": "政策",
+                        "description": "提供您的退货地址和退款政策。",
+                        "returnAddress": {
+                            "label": "退货地址"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "退货和退款政策",
+                            "required": "退货和退款政策为必填项"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "选择计划",
+                "connectStore": "连接商店"
+            },
+            "step1": {
+                "heading": "欢迎使用 Soof AI！🚀",
+                "subheading": "很高兴有您加入！让我们开始设置您的账户。",
+                "chooseYourPlan": "选择您的计划",
+                "trialMessage": "所有计划均包含 7 天免费试用，随意体验！"
+            },
+            "step2": {
+                "heading": "启用扩展",
+                "subheading": "太好了！现在您已选择了一个计划，我们可以通过启用扩展来完成设置。我们的扩展将直接在您的商店中添加聊天窗口。",
+                "instructions": "按下方按钮并保存以启用扩展。",
+                "enableExtensionButton": "启用扩展"
+            },
+            "error": {
+                "unableToSubscribe": "无法订阅："
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "您的免费试用已结束。",
+                    "action": "立即升级",
+                    "message": "请选择一个计划以继续使用我们的服务。"
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "已复制到剪贴板！"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "聊天",
+            "searchPlaceholder": "搜索...",
+            "resourceName": {
+                "singular": "聊天",
+                "plural": "聊天"
+            },
+            "headings": {
+                "ref": "参考",
+                "email": "电子邮件",
+                "createdAt": "创建于"
+            },
+            "emptyState": {
+                "heading": "没有可用的聊天",
+                "description": "目前没有聊天可显示。开始一个对话以在此处查看。"
+            },
+            "modalTitle": "聊天详情"
+        },
+        "overview": {
+            "pageTitle": "概览",
+            "mediaCard": {
+                "title": "开始使用",
+                "primaryAction": {
+                    "content": "开始使用"
+                },
+                "description": {
+                    "item1": "以前所未有的方式吸引您的客户。",
+                    "item2": "通过个性化互动增加销售。",
+                    "item3": "无需额外人员，提供 24/7 客户支持。"
+                },
+                "imageAlt": "iPhone 上的 Soof"
+            },
+            "chatSessions": {
+                "title": "聊天会话",
+                "chatUsage": "聊天使用情况"
+            }
+        },
+        "integrations": {
+            "pageTitle": "集成",
+            "exactOnlineDescription": "将您的 Exact Online 帐户连接到您的助手。"
+        },
+        "plans": {
+            "pageTitle": "计划",
+            "backAction": {
+                "content": "商店信息"
+            },
+            "description": "每个计划均包含 7 天免费试用。您可以随时更改或取消计划。",
+            "banner": {
+                "title": "您正在享受免费试用",
+                "body": "您的免费试用将在 {days} 天后过期。"
+            },
+            "cancelSubscriptionButton": "取消订阅",
+            "error": {
+                "unableToSubscribe": "无法订阅："
+            }
+        },
+        "settings": {
+            "general": "通用",
+            "knowledge": "知识",
+            "pageTitle": "编辑助手"
+        }
+    }
+}

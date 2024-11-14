@@ -10,8 +10,10 @@ import {
     Button,
     Layout,
 } from '@shopify/polaris';
+import { useTranslation } from 'react-i18next';
 
 export function PopularProductsList({ popularProducts, handleSelectPopularProducts }) {
+    const { t } = useTranslation();
     const resourceName = {
         singular: 'product',
         plural: 'products',
@@ -30,7 +32,7 @@ export function PopularProductsList({ popularProducts, handleSelectPopularProduc
         );
 
         return (
-            <ResourceItem id={id} media={media} accessibilityLabel={`Popular product: ${title}`}>
+            <ResourceItem id={id} media={media} accessibilityLabel={`${t('components.settings.KnowledgeSettings.PopularProductsList.accessibilityLabel')} ${title}`}>
                 <Text variant="headingMd">{title}</Text>
             </ResourceItem>
         );
@@ -46,21 +48,19 @@ export function PopularProductsList({ popularProducts, handleSelectPopularProduc
                             items={popularProducts}
                             renderItem={renderItem}
                         />
-                        <Button onClick={handleSelectPopularProducts}>Select Popular Products</Button>
+                        <Button onClick={handleSelectPopularProducts}>{t('components.settings.KnowledgeSettings.PopularProductsList.selectButton')}</Button>
                     </Layout.Section>
                 </Layout>
             ) : (
                 <Card>
                     <EmptyState
-                        heading="Select popular products"
+                        heading={t('components.settings.KnowledgeSettings.PopularProductsList.emptyState.heading')}
                         action={{
-                            content: 'Select products',
+                            content: t('components.settings.KnowledgeSettings.PopularProductsList.emptyState.action'),
                             onAction: () => handleSelectPopularProducts(),
                         }}
                         image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"
-                    >
-                        <p>Track and receive your incoming inventory from suppliers.</p>
-                    </EmptyState>
+                    />
                 </Card>
             )}
         </>

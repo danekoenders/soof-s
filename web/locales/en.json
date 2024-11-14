@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "App must be viewed in the Shopify Admin"
+        },
+        "notFound": "Page not found",
+        "navigation": {
+            "overview": "Overview",
+            "chats": "Chats",
+            "settings": "Settings",
+            "integrations": "Integrations",
+            "plans": "Plans"
+        }
+    },
+    "Error": "Error",
+    "Loading": "Loading",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "The chat is loading",
+                "productRecommendations": {
+                    "title": "Product recommendations:"
+                },
+                "reference": "Reference",
+                "noTranscript": "No transcript available"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "Disconnect",
+                    "connect": "Connect"
+                },
+                "details": {
+                    "connected": "Account connected",
+                    "disconnected": "No account connected"
+                },
+                "terms": {
+                    "first": "By clicking",
+                    "second": "Connect",
+                    "third": ", you agree to accept Soof AI's",
+                    "linkText": "terms of service"
+                },
+                "updating": "Updating integration.."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "Delivery Countries",
+                    "body": "Let customers know in which countries you deliver.",
+                    "noneFound": "No countries found matching",
+                    "addLabel": "Add Delivery Country",
+                    "searchPlaceholder": "Search countries"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "Popular product:",
+                    "selectButton": "Select Popular Products",
+                    "emptyState": {
+                        "heading": "Select popular products",
+                        "action": "Select products"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "Settings saved!",
+                "saveBar": {
+                    "save": "Save",
+                    "discard": "Discard"
+                },
+                "form": {
+                    "branding": "Branding",
+                    "name": {
+                        "label": "Name",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "Primary color",
+                        "helpText": "You can enter hex, rgb, or other color formats."
+                    },
+                    "secondaryColor": {
+                        "label": "Secondary color",
+                        "helpText": "You can enter hex, rgb, or other color formats."
+                    },
+                    "functions": {
+                        "heading": "Functions",
+                        "sendToCustomerSupport": "Send chat to support email when no answer found",
+                        "fetchProductRecommendation": "Fetch product recommendations",
+                        "fetchProductByTitle": "Fetch product by title",
+                        "fetchParcelDataByEmail": "Fetch real-time parcel data (by Email)",
+                        "fetchParcelDataByOrderId": "Fetch real-time parcel data (by Order ID)",
+                        "sendInvoice": "Send invoices using Exact Online (by Order ID)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "Settings saved!",
+                "requiredFieldsToast": "Missing required fields",
+                "saveBar": {
+                    "save": "Save",
+                    "discard": "Discard"
+                },
+                "form": {
+                    "products": {
+                        "title": "Products",
+                        "description": "Manage your shop's product information.",
+                        "productsCategory": {
+                            "heading": "Products category",
+                            "body": "Your products category describes the type of products you sell.",
+                            "label": "Products category",
+                            "required": "Product Category is required",
+                            "helpText": "e.g. Vitamins or Smartphone Accessories"
+                        },
+                        "popularProducts": {
+                            "heading": "Popular products",
+                            "body": "Select the products you want Soof to feature.",
+                            "required": "At least one popular product is required."
+                        }
+                    },
+                    "shipping": {
+                        "title": "Shipping",
+                        "description": "Set your shipping rates and delivery times.",
+                        "deliveryAmount": {
+                            "label": "Delivery amount",
+                            "required": "Delivery amount is required"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "Free Delivery Amount"
+                        },
+                        "minDeliveryDays": {
+                            "label": "Minimum Delivery Days",
+                            "required": "Minimum Delivery Days is required"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "Maximum Delivery Days",
+                            "required": "Maximum Delivery Days is required"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "Payment Options",
+                        "description": "Select the payment methods you accept.",
+                        "required": "At least one payment option is required."
+                    },
+                    "policies": {
+                        "title": "Policies",
+                        "description": "Provide your return address and refund policy.",
+                        "returnAddress": {
+                            "label": "Return Address"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "Return and Refund Policy",
+                            "required": "Return and Refund Policy is required"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "Select Plan",
+                "connectStore": "Connect Store"
+            },
+            "step1": {
+                "heading": "Welcome to Soof AI! 🚀",
+                "subheading": "We are excited to have you on board! Let's get started with setting up your account.",
+                "chooseYourPlan": "Choose Your Plan",
+                "trialMessage": "All plans come with a 7-day free trial, feel free to test around!"
+            },
+            "step2": {
+                "heading": "Enable Extension",
+                "subheading": "Cool! Now that you have selected a plan, we can complete the setup by enabling the extension. Our extension will add the embedded chat window to your store directly.",
+                "instructions": "Press the button below & press save to enable the extension.",
+                "enableExtensionButton": "Enable Extension"
+            },
+            "error": {
+                "unableToSubscribe": "Unable to subscribe: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "Your free trial has ended.",
+                    "action": "Upgrade now",
+                    "message": "Please select a plan to continue using our services."
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "Copied to clipboard!"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "Chats",
+            "searchPlaceholder": "Search...",
+            "resourceName": {
+                "singular": "chat",
+                "plural": "chats"
+            },
+            "headings": {
+                "ref": "Ref",
+                "email": "Email",
+                "createdAt": "Created At"
+            },
+            "emptyState": {
+                "heading": "No chats available",
+                "description": "Currently, there are no chats to display. Start a conversation to see it here."
+            },
+            "modalTitle": "Chat detail"
+        },
+        "overview": {
+            "pageTitle": "Overview",
+            "mediaCard": {
+                "title": "Getting Started",
+                "primaryAction": {
+                    "content": "Getting started"
+                },
+                "description": {
+                    "item1": "Engage your customers like never before.",
+                    "item2": "Increase sales with personalized interactions.",
+                    "item3": "24/7 customer support without extra staff."
+                },
+                "imageAlt": "Soof on iPhone"
+            },
+            "chatSessions": {
+                "title": "Chat Sessions",
+                "chatUsage": "Chat usage"
+            }
+        },
+        "integrations": {
+            "pageTitle": "Integrations",
+            "exactOnlineDescription": "Connect your Exact Online account to your Assistant."
+        },
+        "plans": {
+            "pageTitle": "Plans",
+            "backAction": {
+                "content": "Shop Information"
+            },
+            "description": "Each plan comes with a Free 7-day Trial. You can change or cancel your plan at any time.",
+            "banner": {
+                "title": "You are on a free trial",
+                "body": "Your free trial will expire in {days} day(s)."
+            },
+            "cancelSubscriptionButton": "Cancel Subscription",
+            "error": {
+                "unableToSubscribe": "Unable to subscribe: "
+            }
+        },
+        "settings": {
+            "general": "General",
+            "knowledge": "Knowledge",
+            "pageTitle": "Edit assistant"
+        }
+    }
+}

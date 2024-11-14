@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "Appen måste visas i Shopify-admin"
+        },
+        "notFound": "Sidan kunde inte hittas",
+        "navigation": {
+            "overview": "Översikt",
+            "chats": "Chattar",
+            "settings": "Inställningar",
+            "integrations": "Integrationer",
+            "plans": "Planer"
+        }
+    },
+    "Error": "Fel",
+    "Loading": "Laddar",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "Chatten laddas",
+                "productRecommendations": {
+                    "title": "Produktrekommendationer:"
+                },
+                "reference": "Referens",
+                "noTranscript": "Ingen transkription tillgänglig"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "Koppla från",
+                    "connect": "Anslut"
+                },
+                "details": {
+                    "connected": "Konto anslutet",
+                    "disconnected": "Inget konto anslutet"
+                },
+                "terms": {
+                    "first": "Genom att klicka på",
+                    "second": "Anslut",
+                    "third": "godkänner du Soof AIs",
+                    "linkText": "användarvillkor"
+                },
+                "updating": "Uppdaterar integration..."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "Leveransländer",
+                    "body": "Informera kunder om vilka länder du levererar till.",
+                    "noneFound": "Inga länder hittades som matchar",
+                    "addLabel": "Lägg till leveransland",
+                    "searchPlaceholder": "Sök länder"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "Populär produkt:",
+                    "selectButton": "Välj populära produkter",
+                    "emptyState": {
+                        "heading": "Välj populära produkter",
+                        "action": "Välj produkter"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "Inställningar sparade!",
+                "saveBar": {
+                    "save": "Spara",
+                    "discard": "Förkasta"
+                },
+                "form": {
+                    "branding": "Varumärke",
+                    "name": {
+                        "label": "Namn",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "Primär färg",
+                        "helpText": "Du kan ange hex, rgb eller andra färgformat."
+                    },
+                    "secondaryColor": {
+                        "label": "Sekundär färg",
+                        "helpText": "Du kan ange hex, rgb eller andra färgformat."
+                    },
+                    "functions": {
+                        "heading": "Funktioner",
+                        "sendToCustomerSupport": "Skicka chatten till supportmailen om inget svar hittas",
+                        "fetchProductRecommendation": "Hämta produktrekommendationer",
+                        "fetchProductByTitle": "Hämta produkt efter titel",
+                        "fetchParcelDataByEmail": "Hämta realtidsdata om paket (via e-post)",
+                        "fetchParcelDataByOrderId": "Hämta realtidsdata om paket (via order-ID)",
+                        "sendInvoice": "Skicka fakturor via Exact Online (via order-ID)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "Inställningar sparade!",
+                "requiredFieldsToast": "Saknar obligatoriska fält",
+                "saveBar": {
+                    "save": "Spara",
+                    "discard": "Förkasta"
+                },
+                "form": {
+                    "products": {
+                        "title": "Produkter",
+                        "description": "Hantera din butiks produktinformation.",
+                        "productsCategory": {
+                            "heading": "Produktkategori",
+                            "body": "Din produktkategori beskriver vilken typ av produkter du säljer.",
+                            "label": "Produktkategori",
+                            "required": "Produktkategori är obligatorisk",
+                            "helpText": "t.ex. Vitaminer eller Smartphone-tillbehör"
+                        },
+                        "popularProducts": {
+                            "heading": "Populära produkter",
+                            "body": "Välj de produkter du vill att Soof ska lyfta fram.",
+                            "required": "Minst en populär produkt är obligatorisk."
+                        }
+                    },
+                    "shipping": {
+                        "title": "Frakt",
+                        "description": "Ställ in dina fraktkostnader och leveranstider.",
+                        "deliveryAmount": {
+                            "label": "Fraktkostnad",
+                            "required": "Fraktkostnad är obligatorisk"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "Belopp för fri frakt"
+                        },
+                        "minDeliveryDays": {
+                            "label": "Minsta antal leveransdagar",
+                            "required": "Minsta antal leveransdagar är obligatoriskt"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "Maximalt antal leveransdagar",
+                            "required": "Maximalt antal leveransdagar är obligatoriskt"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "Betalningsalternativ",
+                        "description": "Välj de betalningsmetoder du accepterar.",
+                        "required": "Minst ett betalningsalternativ är obligatoriskt."
+                    },
+                    "policies": {
+                        "title": "Policyer",
+                        "description": "Ange din returadress och återbetalningspolicy.",
+                        "returnAddress": {
+                            "label": "Returadress"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "Retur- och återbetalningspolicy",
+                            "required": "Retur- och återbetalningspolicy är obligatorisk"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "Välj plan",
+                "connectStore": "Anslut butik"
+            },
+            "step1": {
+                "heading": "Välkommen till Soof AI! 🚀",
+                "subheading": "Vi är glada att ha dig med! Låt oss börja med att ställa in ditt konto.",
+                "chooseYourPlan": "Välj din plan",
+                "trialMessage": "Alla planer inkluderar en gratis 7-dagars provperiod, prova gärna!"
+            },
+            "step2": {
+                "heading": "Aktivera tillägg",
+                "subheading": "Fantastiskt! Nu när du har valt en plan kan vi avsluta installationen genom att aktivera tillägget. Vårt tillägg lägger till en chatt direkt i din butik.",
+                "instructions": "Tryck på knappen nedan och spara för att aktivera tillägget.",
+                "enableExtensionButton": "Aktivera tillägg"
+            },
+            "error": {
+                "unableToSubscribe": "Kunde inte prenumerera: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "Din gratis provperiod har avslutats.",
+                    "action": "Uppgradera nu",
+                    "message": "Välj en plan för att fortsätta använda våra tjänster."
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "Kopierat till urklipp!"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "Chattar",
+            "searchPlaceholder": "Sök...",
+            "resourceName": {
+                "singular": "chatt",
+                "plural": "chattar"
+            },
+            "headings": {
+                "ref": "Ref",
+                "email": "E-post",
+                "createdAt": "Skapad"
+            },
+            "emptyState": {
+                "heading": "Inga chattar tillgängliga",
+                "description": "För närvarande finns det inga chattar att visa. Starta en konversation för att se den här."
+            },
+            "modalTitle": "Chattdetaljer"
+        },
+        "overview": {
+            "pageTitle": "Översikt",
+            "mediaCard": {
+                "title": "Kom igång",
+                "primaryAction": {
+                    "content": "Kom igång"
+                },
+                "description": {
+                    "item1": "Engagera dina kunder som aldrig förr.",
+                    "item2": "Öka försäljningen med personliga interaktioner.",
+                    "item3": "24/7 kundsupport utan extra personal."
+                },
+                "imageAlt": "Soof på iPhone"
+            },
+            "chatSessions": {
+                "title": "Chattsessioner",
+                "chatUsage": "Användning av chatt"
+            }
+        },
+        "integrations": {
+            "pageTitle": "Integrationer",
+            "exactOnlineDescription": "Anslut ditt Exact Online-konto till din assistent."
+        },
+        "plans": {
+            "pageTitle": "Planer",
+            "backAction": {
+                "content": "Butiksinformation"
+            },
+            "description": "Varje plan inkluderar en gratis 7-dagars provperiod. Du kan när som helst ändra eller avbryta din plan.",
+            "banner": {
+                "title": "Du har en gratis provperiod",
+                "body": "Din gratis provperiod upphör om {days} dag(ar)."
+            },
+            "cancelSubscriptionButton": "Avbryt prenumeration",
+            "error": {
+                "unableToSubscribe": "Kunde inte prenumerera: "
+            }
+        },
+        "settings": {
+            "general": "Allmänt",
+            "knowledge": "Kunskap",
+            "pageTitle": "Redigera assistent"
+        }
+    }
+}

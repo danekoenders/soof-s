@@ -17,8 +17,10 @@ import { useAction, useFindFirst } from '@gadgetinc/react';
 import { api } from '../../api';
 import { PopularProductsList } from './KnowledgeSettings/PopularProductsList';
 import { DeliveryCountriesCombobox } from './KnowledgeSettings/DeliveryCountriesCombobox';
+import { useTranslation } from 'react-i18next';
 
 export default function KnowledgeSettings() {
+  const { t } = useTranslation();
   const initialDataRef = useRef(null);
   const [showErrors, setShowErrors] = useState(false);
 
@@ -99,7 +101,7 @@ export default function KnowledgeSettings() {
 
   useEffect(() => {
     if (updateData) {
-      shopify.toast.show('Settings saved');
+      shopify.toast.show(t('components.settings.KnowledgeSettingsJSX.updateSuccessToast'));
     } else if (updateError) {
       shopify.toast.show(updateError.message, {
         isError: true,
@@ -110,7 +112,7 @@ export default function KnowledgeSettings() {
   const handleSubmit = async () => {
     if (!areRequiredFieldsFilled()) {
       setShowErrors(true);
-      shopify.toast.show('Missing required fields', {
+      shopify.toast.show(t('components.settings.KnowledgeSettingsJSX.requiredFieldsToast'), {
         isError: true,
       });
       return;
@@ -252,42 +254,36 @@ export default function KnowledgeSettings() {
   return (
     <>
       <SaveBar id="my-save-bar">
-        <button variant="primary" onClick={handleSubmit}>
-          Save
-        </button>
-        <button onClick={handleReset}>Discard</button>
+        <button variant="primary" onClick={handleSubmit}>{t('components.settings.KnowledgeSettingsJSX.saveBar.save')}</button>
+        <button onClick={handleReset}>{t('components.settings.KnowledgeSettingsJSX.saveBar.discard')}</button>
       </SaveBar>
       <Form>
         <Layout>
           <Layout.AnnotatedSection
-            title="Products"
-            description="Manage your shop's product information."
+            title={t('components.settings.KnowledgeSettingsJSX.form.products.title')}
+            description={t('components.settings.KnowledgeSettingsJSX.form.products.description')}
           >
             <Card sectioned>
               <FormLayout>
                 <BlockStack gap={300}>
                   <BlockStack>
-                    <Text variant="headingMd">Products Category</Text>
-                    <Text variant="bodyMd">
-                      Your products category describes the type of products you sell.
-                    </Text>
+                    <Text variant="headingMd">{t('components.settings.KnowledgeSettingsJSX.form.products.productsCategory.heading')}</Text>
+                    <Text variant="bodyMd">{t('components.settings.KnowledgeSettingsJSX.form.products.productsCategory.body')}</Text>
                   </BlockStack>
                   <TextField
-                    label="Products Category"
+                    label={t('components.settings.KnowledgeSettingsJSX.form.products.productsCategory.label')}
                     value={productCategory}
                     onChange={(value) => setProductCategory(value)}
                     error={
-                      showErrors && productCategory === '' ? 'Product Category is required' : ''
+                      showErrors && productCategory === '' ? t('components.settings.KnowledgeSettingsJSX.form.products.productsCategory.required') : ''
                     }
-                    helpText="e.g. Vitamins or Smartphone Accessories"
+                    helpText={t('components.settings.KnowledgeSettingsJSX.form.products.productsCategory.helpText')}
                   />
                 </BlockStack>
                 <BlockStack gap={300}>
                   <BlockStack>
-                    <Text variant="headingMd">Popular Products</Text>
-                    <Text variant="bodyMd">
-                      Select the products you want Soof to feature.
-                    </Text>
+                    <Text variant="headingMd">{t('components.settings.KnowledgeSettingsJSX.form.products.popularProducts.heading')}</Text>
+                    <Text variant="bodyMd">{t('components.settings.KnowledgeSettingsJSX.form.products.popularProducts.body')}</Text>
                   </BlockStack>
                   <PopularProductsList
                     popularProducts={popularProducts}
@@ -295,7 +291,7 @@ export default function KnowledgeSettings() {
                   />
                   {showErrors && popularProducts.length === 0 && (
                     <Banner tone="critical">
-                      At least one popular product is required.
+                      {t('components.settings.KnowledgeSettingsJSX.form.products.popularProducts.required')}
                     </Banner>
                   )}
                 </BlockStack>
@@ -305,13 +301,13 @@ export default function KnowledgeSettings() {
 
           {/* Shipping Section */}
           <Layout.AnnotatedSection
-            title="Shipping"
-            description="Set your shipping rates and delivery times."
+            title={t('components.settings.KnowledgeSettingsJSX.form.shipping.title')}
+            description={t('components.settings.KnowledgeSettingsJSX.form.shipping.description')}
           >
             <Card sectioned>
               <FormLayout>
                 <TextField
-                  label="Delivery Amount"
+                  label={t('components.settings.KnowledgeSettingsJSX.form.shipping.deliveryAmount.label')}
                   placeholder="$0.00"
                   value={deliveryAmount}
                   onChange={(value) => {
@@ -322,11 +318,11 @@ export default function KnowledgeSettings() {
                     }
                   }}
                   error={
-                    showErrors && deliveryAmount === '' ? 'Delivery Amount is required' : ''
+                    showErrors && deliveryAmount === '' ? t('components.settings.KnowledgeSettingsJSX.form.shipping.deliveryAmount.required') : ''
                   }
                 />
                 <TextField
-                  label="Free Delivery Amount"
+                  label={t('components.settings.KnowledgeSettingsJSX.form.shipping.freeDeliveryAmount.label')}
                   placeholder="$0.00"
                   value={freeDeliveryAmount}
                   onChange={(value) => {
@@ -338,26 +334,26 @@ export default function KnowledgeSettings() {
                   }}
                 />
                 <TextField
-                  label="Minimum Delivery Days"
+                  label={t('components.settings.KnowledgeSettingsJSX.form.shipping.minDeliveryDays.label')}
                   placeholder="1"
                   type="number"
                   value={minDeliveryDays}
                   onChange={(value) => setMinDeliveryDays(value)}
                   error={
                     showErrors && minDeliveryDays === ''
-                      ? 'Minimum Delivery Days is required'
+                      ? t('components.settings.KnowledgeSettingsJSX.form.shipping.minDeliveryDays.required')
                       : ''
                   }
                 />
                 <TextField
-                  label="Maximum Delivery Days"
+                  label={t('components.settings.KnowledgeSettingsJSX.form.shipping.maxDeliveryDays.label')}
                   placeholder="2"
                   type="number"
                   value={maxDeliveryDays}
                   onChange={(value) => setMaxDeliveryDays(value)}
                   error={
                     showErrors && maxDeliveryDays === ''
-                      ? 'Maximum Delivery Days is required'
+                      ? t('components.settings.KnowledgeSettingsJSX.form.shipping.maxDeliveryDays.required')
                       : ''
                   }
                 />
@@ -371,8 +367,8 @@ export default function KnowledgeSettings() {
 
           {/* Payment Options Section */}
           <Layout.AnnotatedSection
-            title="Payment Options"
-            description="Select the payment methods you accept."
+            title={t('components.settings.KnowledgeSettingsJSX.form.paymentOptions.title')}
+            description={t('components.settings.KnowledgeSettingsJSX.form.paymentOptions.description')}
           >
             <Card sectioned>
               <BlockStack spacing="tight">
@@ -386,7 +382,7 @@ export default function KnowledgeSettings() {
                 ))}
                 {showErrors && paymentOptions.length === 0 && (
                   <Banner tone="critical">
-                    At least one payment option is required.
+                    {t('components.settings.KnowledgeSettingsJSX.form.paymentOptions.required')}
                   </Banner>
                 )}
               </BlockStack>
@@ -395,24 +391,24 @@ export default function KnowledgeSettings() {
 
           {/* Policies Section */}
           <Layout.AnnotatedSection
-            title="Policies"
-            description="Provide your return address and refund policy."
+            title={t('components.settings.KnowledgeSettingsJSX.form.policies.title')}
+            description={t('components.settings.KnowledgeSettingsJSX.form.policies.description')}
           >
             <Card sectioned>
               <FormLayout>
                 <TextField
-                  label="Return Address"
+                  label={t('components.settings.KnowledgeSettingsJSX.form.policies.returnAddress.label')}
                   value={returnAddress}
                   onChange={(value) => setReturnAddress(value)}
                 />
                 <TextField
-                  label="Return and Refund Policy"
+                  label={t('components.settings.KnowledgeSettingsJSX.form.policies.returnAndRefundPolicy.label')}
                   value={returnAndRefundPolicy}
                   onChange={(value) => setReturnAndRefundPolicy(value)}
                   multiline
                   error={
                     showErrors && returnAndRefundPolicy === ''
-                      ? 'Return and Refund Policy is required'
+                      ? t('components.settings.KnowledgeSettingsJSX.form.policies.returnAndRefundPolicy.required')
                       : ''
                   }
                 />

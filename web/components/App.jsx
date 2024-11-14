@@ -14,7 +14,8 @@ import {
   createRoutesFromElements,
   useLocation,
   useNavigate,
-  Link
+  Link,
+  useSearchParams
 } from "react-router-dom";
 import Index from "../routes/index";
 import PlansPage from "../routes/plans";
@@ -27,20 +28,23 @@ import SettingsLayout from "../routes/settings";
 import ChatDetail from "./chats/ChatDetail";
 import CallbacksLayout from "../routes/callbacks";
 import ExactOnline from "./callbacks/ExactOnline";
+import i18n from "../utils/i18next";
+import { useTranslation } from 'react-i18next';
+
 
 function Error404() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
+  const appURL = process.env.GADGET_PUBLIC_SHOPIFY_APP_URL;
 
   useEffect(() => {
-    const appURL = process.env.GADGET_PUBLIC_SHOPIFY_APP_URL;
-
     if (appURL && location.pathname === new URL(appURL).pathname) {
-      navigate("/", { replace: true });
+      navigate('/', { replace: true });
     }
   }, [location.pathname]);
 
-  return <div>404 not found</div>;
+  return <div>{t('app.notFound')}</div>;
 }
 
 function App() {
@@ -107,6 +111,16 @@ function EmbeddedApp() {
       mantleApiToken: true,
     }
   });
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get('locale') || 'en'; // Default to 'en' if not specified
+
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    if (locale) {
+      i18n.changeLanguage(locale);
+    }
+  }, [locale]);
 
   if (fetching) {
     return (
@@ -119,7 +133,7 @@ function EmbeddedApp() {
           width: "100%",
         }}
       >
-        <Spinner accessibilityLabel="Spinner example" size="large" />
+        <Spinner accessibilityLabel="Spinner" size="large" />
       </div>
     );
   }
@@ -131,23 +145,24 @@ function EmbeddedApp() {
     >
       <Outlet />
       <NavMenu>
-        <Link to="/" rel="home">Shop Information</Link>
-        <Link to="/chats">Chats</Link>
-        <Link to="/settings">Settings</Link>
-        <Link to="/integrations">Integrations</Link>
-        <Link to="/plans">Plans</Link>
+        <Link to="/" rel="home">{t('app.navigation.overview')}</Link>
+        <Link to="/chats">{t('app.navigation.chats')}</Link>
+        <Link to="/settings">{t('app.navigation.settings')}</Link>
+        <Link to="/integrations">{t('app.navigation.integrations')}</Link>
+        <Link to="/plans">{t('app.navigation.plans')}</Link>
       </NavMenu>
     </MantleProvider>
   );
 }
 
 function UnauthenticatedApp() {
+  const { t } = useTranslation();
   return (
     <Page>
       <div style={{ height: "80px" }}>
         <Card padding="500">
           <Text variant="headingLg" as="h1">
-            App must be viewed in the Shopify Admin
+            {t('app.unauthenticated.title')}
           </Text>
           <Outlet />
         </Card>

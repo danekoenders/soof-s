@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "Die App muss im Shopify-Admin angezeigt werden"
+        },
+        "notFound": "Seite nicht gefunden",
+        "navigation": {
+            "overview": "Übersicht",
+            "chats": "Chats",
+            "settings": "Einstellungen",
+            "integrations": "Integrationen",
+            "plans": "Pläne"
+        }
+    },
+    "Error": "Fehler",
+    "Loading": "Laden",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "Der Chat wird geladen",
+                "productRecommendations": {
+                    "title": "Produktvorschläge:"
+                },
+                "reference": "Referenz",
+                "noTranscript": "Kein Transkript verfügbar"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "Verbindung trennen",
+                    "connect": "Verbinden"
+                },
+                "details": {
+                    "connected": "Konto verbunden",
+                    "disconnected": "Kein Konto verbunden"
+                },
+                "terms": {
+                    "first": "Durch Klicken auf",
+                    "second": "Verbinden",
+                    "third": "akzeptieren Sie die",
+                    "linkText": "Nutzungsbedingungen von Soof AI"
+                },
+                "updating": "Integration wird aktualisiert.."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "Lieferländer",
+                    "body": "Informieren Sie Kunden, in welche Länder Sie liefern.",
+                    "noneFound": "Keine passenden Länder gefunden",
+                    "addLabel": "Lieferland hinzufügen",
+                    "searchPlaceholder": "Länder suchen"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "Beliebtes Produkt:",
+                    "selectButton": "Beliebte Produkte auswählen",
+                    "emptyState": {
+                        "heading": "Beliebte Produkte auswählen",
+                        "action": "Produkte auswählen"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "Einstellungen gespeichert!",
+                "saveBar": {
+                    "save": "Speichern",
+                    "discard": "Verwerfen"
+                },
+                "form": {
+                    "branding": "Markenauftritt",
+                    "name": {
+                        "label": "Name",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "Primärfarbe",
+                        "helpText": "Sie können hex, rgb oder andere Farbformate eingeben."
+                    },
+                    "secondaryColor": {
+                        "label": "Sekundärfarbe",
+                        "helpText": "Sie können hex, rgb oder andere Farbformate eingeben."
+                    },
+                    "functions": {
+                        "heading": "Funktionen",
+                        "sendToCustomerSupport": "Chat an Support-E-Mail senden, wenn keine Antwort gefunden wird",
+                        "fetchProductRecommendation": "Produktvorschläge abrufen",
+                        "fetchProductByTitle": "Produkt nach Titel abrufen",
+                        "fetchParcelDataByEmail": "Echtzeit-Paketdaten abrufen (nach E-Mail)",
+                        "fetchParcelDataByOrderId": "Echtzeit-Paketdaten abrufen (nach Bestell-ID)",
+                        "sendInvoice": "Rechnungen über Exact Online senden (nach Bestell-ID)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "Einstellungen gespeichert!",
+                "requiredFieldsToast": "Pflichtfelder fehlen",
+                "saveBar": {
+                    "save": "Speichern",
+                    "discard": "Verwerfen"
+                },
+                "form": {
+                    "products": {
+                        "title": "Produkte",
+                        "description": "Verwalten Sie die Produktinformationen Ihres Shops.",
+                        "productsCategory": {
+                            "heading": "Produktkategorie",
+                            "body": "Ihre Produktkategorie beschreibt die Art der Produkte, die Sie verkaufen.",
+                            "label": "Produktkategorie",
+                            "required": "Produktkategorie ist erforderlich",
+                            "helpText": "z. B. Vitamine oder Smartphone-Zubehör"
+                        },
+                        "popularProducts": {
+                            "heading": "Beliebte Produkte",
+                            "body": "Wählen Sie die Produkte aus, die Soof anzeigen soll.",
+                            "required": "Mindestens ein beliebtes Produkt ist erforderlich."
+                        }
+                    },
+                    "shipping": {
+                        "title": "Versand",
+                        "description": "Legen Sie Ihre Versandkosten und Lieferzeiten fest.",
+                        "deliveryAmount": {
+                            "label": "Lieferbetrag",
+                            "required": "Lieferbetrag ist erforderlich"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "Betrag für kostenlose Lieferung"
+                        },
+                        "minDeliveryDays": {
+                            "label": "Minimale Lieferzeit (Tage)",
+                            "required": "Minimale Lieferzeit ist erforderlich"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "Maximale Lieferzeit (Tage)",
+                            "required": "Maximale Lieferzeit ist erforderlich"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "Zahlungsoptionen",
+                        "description": "Wählen Sie die akzeptierten Zahlungsmethoden.",
+                        "required": "Mindestens eine Zahlungsoption ist erforderlich."
+                    },
+                    "policies": {
+                        "title": "Richtlinien",
+                        "description": "Geben Sie Ihre Rücksendeadresse und Rückerstattungsrichtlinien an.",
+                        "returnAddress": {
+                            "label": "Rücksendeadresse"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "Rückgabe- und Rückerstattungsrichtlinien",
+                            "required": "Rückgabe- und Rückerstattungsrichtlinien sind erforderlich"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "Plan auswählen",
+                "connectStore": "Shop verbinden"
+            },
+            "step1": {
+                "heading": "Willkommen bei Soof AI! 🚀",
+                "subheading": "Wir freuen uns, dass Sie dabei sind! Beginnen wir mit der Einrichtung Ihres Kontos.",
+                "chooseYourPlan": "Wählen Sie Ihren Plan",
+                "trialMessage": "Alle Pläne enthalten eine kostenlose 7-tägige Testversion, probieren Sie es aus!"
+            },
+            "step2": {
+                "heading": "Erweiterung aktivieren",
+                "subheading": "Super! Jetzt, wo Sie einen Plan ausgewählt haben, können wir die Einrichtung abschließen, indem wir die Erweiterung aktivieren. Unsere Erweiterung fügt direkt ein Chat-Fenster in Ihren Shop ein.",
+                "instructions": "Drücken Sie den Knopf unten und speichern Sie, um die Erweiterung zu aktivieren.",
+                "enableExtensionButton": "Erweiterung aktivieren"
+            },
+            "error": {
+                "unableToSubscribe": "Abonnement nicht möglich: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "Ihre kostenlose Testphase ist abgelaufen.",
+                    "action": "Jetzt upgraden",
+                    "message": "Bitte wählen Sie einen Plan, um unseren Service weiterhin zu nutzen."
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "In die Zwischenablage kopiert!"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "Chats",
+            "searchPlaceholder": "Suchen...",
+            "resourceName": {
+                "singular": "chat",
+                "plural": "chats"
+            },
+            "headings": {
+                "ref": "Ref",
+                "email": "E-Mail",
+                "createdAt": "Erstellt am"
+            },
+            "emptyState": {
+                "heading": "Keine Chats verfügbar",
+                "description": "Derzeit sind keine Chats verfügbar. Starten Sie ein Gespräch, um es hier anzuzeigen."
+            },
+            "modalTitle": "Chat-Details"
+        },
+        "overview": {
+            "pageTitle": "Übersicht",
+            "mediaCard": {
+                "title": "Erste Schritte",
+                "primaryAction": {
+                    "content": "Erste Schritte"
+                },
+                "description": {
+                    "item1": "Beziehen Sie Ihre Kunden ein wie nie zuvor.",
+                    "item2": "Steigern Sie den Umsatz durch personalisierte Interaktionen.",
+                    "item3": "24/7 Kundenbetreuung ohne zusätzliches Personal."
+                },
+                "imageAlt": "Soof auf dem iPhone"
+            },
+            "chatSessions": {
+                "title": "Chat-Sitzungen",
+                "chatUsage": "Chat-Nutzung"
+            }
+        },
+        "integrations": {
+            "pageTitle": "Integrationen",
+            "exactOnlineDescription": "Verbinden Sie Ihr Exact Online-Konto mit Ihrem Assistenten."
+        },
+        "plans": {
+            "pageTitle": "Pläne",
+            "backAction": {
+                "content": "Shop-Informationen"
+            },
+            "description": "Jeder Plan enthält eine kostenlose 7-tägige Testversion. Sie können Ihren Plan jederzeit ändern oder kündigen.",
+            "banner": {
+                "title": "Sie nutzen eine kostenlose Testversion",
+                "body": "Ihre kostenlose Testversion endet in {days} Tag(en)."
+            },
+            "cancelSubscriptionButton": "Abonnement kündigen",
+            "error": {
+                "unableToSubscribe": "Abonnement nicht möglich: "
+            }
+        },
+        "settings": {
+            "general": "Allgemein",
+            "knowledge": "Wissen",
+            "pageTitle": "Assistent bearbeiten"
+        }
+    }
+}

@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "Sovellusta on katseltava Shopify Adminissa"
+        },
+        "notFound": "Sivua ei löytynyt",
+        "navigation": {
+            "overview": "Yleiskatsaus",
+            "chats": "Keskustelut",
+            "settings": "Asetukset",
+            "integrations": "Integraatiot",
+            "plans": "Suunnitelmat"
+        }
+    },
+    "Error": "Virhe",
+    "Loading": "Ladataan",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "Keskustelu latautuu",
+                "productRecommendations": {
+                    "title": "Tuotesuositukset:"
+                },
+                "reference": "Viite",
+                "noTranscript": "Ei saatavilla olevaa transkriptiota"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "Katkaise yhteys",
+                    "connect": "Yhdistä"
+                },
+                "details": {
+                    "connected": "Tili yhdistetty",
+                    "disconnected": "Ei yhdistettyä tiliä"
+                },
+                "terms": {
+                    "first": "Klikkaamalla",
+                    "second": "Yhdistä",
+                    "third": "hyväksyt Soof AI:n",
+                    "linkText": "palveluehdot"
+                },
+                "updating": "Päivitetään integraatiota.."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "Toimitusmaat",
+                    "body": "Ilmoita asiakkaille, mihin maihin toimitat.",
+                    "noneFound": "Yhtään maata ei löytynyt",
+                    "addLabel": "Lisää toimitusmaa",
+                    "searchPlaceholder": "Hae maita"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "Suosittu tuote:",
+                    "selectButton": "Valitse suosittuja tuotteita",
+                    "emptyState": {
+                        "heading": "Valitse suosittuja tuotteita",
+                        "action": "Valitse tuotteet"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "Asetukset tallennettu!",
+                "saveBar": {
+                    "save": "Tallenna",
+                    "discard": "Hylkää"
+                },
+                "form": {
+                    "branding": "Brändäys",
+                    "name": {
+                        "label": "Nimi",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "Pääväri",
+                        "helpText": "Voit syöttää hex, rgb tai muita väriarvoja."
+                    },
+                    "secondaryColor": {
+                        "label": "Toissijainen väri",
+                        "helpText": "Voit syöttää hex, rgb tai muita väriarvoja."
+                    },
+                    "functions": {
+                        "heading": "Toiminnot",
+                        "sendToCustomerSupport": "Lähetä keskustelu tukisähköpostiin, jos vastausta ei löydy",
+                        "fetchProductRecommendation": "Hae tuotesuosituksia",
+                        "fetchProductByTitle": "Hae tuote otsikon perusteella",
+                        "fetchParcelDataByEmail": "Hae reaaliaikaiset pakettitiedot (sähköpostitse)",
+                        "fetchParcelDataByOrderId": "Hae reaaliaikaiset pakettitiedot (tilausnumerolla)",
+                        "sendInvoice": "Lähetä laskuja Exact Onlinen kautta (tilausnumerolla)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "Asetukset tallennettu!",
+                "requiredFieldsToast": "Pakolliset kentät puuttuvat",
+                "saveBar": {
+                    "save": "Tallenna",
+                    "discard": "Hylkää"
+                },
+                "form": {
+                    "products": {
+                        "title": "Tuotteet",
+                        "description": "Hallitse kauppasi tuotetietoja.",
+                        "productsCategory": {
+                            "heading": "Tuotekategoria",
+                            "body": "Tuotekategoriasi kuvaa myymiesi tuotteiden tyyppiä.",
+                            "label": "Tuotekategoria",
+                            "required": "Tuotekategoria on pakollinen",
+                            "helpText": "esim. Vitamiinit tai älypuhelintarvikkeet"
+                        },
+                        "popularProducts": {
+                            "heading": "Suositut tuotteet",
+                            "body": "Valitse tuotteet, jotka haluat Soofin näyttävän.",
+                            "required": "Vähintään yksi suosittu tuote on pakollinen."
+                        }
+                    },
+                    "shipping": {
+                        "title": "Toimitus",
+                        "description": "Määritä toimituskulut ja toimitusajat.",
+                        "deliveryAmount": {
+                            "label": "Toimitusmaksu",
+                            "required": "Toimitusmaksu on pakollinen"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "Ilmainen toimitus alkaen"
+                        },
+                        "minDeliveryDays": {
+                            "label": "Vähimmäistoimitusaika (päivää)",
+                            "required": "Vähimmäistoimitusaika on pakollinen"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "Enimmäistoimitusaika (päivää)",
+                            "required": "Enimmäistoimitusaika on pakollinen"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "Maksuvaihtoehdot",
+                        "description": "Valitse hyväksymäsi maksutavat.",
+                        "required": "Vähintään yksi maksuvaihtoehto on pakollinen."
+                    },
+                    "policies": {
+                        "title": "Käytännöt",
+                        "description": "Anna palautusosoite ja palautuskäytäntö.",
+                        "returnAddress": {
+                            "label": "Palautusosoite"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "Palautus- ja hyvityskäytäntö",
+                            "required": "Palautus- ja hyvityskäytäntö on pakollinen"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "Valitse suunnitelma",
+                "connectStore": "Yhdistä kauppa"
+            },
+            "step1": {
+                "heading": "Tervetuloa Soof AI:hin! 🚀",
+                "subheading": "Olemme iloisia, että olet mukana! Aloitetaan tilisi asettamisesta.",
+                "chooseYourPlan": "Valitse suunnitelmasi",
+                "trialMessage": "Kaikki suunnitelmat sisältävät 7 päivän ilmaisen kokeilujakson, kokeile vapaasti!"
+            },
+            "step2": {
+                "heading": "Ota laajennus käyttöön",
+                "subheading": "Mahtavaa! Nyt kun olet valinnut suunnitelman, voimme viimeistellä asetukset ottamalla laajennuksen käyttöön. Laajennus lisää kauppaasi sisäisen chat-ikkunan.",
+                "instructions": "Paina alla olevaa painiketta ja tallenna ottaaksesi laajennuksen käyttöön.",
+                "enableExtensionButton": "Ota laajennus käyttöön"
+            },
+            "error": {
+                "unableToSubscribe": "Ei voi tilata: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "Ilmainen kokeilujakso on päättynyt.",
+                    "action": "Päivitä nyt",
+                    "message": "Valitse suunnitelma jatkaaksesi palvelumme käyttöä."
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "Kopioitu leikepöydälle!"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "Keskustelut",
+            "searchPlaceholder": "Hae...",
+            "resourceName": {
+                "singular": "keskustelu",
+                "plural": "keskustelut"
+            },
+            "headings": {
+                "ref": "Viite",
+                "email": "Sähköposti",
+                "createdAt": "Luotu"
+            },
+            "emptyState": {
+                "heading": "Ei keskusteluja saatavilla",
+                "description": "Tällä hetkellä ei ole keskusteluja näytettäväksi. Aloita keskustelu nähdäksesi sen täällä."
+            },
+            "modalTitle": "Keskustelun tiedot"
+        },
+        "overview": {
+            "pageTitle": "Yleiskatsaus",
+            "mediaCard": {
+                "title": "Aloittaminen",
+                "primaryAction": {
+                    "content": "Aloittaminen"
+                },
+                "description": {
+                    "item1": "Engageeraa asiakkaitasi paremmin kuin koskaan.",
+                    "item2": "Lisää myyntiä personoiduilla vuorovaikutuksilla.",
+                    "item3": "24/7 asiakastuki ilman lisähenkilökuntaa."
+                },
+                "imageAlt": "Soof iPhonessa"
+            },
+            "chatSessions": {
+                "title": "Keskustelusessiot",
+                "chatUsage": "Keskustelujen käyttö"
+            }
+        },
+        "integrations": {
+            "pageTitle": "Integraatiot",
+            "exactOnlineDescription": "Yhdistä Exact Online -tilisi assistenttiisi."
+        },
+        "plans": {
+            "pageTitle": "Suunnitelmat",
+            "backAction": {
+                "content": "Kaupan tiedot"
+            },
+            "description": "Jokainen suunnitelma sisältää ilmaisen 7 päivän kokeilujakson. Voit vaihtaa tai peruuttaa suunnitelmasi milloin tahansa.",
+            "banner": {
+                "title": "Olet ilmaisessa kokeilujaksossa",
+                "body": "Ilmainen kokeilujakso päättyy {days} päivän kuluttua."
+            },
+            "cancelSubscriptionButton": "Peruuta tilaus",
+            "error": {
+                "unableToSubscribe": "Ei voi tilata: "
+            }
+        },
+        "settings": {
+            "general": "Yleiset",
+            "knowledge": "Tieto",
+            "pageTitle": "Muokkaa assistenttia"
+        }
+    }
+}

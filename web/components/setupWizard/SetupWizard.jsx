@@ -2,10 +2,11 @@ import { useAction } from "@gadgetinc/react";
 import { PlanCardStack, PlanCardType } from "@heymantle/polaris";
 import { useMantle } from "@heymantle/react";
 import { BlockStack, Button, Card, Layout, Text } from "@shopify/polaris";
-import { ConnectIcon, PersonIcon, CursorIcon, AppsIcon, ExternalIcon } from "@shopify/polaris-icons";
+import { CursorIcon, AppsIcon, ExternalIcon } from "@shopify/polaris-icons";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../../api";
+import { useTranslation } from 'react-i18next';
 
 export default function SetupWizard({ data }) {
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ export default function SetupWizard({ data }) {
     const { subscription, customer, plans, subscribe } = useMantle();
     const [searchParams] = useSearchParams();
     const stepParam = searchParams.get('step');
+    const { t } = useTranslation();
 
     const [{ data: updateData, fetching: updateFetching, error: updateError }, updateShop] = useAction(api.shopifyShop.update);
 
@@ -30,10 +32,10 @@ export default function SetupWizard({ data }) {
 
     const steps = [{
         id: 1,
-        title: 'Select Plan',
+        title: t('components.setupWizard.steps.selectPlan'),
     }, {
         id: 2,
-        title: 'Connect Store',
+        title: t('components.setupWizard.steps.connectStore'),
     }];
 
     const handleEnableExtension = async () => {
@@ -56,21 +58,21 @@ export default function SetupWizard({ data }) {
                         <BlockStack gap="200">
                             <BlockStack gap="100" inlineAlign="center">
                                 <Text variant="headingLg" as="h1" alignment="center">
-                                    Welcome to Soof AI! 🚀
+                                    {t('components.setupWizard.step1.heading')}
                                 </Text>
                                 <Text variant='bodyLg' as="p" alignment="center">
-                                    We are excited to have you on board! Let's get started with setting up your account.
+                                    {t('components.setupWizard.step1.subheading')}
                                 </Text>
                             </BlockStack>
                             <BlockStack gap="100" inlineAlign="center">
                                 <CursorIcon width={40} />
                                 <Text variant="headingMd" as="h2" alignment="center">
-                                    Choose Your Plan
+                                    {t('components.setupWizard.step1.chooseYourPlan')}
                                 </Text>
                             </BlockStack>
                             <BlockStack gap="100">
                                 <Text as="p" alignment="center">
-                                    All plans come with a 7-day free trial, feel free to test around!
+                                    {t('components.setupWizard.step1.trialMessage')}
                                 </Text>
                                 <PlanCardStack
                                     cardType={PlanCardType.Highlighted}
@@ -79,7 +81,7 @@ export default function SetupWizard({ data }) {
                                     onSelectPlan={async ({ plan, discount }) => {
                                         const subscription = await subscribe({ planId: plan.id, discountId: discount?.id, returnUrl: '/?step=2' });
                                         if (subscription.error) {
-                                            console.error('Unable to subscribe: ', subscription.error);
+                                            console.error(t('components.setupWizard.error.unableToSubscribe'), subscription.error);
                                         } else {
                                             open(subscription.confirmationUrl, "_top");
                                         }
@@ -94,16 +96,15 @@ export default function SetupWizard({ data }) {
                             <BlockStack gap="100" inlineAlign="center">
                                 <AppsIcon width={40} />
                                 <Text variant="headingMd" as="h2" alignment="center">
-                                    Enable Extension
+                                    {t('components.setupWizard.step2.heading')}
                                 </Text>
                             </BlockStack>
                             <BlockStack gap="200" inlineAlign="center">
                                 <Text as="p" alignment="center">
-                                    Cool! Now that you have selected a plan, we can complete the setup by enabling the extension.
-                                    <br></br>Our extension will add the embedded chat window to your store directly.
+                                    {t('components.setupWizard.step2.subheading')}
                                 </Text>
                                 <Text as="p" alignment="center">
-                                    Press the button below & press <b>save</b> to enable the extension.
+                                    {t('components.setupWizard.step2.instructions')}
                                 </Text>
                                 <Button
                                     size="large"
@@ -111,7 +112,7 @@ export default function SetupWizard({ data }) {
                                     variant="primary"
                                     onClick={handleEnableExtension}
                                 >
-                                    Enable Extension
+                                    {t('components.setupWizard.step2.enableExtensionButton')}
                                 </Button>
                             </BlockStack>
                         </BlockStack>

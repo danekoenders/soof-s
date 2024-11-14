@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "A aplicação deve ser visualizada no Admin do Shopify"
+        },
+        "notFound": "Página não encontrada",
+        "navigation": {
+            "overview": "Visão geral",
+            "chats": "Chats",
+            "settings": "Configurações",
+            "integrations": "Integrações",
+            "plans": "Planos"
+        }
+    },
+    "Error": "Erro",
+    "Loading": "A carregar",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "O chat está a carregar",
+                "productRecommendations": {
+                    "title": "Recomendações de produtos:"
+                },
+                "reference": "Referência",
+                "noTranscript": "Nenhuma transcrição disponível"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "Desconectar",
+                    "connect": "Conectar"
+                },
+                "details": {
+                    "connected": "Conta conectada",
+                    "disconnected": "Nenhuma conta conectada"
+                },
+                "terms": {
+                    "first": "Ao clicar em",
+                    "second": "Conectar",
+                    "third": "aceita os",
+                    "linkText": "termos de serviço do Soof AI"
+                },
+                "updating": "A atualizar integração..."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "Países de entrega",
+                    "body": "Informe os clientes sobre os países para onde entrega.",
+                    "noneFound": "Nenhum país encontrado correspondente",
+                    "addLabel": "Adicionar país de entrega",
+                    "searchPlaceholder": "Procurar países"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "Produto popular:",
+                    "selectButton": "Selecionar produtos populares",
+                    "emptyState": {
+                        "heading": "Selecionar produtos populares",
+                        "action": "Selecionar produtos"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "Configurações guardadas!",
+                "saveBar": {
+                    "save": "Guardar",
+                    "discard": "Descartar"
+                },
+                "form": {
+                    "branding": "Marca",
+                    "name": {
+                        "label": "Nome",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "Cor principal",
+                        "helpText": "Pode inserir hex, rgb ou outros formatos de cor."
+                    },
+                    "secondaryColor": {
+                        "label": "Cor secundária",
+                        "helpText": "Pode inserir hex, rgb ou outros formatos de cor."
+                    },
+                    "functions": {
+                        "heading": "Funções",
+                        "sendToCustomerSupport": "Enviar chat para o e-mail de suporte se não houver resposta",
+                        "fetchProductRecommendation": "Obter recomendações de produtos",
+                        "fetchProductByTitle": "Obter produto pelo título",
+                        "fetchParcelDataByEmail": "Obter dados de entrega em tempo real (por e-mail)",
+                        "fetchParcelDataByOrderId": "Obter dados de entrega em tempo real (por ID do pedido)",
+                        "sendInvoice": "Enviar faturas usando Exact Online (por ID do pedido)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "Configurações guardadas!",
+                "requiredFieldsToast": "Campos obrigatórios em falta",
+                "saveBar": {
+                    "save": "Guardar",
+                    "discard": "Descartar"
+                },
+                "form": {
+                    "products": {
+                        "title": "Produtos",
+                        "description": "Gerir as informações dos produtos da sua loja.",
+                        "productsCategory": {
+                            "heading": "Categoria de produtos",
+                            "body": "A categoria de produtos descreve o tipo de produtos que vende.",
+                            "label": "Categoria de produtos",
+                            "required": "A categoria de produtos é obrigatória",
+                            "helpText": "ex. Vitaminas ou Acessórios para Smartphones"
+                        },
+                        "popularProducts": {
+                            "heading": "Produtos populares",
+                            "body": "Selecione os produtos que deseja que o Soof destaque.",
+                            "required": "Pelo menos um produto popular é obrigatório."
+                        }
+                    },
+                    "shipping": {
+                        "title": "Envio",
+                        "description": "Defina as suas taxas e prazos de envio.",
+                        "deliveryAmount": {
+                            "label": "Valor de entrega",
+                            "required": "O valor de entrega é obrigatório"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "Valor para entrega gratuita"
+                        },
+                        "minDeliveryDays": {
+                            "label": "Dias mínimos de entrega",
+                            "required": "Dias mínimos de entrega são obrigatórios"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "Dias máximos de entrega",
+                            "required": "Dias máximos de entrega são obrigatórios"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "Opções de pagamento",
+                        "description": "Selecione os métodos de pagamento aceites.",
+                        "required": "Pelo menos uma opção de pagamento é obrigatória."
+                    },
+                    "policies": {
+                        "title": "Políticas",
+                        "description": "Forneça o seu endereço de devolução e a política de reembolso.",
+                        "returnAddress": {
+                            "label": "Endereço de devolução"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "Política de devolução e reembolso",
+                            "required": "A política de devolução e reembolso é obrigatória"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "Selecionar plano",
+                "connectStore": "Conectar loja"
+            },
+            "step1": {
+                "heading": "Bem-vindo ao Soof AI! 🚀",
+                "subheading": "Estamos felizes em tê-lo a bordo! Vamos começar por configurar a sua conta.",
+                "chooseYourPlan": "Escolha o seu plano",
+                "trialMessage": "Todos os planos incluem um teste gratuito de 7 dias, sinta-se à vontade para testar!"
+            },
+            "step2": {
+                "heading": "Ativar extensão",
+                "subheading": "Ótimo! Agora que escolheu um plano, podemos concluir a configuração ativando a extensão. A nossa extensão adicionará uma janela de chat diretamente à sua loja.",
+                "instructions": "Pressione o botão abaixo e guarde para ativar a extensão.",
+                "enableExtensionButton": "Ativar extensão"
+            },
+            "error": {
+                "unableToSubscribe": "Não foi possível subscrever: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "O seu período de teste gratuito terminou.",
+                    "action": "Atualizar agora",
+                    "message": "Selecione um plano para continuar a usar os nossos serviços."
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "Copiado para a área de transferência!"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "Chats",
+            "searchPlaceholder": "Pesquisar...",
+            "resourceName": {
+                "singular": "chat",
+                "plural": "chats"
+            },
+            "headings": {
+                "ref": "Ref",
+                "email": "E-mail",
+                "createdAt": "Criado em"
+            },
+            "emptyState": {
+                "heading": "Nenhum chat disponível",
+                "description": "Atualmente, não há chats para exibir. Inicie uma conversa para vê-la aqui."
+            },
+            "modalTitle": "Detalhes do chat"
+        },
+        "overview": {
+            "pageTitle": "Visão geral",
+            "mediaCard": {
+                "title": "Primeiros passos",
+                "primaryAction": {
+                    "content": "Primeiros passos"
+                },
+                "description": {
+                    "item1": "Envolva os seus clientes como nunca antes.",
+                    "item2": "Aumente as vendas com interações personalizadas.",
+                    "item3": "Apoio ao cliente 24/7 sem equipa adicional."
+                },
+                "imageAlt": "Soof no iPhone"
+            },
+            "chatSessions": {
+                "title": "Sessões de chat",
+                "chatUsage": "Utilização do chat"
+            }
+        },
+        "integrations": {
+            "pageTitle": "Integrações",
+            "exactOnlineDescription": "Conecte a sua conta Exact Online ao seu assistente."
+        },
+        "plans": {
+            "pageTitle": "Planos",
+            "backAction": {
+                "content": "Informação da loja"
+            },
+            "description": "Cada plano inclui um teste gratuito de 7 dias. Pode alterar ou cancelar o seu plano a qualquer momento.",
+            "banner": {
+                "title": "Está a usufruir de um período de teste gratuito",
+                "body": "O seu período de teste gratuito expira em {days} dia(s)."
+            },
+            "cancelSubscriptionButton": "Cancelar subscrição",
+            "error": {
+                "unableToSubscribe": "Não foi possível subscrever: "
+            }
+        },
+        "settings": {
+            "general": "Geral",
+            "knowledge": "Conhecimento",
+            "pageTitle": "Editar assistente"
+        }
+    }
+}

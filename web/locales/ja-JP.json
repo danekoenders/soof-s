@@ -1,0 +1,257 @@
+{
+    "app": {
+        "unauthenticated": {
+            "title": "アプリはShopify管理画面で表示する必要があります"
+        },
+        "notFound": "ページが見つかりません",
+        "navigation": {
+            "overview": "概要",
+            "chats": "チャット",
+            "settings": "設定",
+            "integrations": "連携",
+            "plans": "プラン"
+        }
+    },
+    "Error": "エラー",
+    "Loading": "読み込み中",
+    "components": {
+        "chats": {
+            "ChatDetail": {
+                "spinnerLabel": "チャットを読み込んでいます",
+                "productRecommendations": {
+                    "title": "商品のおすすめ:"
+                },
+                "reference": "参照",
+                "noTranscript": "利用可能なトランスクリプトがありません"
+            }
+        },
+        "integrations": {
+            "ExactOnline": {
+                "buttonText": {
+                    "disconnect": "接続解除",
+                    "connect": "接続"
+                },
+                "details": {
+                    "connected": "アカウントが接続されました",
+                    "disconnected": "接続されているアカウントがありません"
+                },
+                "terms": {
+                    "first": "クリックすると",
+                    "second": "接続",
+                    "third": "、Soof AIの",
+                    "linkText": "利用規約"
+                },
+                "updating": "連携を更新しています..."
+            }
+        },
+        "settings": {
+            "KnowledgeSettings": {
+                "DeliveryCountriesCombobox": {
+                    "title": "配送可能な国",
+                    "body": "お客様に配送可能な国を知らせます。",
+                    "noneFound": "一致する国が見つかりません",
+                    "addLabel": "配送国を追加",
+                    "searchPlaceholder": "国を検索"
+                },
+                "PopularProductsList": {
+                    "accessibilityLabel": "人気商品:",
+                    "selectButton": "人気商品を選択",
+                    "emptyState": {
+                        "heading": "人気商品を選択",
+                        "action": "商品を選択"
+                    }
+                }
+            },
+            "GeneralSettings": {
+                "updateSuccessToast": "設定が保存されました！",
+                "saveBar": {
+                    "save": "保存",
+                    "discard": "破棄"
+                },
+                "form": {
+                    "branding": "ブランディング",
+                    "name": {
+                        "label": "名前",
+                        "placeholder": "Soof"
+                    },
+                    "primaryColor": {
+                        "label": "メインカラー",
+                        "helpText": "hex, rgbなどの色形式が使えます。"
+                    },
+                    "secondaryColor": {
+                        "label": "サブカラー",
+                        "helpText": "hex, rgbなどの色形式が使えます。"
+                    },
+                    "functions": {
+                        "heading": "機能",
+                        "sendToCustomerSupport": "回答が見つからない場合、サポートメールにチャットを送信",
+                        "fetchProductRecommendation": "商品おすすめを取得",
+                        "fetchProductByTitle": "タイトルで商品を検索",
+                        "fetchParcelDataByEmail": "リアルタイムのパーセルデータを取得 (Eメールで)",
+                        "fetchParcelDataByOrderId": "リアルタイムのパーセルデータを取得 (注文IDで)",
+                        "sendInvoice": "Exact Onlineを使用して請求書を送信 (注文IDで)"
+                    }
+                }
+            },
+            "KnowledgeSettingsJSX": {
+                "updateSuccessToast": "設定が保存されました！",
+                "requiredFieldsToast": "必須項目が不足しています",
+                "saveBar": {
+                    "save": "保存",
+                    "discard": "破棄"
+                },
+                "form": {
+                    "products": {
+                        "title": "商品",
+                        "description": "店舗の商品情報を管理します。",
+                        "productsCategory": {
+                            "heading": "商品のカテゴリ",
+                            "body": "商品カテゴリは、販売する商品の種類を示します。",
+                            "label": "商品のカテゴリ",
+                            "required": "商品のカテゴリは必須です",
+                            "helpText": "例: ビタミンやスマートフォンアクセサリ"
+                        },
+                        "popularProducts": {
+                            "heading": "人気商品",
+                            "body": "Soofに表示させたい商品を選択してください。",
+                            "required": "人気商品を少なくとも1つ選択する必要があります。"
+                        }
+                    },
+                    "shipping": {
+                        "title": "配送",
+                        "description": "配送料金と配達時間を設定します。",
+                        "deliveryAmount": {
+                            "label": "配送料金",
+                            "required": "配送料金は必須です"
+                        },
+                        "freeDeliveryAmount": {
+                            "label": "無料配送金額"
+                        },
+                        "minDeliveryDays": {
+                            "label": "最短配送日数",
+                            "required": "最短配送日数は必須です"
+                        },
+                        "maxDeliveryDays": {
+                            "label": "最長配送日数",
+                            "required": "最長配送日数は必須です"
+                        }
+                    },
+                    "paymentOptions": {
+                        "title": "支払い方法",
+                        "description": "受け入れる支払い方法を選択します。",
+                        "required": "少なくとも1つの支払い方法が必要です。"
+                    },
+                    "policies": {
+                        "title": "ポリシー",
+                        "description": "返品先住所と返金ポリシーを提供してください。",
+                        "returnAddress": {
+                            "label": "返品先住所"
+                        },
+                        "returnAndRefundPolicy": {
+                            "label": "返品・返金ポリシー",
+                            "required": "返品・返金ポリシーは必須です"
+                        }
+                    }
+                }
+            }
+        },
+        "setupWizard": {
+            "steps": {
+                "selectPlan": "プランを選択",
+                "connectStore": "ストアを接続"
+            },
+            "step1": {
+                "heading": "Soof AIへようこそ！🚀",
+                "subheading": "参加していただきありがとうございます！まずはアカウントの設定から始めましょう。",
+                "chooseYourPlan": "プランを選択",
+                "trialMessage": "すべてのプランに7日間の無料トライアルが含まれます。自由にお試しください！"
+            },
+            "step2": {
+                "heading": "拡張機能を有効化",
+                "subheading": "素晴らしい！プランを選択したので、拡張機能を有効にして設定を完了できます。拡張機能により、店舗にチャットウィンドウが直接追加されます。",
+                "instructions": "下のボタンを押して保存し、拡張機能を有効化します。",
+                "enableExtensionButton": "拡張機能を有効化"
+            },
+            "error": {
+                "unableToSubscribe": "購読できませんでした: "
+            }
+        },
+        "shared": {
+            "NoticeHeader": {
+                "trialEnd": {
+                    "title": "無料トライアルが終了しました。",
+                    "action": "今すぐアップグレード",
+                    "message": "サービスを引き続き利用するにはプランを選択してください。"
+                }
+            }
+        },
+        "utils": {
+            "CopyToClipboard": {
+                "copied": "クリップボードにコピーしました！"
+            }
+        }
+    },
+    "routes": {
+        "chats": {
+            "pageTitle": "チャット",
+            "searchPlaceholder": "検索...",
+            "resourceName": {
+                "singular": "チャット",
+                "plural": "チャット"
+            },
+            "headings": {
+                "ref": "参照",
+                "email": "メール",
+                "createdAt": "作成日"
+            },
+            "emptyState": {
+                "heading": "利用可能なチャットがありません",
+                "description": "現在、表示できるチャットはありません。会話を開始してここに表示されます。"
+            },
+            "modalTitle": "チャットの詳細"
+        },
+        "overview": {
+            "pageTitle": "概要",
+            "mediaCard": {
+                "title": "はじめに",
+                "primaryAction": {
+                    "content": "はじめに"
+                },
+                "description": {
+                    "item1": "これまでにない方法でお客様と交流。",
+                    "item2": "パーソナライズされたインタラクションで売上を増加。",
+                    "item3": "追加のスタッフなしで24/7のカスタマーサポート。"
+                },
+                "imageAlt": "iPhone上のSoof"
+            },
+            "chatSessions": {
+                "title": "チャットセッション",
+                "chatUsage": "チャット利用状況"
+            }
+        },
+        "integrations": {
+            "pageTitle": "連携",
+            "exactOnlineDescription": "Exact Onlineアカウントをアシスタントに接続します。"
+        },
+        "plans": {
+            "pageTitle": "プラン",
+            "backAction": {
+                "content": "店舗情報"
+            },
+            "description": "各プランには7日間の無料トライアルが含まれています。いつでもプランを変更またはキャンセルできます。",
+            "banner": {
+                "title": "無料トライアル中です",
+                "body": "無料トライアルは{days}日後に終了します。"
+            },
+            "cancelSubscriptionButton": "サブスクリプションをキャンセル",
+            "error": {
+                "unableToSubscribe": "購読できませんでした: "
+            }
+        },
+        "settings": {
+            "general": "一般",
+            "knowledge": "知識",
+            "pageTitle": "アシスタントを編集"
+        }
+    }
+}

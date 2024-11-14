@@ -11,8 +11,10 @@ import {
   InlineStack,
 } from '@shopify/polaris';
 import { SearchIcon } from '@shopify/polaris-icons';
+import { useTranslation } from 'react-i18next';
 
 export function DeliveryCountriesCombobox({ deliveryCountries, setDeliveryCountries }) {
+  const { t } = useTranslation();
   const [inputValue, setInputValue] = useState('');
   const [suggestion, setSuggestion] = useState('');
   const [allCountries, setAllCountries] = useState([]);
@@ -106,7 +108,7 @@ export function DeliveryCountriesCombobox({ deliveryCountries, setDeliveryCountr
   const emptyStateMarkup = optionsMarkup.length === 0 ? (
     <EmptySearchResult
       title=""
-      description={`No countries found matching "${inputValue}"`}
+      description={`${t('components.settings.KnowledgeSettings.DeliveryCountriesCombobox.noneFound')} "${inputValue}"`}
     />
   ) : null;
 
@@ -135,8 +137,8 @@ export function DeliveryCountriesCombobox({ deliveryCountries, setDeliveryCountr
   return (
     <BlockStack gap={200}>
       <BlockStack>
-        <Text variant="headingMd">Delivery Countries</Text>
-        <Text variant="bodyMd">Let customers know in which countries you deliver.</Text>
+        <Text variant="headingMd">{t('components.settings.KnowledgeSettings.DeliveryCountriesCombobox.title')}</Text>
+        <Text variant="bodyMd">{t('components.settings.KnowledgeSettings.DeliveryCountriesCombobox.body')}</Text>
       </BlockStack>
       <Combobox
         allowMultiple
@@ -144,11 +146,11 @@ export function DeliveryCountriesCombobox({ deliveryCountries, setDeliveryCountr
           <Combobox.TextField
             prefix={<Icon source={SearchIcon} />}
             onChange={handleInputChange}
-            label="Add Delivery Country"
+            label={t('components.settings.KnowledgeSettings.DeliveryCountriesCombobox.addLabel')}
             labelHidden
             value={inputValue}
             suggestion={suggestion}
-            placeholder="Search countries"
+            placeholder={t('components.settings.KnowledgeSettings.DeliveryCountriesCombobox.searchPlaceholder')}
             verticalContent={inlineContentMarkup}
             autoComplete="on"
           />

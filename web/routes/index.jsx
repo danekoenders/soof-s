@@ -4,21 +4,20 @@ import {
   Page,
   Spinner,
   Text,
-  Banner,
-  Image,
   Card,
   BlockStack,
   MediaCard,
   List,
-  Box,
 } from "@shopify/polaris";
 import { api } from "../api";
 import SetupWizard from "../components/setupWizard/SetupWizard";
 import { useMantle } from "@heymantle/react";
 import { ExternalIcon } from "@shopify/polaris-icons";
-import SoofImage from "../public/soof-on-iphone.png"
+import SoofImage from "../public/soof-on-iphone.png";
+import { useTranslation } from 'react-i18next';
 
 export default function OverviewPage() {
+  const { t } = useTranslation();
   const { subscription, customer, plans } = useMantle();
   const [{ data, fetching, error }] = useFindFirst(api.shopifyShop, {
     select: {
@@ -32,7 +31,7 @@ export default function OverviewPage() {
 
   if (error) {
     return (
-      <Page title="Error">
+      <Page title={t('Error')}>
         <Text variant="bodyMd" as="p">
           {error.message}
         </Text>
@@ -51,13 +50,13 @@ export default function OverviewPage() {
           width: "100%",
         }}
       >
-        <Spinner accessibilityLabel="Loading" size="large" />
+        <Spinner accessibilityLabel={t('Loading')} size="large" />
       </div>
     );
   }
 
   return (
-    <Page title="Overview">
+    <Page title={t('routes.overview.pageTitle')}>
       <Layout>
         {/* Setup Wizard */}
         {!data.setupCompleted ? (
@@ -68,25 +67,25 @@ export default function OverviewPage() {
           <>
             <Layout.Section>
               <MediaCard
-                title="Getting Started"
+                title={t('routes.overview.mediaCard.title')}
                 primaryAction={{
-                  content: 'Getting started',
+                  content: t('routes.overview.mediaCard.primaryAction.content'),
                   icon: ExternalIcon,
                   url: `https://docs.soof.ai/`,
                   target: '_blank',
                 }}
                 description={
                   <List type="bullet">
-                    <List.Item>Engage your customers like never before.</List.Item>
-                    <List.Item>Increase sales with personalized interactions.</List.Item>
-                    <List.Item>24/7 customer support without extra staff.</List.Item>
+                    <List.Item>{t('routes.overview.mediaCard.description.item1')}</List.Item>
+                    <List.Item>{t('routes.overview.mediaCard.description.item2')}</List.Item>
+                    <List.Item>{t('routes.overview.mediaCard.description.item3')}</List.Item>
                   </List>
                 }
                 size='small'
               >
                 <BlockStack align="center" inlineAlign="center">
                   <img
-                    alt="Soof on iPhone"
+                    alt={t('routes.overview.mediaCard.imageAlt')}
                     width="50%"
                     height="100%"
                     style={{
@@ -100,14 +99,14 @@ export default function OverviewPage() {
             </Layout.Section>
 
             <Layout.Section>
-              <Card title="Chat Sessions" sectioned>
+              <Card title={t('routes.overview.chatSessions.title')} sectioned>
                 <BlockStack align='center' inlineAlign='center' gap="200">
-                <Text variant='headingLg' as="h3">
-                  Chat usage
-                </Text>
-                <Text variant='headingMd'  as="p">
-                  {customer?.usage.Chats.currentValue}
-                </Text>
+                  <Text variant='headingLg' as="h3">
+                    {t('routes.overview.chatSessions.chatUsage')}
+                  </Text>
+                  <Text variant='headingMd' as="p">
+                    {customer?.usage.Chats.currentValue}
+                  </Text>
                 </BlockStack>
               </Card>
             </Layout.Section>
