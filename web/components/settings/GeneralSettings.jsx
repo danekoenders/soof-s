@@ -145,33 +145,33 @@ export default function GeneralSettings() {
   const colorToHSB = (colorString) => {
     try {
       const col = color(colorString);
-      const hsl = col.hsl().object();
-
+      const hsv = col.hsv().object();
+  
       return {
-        hue: hsl.h,
-        saturation: hsl.s / 100,
-        brightness: hsl.l / 100,
+        hue: hsv.h,
+        saturation: hsv.s / 100,
+        brightness: hsv.v / 100,
       };
     } catch (e) {
       return { hue: 0, saturation: 0, brightness: 0 };
     }
   };
-
+  
   const hsbToColorString = (hsb) => {
     try {
-      const col = color.hsl(hsb.hue, hsb.saturation * 100, hsb.brightness * 100);
+      const col = color.hsv(hsb.hue, hsb.saturation * 100, hsb.brightness * 100);
       return col.hex();
     } catch (e) {
       return '#000000';
     }
-  };
+  };  
 
   const handlePrimaryColorTextChange = (value) => {
     setPrimaryColorText(value);
     const hsb = colorToHSB(value);
     setPrimaryColorPicker(hsb);
   };
-
+  
   const handlePrimaryColorPickerChange = (value) => {
     setPrimaryColorPicker(value);
     const hex = hsbToColorString(value);

@@ -1,11 +1,27 @@
 import { RouteContext } from "gadget-server";
 import { verifySignature } from "../../../utils/shopify-proxy/signature";
+import themes from "../../../utils/chatbotThemes.json";
+
+function formatTheme({ theme, primary, secondary }) {
+    const formattedTheme = {};
+
+    for (const key in theme) {
+        const value = theme[key];
+        if (value === "primary") {
+            formattedTheme[key] = primary;
+        } else if (value === "secondary") {
+            formattedTheme[key] = secondary;
+        } else {
+            formattedTheme[key] = value;
+        }
+    }
+
+    return formattedTheme;
+}
 
 /**
  * Route handler for GET api/chatbot/serve
- *
  * @param { RouteContext } route context - see: https://docs.gadget.dev/guides/http-routes/route-configuration#route-context
- *
  */
 export default async function route({ request, reply, api, logger, connections }) {
     if (!verifySignature(request.query)) {
@@ -18,6 +34,7 @@ export default async function route({ request, reply, api, logger, connections }
             customName: true,
             primaryColor: true,
             secondaryColor: true,
+            theme: true,
             shop: {
                 name: true,
             }
@@ -33,12 +50,18 @@ export default async function route({ request, reply, api, logger, connections }
         return reply.status(400).send({ error: "No chatbot found" });
     }
 
+    let theme = themes[chatbot.theme];
+    if (!theme) {
+        theme = themes.blank;
+    }
+
+    theme = formatTheme({ theme, primary: chatbot.primaryColor, secondary: chatbot.secondaryColor });
+
     const response = {
         chatbot: {
             id: chatbot.ref,
             customName: chatbot.customName,
-            primaryColor: chatbot.primaryColor,
-            secondaryColor: chatbot.secondaryColor,
+            theme: theme,
         },
         shop: {
             name: chatbot.shop.name,

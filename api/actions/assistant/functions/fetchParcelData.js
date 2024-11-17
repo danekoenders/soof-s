@@ -10,126 +10,124 @@ export const params = {
  * @param { AssistantFunctionsFetchParcelDataGlobalActionContext } context
  */
 export async function run({ params, logger, api, connections }) {
-  let orderId = params.orderId;
+  const { orderId: rawOrderId, email, shopId } = params;
+  let orderId = rawOrderId;
 
-  if (orderId) {
-    if (orderId.startsWith("#")) {
-      orderId = orderId.slice(1);
-    }
-
-    const response = await getOrder({ api, orderId, shopId: params.shopId });
-    return response;
-
-  } else if (params.email) {
-    const response = await getOrder({ api, email: params.email, shopId: params.shopId });
-    return response;
-
-  } else {
-    return ({
-      success: false,
-      status: "No order ID and/or email provided."
-    });
+  if (orderId && orderId.startsWith("#")) {
+    orderId = orderId.slice(1);
   }
-};
 
-async function getOrder({ api, orderId, email, shopId }) {
   if (orderId) {
-    const order = await api.shopifyOrder.maybeFindFirst({
-      select: {
-        id: true,
-        fulfillmentStatus: true,
-        orderStatusUrl: true,
-        financialStatus: true,
-        currentTotalPrice: true,
-        orderNumber: true,
-        email: true,
-        fulfillments: {
-          edges: {
-            node: {
-              id: true,
-              shipmentStatus: true,
-              status: true,
-              trackingNumbers: true,
-              trackingUrls: true,
-            },
-          },
-        },
-      },
-      filter: {
-        AND: [
-          { orderNumber: { equals: parseInt(orderId) } },
-          { shopId: { equals: shopId } },
-        ],
-      }
-    })
-
-    if (order) {
-      return ({
-        success: true,
-        order: {
-          id: order.id,
-          orderNumber: order.orderNumber,
-          orderStatusUrl: order.orderStatusUrl,
-          financialStatus: order.financialStatus,
-          currentTotalPrice: order.currentTotalPrice,
-        },
-        tracking: order.fulfillments.edges.length > 0,
-      })
-    } else {
-      return ({
-        success: false,
-        status: "No order found with that ID",
-        tracking: false,
-      });
-    }
+    const response = await getOrder({ api, identifier: { orderId }, shopId });
+    return response;
   } else if (email) {
-    const order = await api.shopifyOrder.maybeFindFirst({
-      select: {
-        id: true,
-        fulfillmentStatus: true,
-        orderStatusUrl: true,
-        financialStatus: true,
-        currentTotalPrice: true,
-        orderNumber: true,
-        email: true,
-        fulfillments: {
-          edges: {
-            node: {
-              id: true,
-              shipmentStatus: true,
-              status: true,
-              trackingNumbers: true,
-              trackingUrls: true,
-            },
-          },
+    const response = await getOrder({ api, identifier: { email }, shopId });
+    return response;
+  } else {
+    return {
+      success: false,
+      status: "No order ID and/or email provided.",
+    };
+  }
+}
+
+async function getOrder({ api, identifier, shopId }) {
+  const { orderId, email } = identifier;
+
+  const selectFields = {
+    id: true,
+    fulfillmentStatus: true,
+    orderStatusUrl: true,
+    financialStatus: true,
+    currentTotalPrice: true,
+    orderNumber: true,
+    email: true,
+    fulfillments: {
+      edges: {
+        node: {
+          id: true,
+          shipmentStatus: true,
+          status: true,
+          trackingNumbers: true,
+          trackingUrls: true,
         },
       },
-      filter: {
-        AND: [
-          { email: { equals: email } },
-          { shopId: { equals: shopId } },
-        ],
-      }
-    })
+    },
+  };
+
+
+  let filter;
+  if (orderId) {
+    filter = {
+      AND: [
+        { shopId: { equals: shopId } },
+        { orderNumber: { equals: parseInt(orderId, 10) } },
+      ],
+    };
+  } else if (email) {
+    filter = {
+      AND: [
+        { shopId: { equals: shopId } },
+        { email: { equals: email } },
+      ],
+    };
+  } else {
+    return {
+      success: false,
+      status: "Invalid query parameters.",
+      tracking: false,
+    };
+  }
+
+  try {
+    const order = await api.shopifyOrder.maybeFindFirst({
+      select: selectFields,
+      filter,
+    });
 
     if (order) {
-      return ({
+      const sanitizedOrderStatusUrl = sanitizeOrderStatusUrl(order.orderStatusUrl);
+      return {
         success: true,
         order: {
           id: order.id,
           orderNumber: order.orderNumber,
-          orderStatusUrl: order.orderStatusUrl,
+          orderStatusUrl: sanitizedOrderStatusUrl,
           financialStatus: order.financialStatus,
           currentTotalPrice: order.currentTotalPrice,
         },
         tracking: order.fulfillments.edges.length > 0,
-      })
+      };
     } else {
-      return ({
+      return {
         success: false,
-        status: "No order found with that email",
+        status: "No order found.",
         tracking: false,
-      });
+      };
     }
+  } catch (error) {
+    return {
+      success: false,
+      status: `Error fetching order: ${error.message}`,
+      tracking: false,
+    };
+  }
+}
+
+function sanitizeOrderStatusUrl(url) {
+  try {
+    const parsedUrl = new URL(url);
+    const pathnameSegments = parsedUrl.pathname.split('/');
+    const authenticateIndex = pathnameSegments.findIndex(segment => segment === 'authenticate');
+    
+    if (authenticateIndex !== -1) {
+      parsedUrl.pathname = pathnameSegments.slice(0, authenticateIndex).join('/');
+    }
+
+    parsedUrl.search = '';
+
+    return parsedUrl.toString();
+  } catch (error) {
+    throw new Error(`Error sanitizing order status URL: ${error.message}`);
   }
 }

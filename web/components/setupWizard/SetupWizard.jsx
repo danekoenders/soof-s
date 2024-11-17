@@ -26,7 +26,7 @@ export default function SetupWizard({ data }) {
 
     useEffect(() => {
         if (currentStep === 1 && subscription?.active) {
-            setCurrentStep(2);
+            setCurrentStep(1);
         }
     }, [subscription]);
 
@@ -43,7 +43,7 @@ export default function SetupWizard({ data }) {
             id: data.id,
             setupCompleted: true,
         });
-        
+
         if (response.data.setupCompleted === true) {
             window.open(`https://${data.myshopifyDomain}/admin/themes/current/editor?context=apps&activateAppId=12ce97d9-0cfd-4370-b945-ee218d44b892/soof-chat`, "_blank");
         }
@@ -52,9 +52,9 @@ export default function SetupWizard({ data }) {
     return (
         <Layout>
             <Layout.Section>
-                <Card sectioned padding={600}>
-                    {/* Step Content */}
-                    {currentStep === 1 && (
+                {/* Step Content */}
+                {currentStep === 1 && (
+                    <Card sectioned padding={600}>
                         <BlockStack gap="200">
                             <BlockStack gap="100" inlineAlign="center">
                                 <Text variant="headingLg" as="h1" alignment="center">
@@ -89,9 +89,11 @@ export default function SetupWizard({ data }) {
                                 />
                             </BlockStack>
                         </BlockStack>
-                    )}
+                    </Card>
+                )}
 
-                    {currentStep === 2 && (
+                {currentStep === 2 && (
+                    <Card sectioned padding={600}>
                         <BlockStack gap="400" inlineAlign="center">
                             <BlockStack gap="100" inlineAlign="center">
                                 <AppsIcon width={40} />
@@ -116,8 +118,8 @@ export default function SetupWizard({ data }) {
                                 </Button>
                             </BlockStack>
                         </BlockStack>
-                    )}
-                </Card>
+                    </Card>
+                )}
             </Layout.Section>
         </Layout>
     );

@@ -39,5 +39,10 @@ export const schema: GadgetModel = {
       parent: { model: "shopifyShop" },
       storageKey: "cIly4OtiHSoK",
     },
+    theme: {
+      type: "string",
+      default: "blank",
+      storageKey: "YmcdeUn02tED",
+    },
   },
 };
