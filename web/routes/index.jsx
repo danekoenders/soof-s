@@ -59,7 +59,7 @@ export default function OverviewPage() {
     <Page title={t('routes.overview.pageTitle')}>
       <Layout>
         {/* Setup Wizard */}
-        {data.setupCompleted ? (
+        {!data.setupCompleted ? (
           <Layout.Section>
             <SetupWizard data={data} />
           </Layout.Section>
