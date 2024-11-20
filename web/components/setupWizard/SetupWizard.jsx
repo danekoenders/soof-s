@@ -26,7 +26,7 @@ export default function SetupWizard({ data }) {
 
     useEffect(() => {
         if (currentStep === 1 && subscription?.active) {
-            setCurrentStep(1);
+            setCurrentStep(2);
         }
     }, [subscription]);
 
@@ -42,6 +42,7 @@ export default function SetupWizard({ data }) {
         const response = await updateShop({
             id: data.id,
             setupCompleted: true,
+            doSync: true,
         });
 
         if (response.data.setupCompleted === true) {

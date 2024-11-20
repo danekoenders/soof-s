@@ -71,7 +71,7 @@ export default function OverviewPage() {
                 primaryAction={{
                   content: t('routes.overview.mediaCard.primaryAction.content'),
                   icon: ExternalIcon,
-                  url: `https://docs.soof.ai/`,
+                  url: `https://docs.soof.ai/getting-started/setup-ai-chatbot`,
                   target: '_blank',
                 }}
                 description={

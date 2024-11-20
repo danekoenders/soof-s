@@ -21,13 +21,4 @@ export async function run({ params, logger, api, connections }) {
 };
 
 /** @type { ActionOptions } */
-export const options = {
-  triggers: {
-    scheduler: [
-      {
-        every: "day",
-        at: "18:29 UTC",
-      },
-    ],
-  },
-};
+export const options = { triggers: {} };

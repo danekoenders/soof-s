@@ -1,5 +1,5 @@
 export async function getCustomer({ customerApiToken }) {
-    const response = await fetch("https://appapi.heymantle.com/v1/customer", {
+    const response = await fetch(process.env.MANTLE_API_DOMAIN + "/customer", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

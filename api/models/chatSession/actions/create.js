@@ -1,6 +1,6 @@
 import { applyParams, save, ActionOptions, CreateChatSessionActionContext } from "gadget-server";
 import { getCustomer } from "../../../utils/mantle-api/customer";
-import { sendUsageChat } from "../../../utils/mantle-api/usageEvent";
+import { sendUsageChat } from "../../../utils/mantle-api/usageEvents";
 
 export const params = {
   myshopifyDomain: {
@@ -33,11 +33,17 @@ export async function run({ params, record, logger, api, connections }) {
   const customer = await getCustomer({ customerApiToken: params.mantleApiToken });
   
   if (!customer.subscription || !customer.subscription.active) {
-    throw new Error("Plan is not active");
-  }
+    if (customer.usage.FreeChats.currentValue >= 50) {
+      throw new Error("Free chat usage has been exceeded");
+    }
 
-  if (customer.subscription.usageBalanceUsed >= customer.subscription.usageCappedAmount) {
-    throw new Error("Plan usage has been exceeded");
+    params.freeChat = true;
+  } else {
+    if (customer.usage.Chats.currentValue >= customer.subscription.plan.features.chats.value) {
+      throw new Error("Chat usage has been exceeded");
+    }
+
+    params.freeChat = false;
   }
 
   applyParams(params, record);
@@ -103,7 +109,7 @@ async function generateReferenceId(api) {
  * @param { CreateChatSessionActionContext } context
  */
 export async function onSuccess({ params, record, logger, api, connections }) {
-  const usageEvent = await sendUsageChat({ customerApiToken: params.mantleApiToken });
+  const usageEvent = await sendUsageChat({ customerApiToken: params.mantleApiToken, freeChat: params.freeChat });
 
   if (!usageEvent.success) {
     throw new Error("Failed to send chat usage event");

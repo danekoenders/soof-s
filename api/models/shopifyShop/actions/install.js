@@ -46,18 +46,6 @@ export async function onSuccess({ params, record, logger, api, connections }) {
   if (!planRecord || !exactOnlineRecord || !knowledgeRecord || !chatbotRecord) {
     throw new Error("Failed to create records");
   }
-
-  const shopifySyncRecord = await api.shopifySync.run({
-    domain: record.myshopifyDomain,
-    shop: {
-      _link: record.id,
-    },
-    models: ["shopifyProduct", "shopifyProductImage", "shopifyProductOption", "shopifyProductVariant", "shopifyOrder", "shopifyAsset", "shopifyTheme"],
-  });
-
-  if (!shopifySyncRecord) {
-    throw new Error("Failed to sync Shopify data");
-  }
 };
 
 /** @type { ActionOptions } */
