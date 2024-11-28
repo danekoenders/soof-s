@@ -12,7 +12,7 @@ export default async function route({ request, reply, api, logger, connections }
         throw new Error("Unauthorized");
     }
 
-    if (!request.body.email || !request.body.localLanguage) {
+    if (!request.body.localLanguage) {
         throw new Error("Required fields missing");
     }
 

@@ -1,4 +1,4 @@
-import { useFindFirst } from "@gadgetinc/react";
+import { useFindMany } from "@gadgetinc/react";
 import { useMantle } from "@heymantle/react";
 import { Banner, BlockStack, Layout, Text } from "@shopify/polaris";
 import { useNavigate } from "react-router-dom";
@@ -10,27 +10,49 @@ export default function NoticeHeader() {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const { subscription } = useMantle();
-    const [{ data, fetching, error }] = useFindFirst(api.shopifyShop, {
-        select: {
-            name: true,
-        },
-        live: true,
-    });
+    // const [{ data: syncData, fetching: syncFetching, error: syncError }] = useFindMany(api.shopifySync, {
+    //     select: {
+    //         createdAt: true,
+    //         state: true,
+    //     },
+    //     filter: {
+    //         state: {
+    //             inState: ["running"],
+    //         }
+    //     },
+    //     live: true,
+    // });
 
-    if (fetching) {
-        return null;
-    }
-
-    if (error) {
+    if (syncError) {
         return (
             <Layout.Section>
-                <Banner title="An error occured" tone="critical">{error.message}</Banner>
+                <Banner title="An error occured" tone="critical">{syncError.message}</Banner>
             </Layout.Section>
         );
     }
 
     return (
         <>
+            {syncData && syncData.state === "running" && (
+                <Layout.Section>
+                    <BlockStack gap="400">
+                        <Banner
+                            title={"Syncing data"}
+                            tone="info"
+                            icon={ClockIcon}
+                            action={{
+                                content: "View sync",
+                                icon: CursorIcon,
+                            }}
+                        >
+                            <Text variant="bodyMd" as="p">
+                                Syncing data from Shopify store
+                            </Text>
+                        </Banner>
+                    </BlockStack>
+                </Layout.Section>
+            )}
+
             {subscription && subscription.active === false && (new Date() > new Date(subscription.trialExpiresAt)) && (
                 <Layout.Section>
                     <BlockStack gap="400">

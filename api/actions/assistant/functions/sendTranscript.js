@@ -17,13 +17,13 @@ export async function run({ params, logger, api, connections, emails }) {
       shop: {
         id: true,
         createdAt: true,
-        supportEmail: true,
+        customerEmail: true,
         name: true,
       },
     },
   });
 
-  const email = chatSession.shop.supportEmail;
+  const email = chatSession.shop.customerEmail;
   const shopName = chatSession.shop.customName;
   const rawTranscript = chatSession.transcript;
   let formattedTranscript = '';
@@ -138,4 +138,4 @@ export async function run({ params, logger, api, connections, emails }) {
   };
 };
 
-export const options = { triggers: { api: true } }
+export const options = { triggers: { api: true } };

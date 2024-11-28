@@ -13,13 +13,7 @@ export const schema: GadgetModel = {
       parent: { model: "chatbot" },
       storageKey: "rpkoSJP2v0Ut",
     },
-    email: {
-      type: "string",
-      validations: {
-        regex: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"],
-      },
-      storageKey: "aV3PNmIpim6F",
-    },
+    email: { type: "email", storageKey: "aV3PNmIpim6F" },
     expiresAt: {
       type: "dateTime",
       includeTime: true,

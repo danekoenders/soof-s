@@ -34,6 +34,7 @@ export default async function route({ request, reply, api, logger, connections }
             customName: true,
             primaryColor: true,
             secondaryColor: true,
+            emailRequired: true,
             theme: true,
             shop: {
                 name: true,
@@ -61,6 +62,7 @@ export default async function route({ request, reply, api, logger, connections }
         chatbot: {
             id: chatbot.ref,
             customName: chatbot.customName,
+            emailRequired: chatbot.emailRequired,
             theme: theme,
         },
         shop: {

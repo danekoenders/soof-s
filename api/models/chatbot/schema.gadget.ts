@@ -18,6 +18,11 @@ export const schema: GadgetModel = {
       storageKey: "_mswBZB0waFC",
     },
     customName: { type: "string", storageKey: "GFcVXIhcr_aW" },
+    emailRequired: {
+      type: "boolean",
+      default: false,
+      storageKey: "q2qSc9fS9AQK",
+    },
     functions: {
       type: "json",
       validations: { required: true },
