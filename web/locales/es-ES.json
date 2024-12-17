@@ -164,7 +164,8 @@
                 "heading": "¡Bienvenido a Soof AI! 🚀",
                 "subheading": "¡Nos alegra tenerte aquí! Empecemos configurando tu cuenta.",
                 "chooseYourPlan": "Elige tu plan",
-                "trialMessage": "Todos los planes incluyen una prueba gratuita de 7 días, ¡siéntete libre de probar!"
+                "trialMessage": "Todos los planes incluyen una prueba gratuita de 7 días, ¡siéntete libre de probar!",
+                "continueForFree": "O continúa usando el plan gratuito"
             },
             "step2": {
                 "heading": "Activar la extensión",

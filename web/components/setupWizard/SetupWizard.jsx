@@ -4,7 +4,7 @@ import { useMantle } from "@heymantle/react";
 import { BlockStack, Button, Card, Layout, Text } from "@shopify/polaris";
 import { CursorIcon, AppsIcon, ExternalIcon } from "@shopify/polaris-icons";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../../api";
 import { useTranslation } from 'react-i18next';
 
@@ -88,6 +88,9 @@ export default function SetupWizard({ data }) {
                                         }
                                     }}
                                 />
+                            </BlockStack>
+                            <BlockStack gap="100" inlineAlign="center">
+                                <Link to="/?step=2">{t('components.setupWizard.step1.continueForFree')}</Link>
                             </BlockStack>
                         </BlockStack>
                     </Card>

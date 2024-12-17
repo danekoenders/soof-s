@@ -164,7 +164,8 @@
                 "heading": "Tervetuloa Soof AI:hin! 🚀",
                 "subheading": "Olemme iloisia, että olet mukana! Aloitetaan tilisi asettamisesta.",
                 "chooseYourPlan": "Valitse suunnitelmasi",
-                "trialMessage": "Kaikki suunnitelmat sisältävät 7 päivän ilmaisen kokeilujakson, kokeile vapaasti!"
+                "trialMessage": "Kaikki suunnitelmat sisältävät 7 päivän ilmaisen kokeilujakson, kokeile vapaasti!",
+                "continueForFree": "Tai jatka ilmaisen suunnitelman käyttöä"
             },
             "step2": {
                 "heading": "Ota laajennus käyttöön",

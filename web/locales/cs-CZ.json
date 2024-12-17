@@ -164,7 +164,8 @@
                 "heading": "Vítejte v Soof AI! 🚀",
                 "subheading": "Jsme rádi, že jste s námi! Začněme nastavením vašeho účtu.",
                 "chooseYourPlan": "Vyberte svůj plán",
-                "trialMessage": "Všechny plány zahrnují 7denní bezplatnou zkušební verzi, vyzkoušejte je!"
+                "trialMessage": "Všechny plány zahrnují 7denní bezplatnou zkušební verzi, vyzkoušejte je!",
+                "continueForFree": "Nebo pokračujte v používání bezplatného plánu"
             },
             "step2": {
                 "heading": "Povolit rozšíření",

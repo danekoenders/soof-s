@@ -164,7 +164,8 @@
                 "heading": "Welcome to Soof AI! 🚀",
                 "subheading": "We are excited to have you on board! Let's get started with setting up your account.",
                 "chooseYourPlan": "Choose Your Plan",
-                "trialMessage": "All plans come with a 7-day free trial, feel free to test around!"
+                "trialMessage": "All plans come with a 7-day free trial, feel free to test around!",
+                "continueForFree": "Or continue using the free plan"
             },
             "step2": {
                 "heading": "Enable Extension",

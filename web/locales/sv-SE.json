@@ -164,7 +164,8 @@
                 "heading": "Välkommen till Soof AI! 🚀",
                 "subheading": "Vi är glada att ha dig med! Låt oss börja med att ställa in ditt konto.",
                 "chooseYourPlan": "Välj din plan",
-                "trialMessage": "Alla planer inkluderar en gratis 7-dagars provperiod, prova gärna!"
+                "trialMessage": "Alla planer inkluderar en gratis 7-dagars provperiod, prova gärna!",
+                "continueForFree": "Eller fortsätt använda gratisplanen"
             },
             "step2": {
                 "heading": "Aktivera tillägg",

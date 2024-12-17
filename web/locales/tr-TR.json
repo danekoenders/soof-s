@@ -164,7 +164,8 @@
                 "heading": "Soof AI'ye Hoş Geldiniz! 🚀",
                 "subheading": "Aramıza katıldığınız için mutluyuz! Hesabınızı ayarlamaya başlayalım.",
                 "chooseYourPlan": "Planınızı Seçin",
-                "trialMessage": "Tüm planlar 7 günlük ücretsiz deneme süresi içerir, rahatça test edebilirsiniz!"
+                "trialMessage": "Tüm planlar 7 günlük ücretsiz deneme süresi içerir, rahatça test edebilirsiniz!",
+                "continueForFree": "Veya ücretsiz planı kullanmaya devam edin"
             },
             "step2": {
                 "heading": "Eklentiyi Etkinleştir",

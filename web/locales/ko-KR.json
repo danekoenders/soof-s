@@ -164,7 +164,8 @@
                 "heading": "Soof AI에 오신 것을 환영합니다! 🚀",
                 "subheading": "함께하게 되어 기쁩니다! 계정 설정을 시작해 봅시다.",
                 "chooseYourPlan": "플랜 선택",
-                "trialMessage": "모든 플랜에 7일 무료 체험이 포함되어 있습니다. 자유롭게 시도해 보세요!"
+                "trialMessage": "모든 플랜에 7일 무료 체험이 포함되어 있습니다. 자유롭게 시도해 보세요!",
+                "continueForFree": "또는 무료 플랜을 계속 사용하세요"
             },
             "step2": {
                 "heading": "확장 기능 활성화",

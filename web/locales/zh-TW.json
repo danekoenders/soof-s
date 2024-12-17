@@ -164,7 +164,8 @@
                 "heading": "歡迎使用 Soof AI！🚀",
                 "subheading": "很高興有您加入！讓我們開始設定您的帳戶。",
                 "chooseYourPlan": "選擇您的方案",
-                "trialMessage": "所有方案均包含 7 天免費試用，隨意體驗！"
+                "trialMessage": "所有方案均包含 7 天免費試用，隨意體驗！",
+                "continueForFree": "或繼續使用免費方案"
             },
             "step2": {
                 "heading": "啟用擴充功能",

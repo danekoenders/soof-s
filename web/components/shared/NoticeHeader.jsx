@@ -23,17 +23,17 @@ export default function NoticeHeader() {
     //     live: true,
     // });
 
-    if (syncError) {
-        return (
-            <Layout.Section>
-                <Banner title="An error occured" tone="critical">{syncError.message}</Banner>
-            </Layout.Section>
-        );
-    }
+    // if (syncError) {
+    //     return (
+    //         <Layout.Section>
+    //             <Banner title="An error occured" tone="critical">{syncError.message}</Banner>
+    //         </Layout.Section>
+    //     );
+    // }
 
     return (
         <>
-            {syncData && syncData.state === "running" && (
+            {/* {syncData && syncData.state === "running" && (
                 <Layout.Section>
                     <BlockStack gap="400">
                         <Banner
@@ -51,7 +51,7 @@ export default function NoticeHeader() {
                         </Banner>
                     </BlockStack>
                 </Layout.Section>
-            )}
+            )} */}
 
             {subscription && subscription.active === false && (new Date() > new Date(subscription.trialExpiresAt)) && (
                 <Layout.Section>
