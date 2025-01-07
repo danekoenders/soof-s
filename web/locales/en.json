@@ -82,6 +82,14 @@
                         "label": "Secondary color",
                         "helpText": "You can enter hex, rgb, or other color formats."
                     },
+                    "options": {
+                        "heading": "Options",
+                        "alignment": {
+                            "title": "Chat window alignment",
+                            "left": "Left",
+                            "right": "Right"
+                        }
+                    },
                     "functions": {
                         "heading": "Functions",
                         "sendToCustomerSupport": "Send chat to support email when no answer found",

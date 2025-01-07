@@ -28,6 +28,7 @@ export const schema: GadgetModel = {
       validations: { required: true },
       storageKey: "9_0FcnkT6kYJ",
     },
+    options: { type: "json", storageKey: "GirJkSWW4AnG" },
     primaryColor: {
       type: "string",
       default: "#0260a8",

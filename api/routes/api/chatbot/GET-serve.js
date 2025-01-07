@@ -36,6 +36,7 @@ export default async function route({ request, reply, api, logger, connections }
             secondaryColor: true,
             emailRequired: true,
             theme: true,
+            options: true,
             shop: {
                 name: true,
             }
@@ -57,6 +58,9 @@ export default async function route({ request, reply, api, logger, connections }
     }
 
     theme = formatTheme({ theme, primary: chatbot.primaryColor, secondary: chatbot.secondaryColor });
+    const options = {
+        alignment: chatbot.options?.alignment || "right",
+    };
 
     const response = {
         chatbot: {
@@ -64,6 +68,7 @@ export default async function route({ request, reply, api, logger, connections }
             customName: chatbot.customName,
             emailRequired: chatbot.emailRequired,
             theme: theme,
+            options: options,
         },
         shop: {
             name: chatbot.shop.name,

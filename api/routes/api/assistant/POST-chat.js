@@ -64,6 +64,7 @@ export default async function route({ request, reply, api, logger, connections }
         });
       }
     } else if (body.message) {
+      
       // Beginning OpenAI request
       await connections.openai.beta.threads.messages.create(
         thread,
@@ -211,6 +212,7 @@ export default async function route({ request, reply, api, logger, connections }
           );
           throw new Error("Run failed");
         } else {
+
           await delay(200);
         }
       } while (!runCompleted);

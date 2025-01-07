@@ -15,6 +15,10 @@ export async function run({ params, record, logger, api, connections, session })
     sendInvoice: false,
   };
 
+  record.options = {
+    alignment: "right",
+  };
+
   record.customName = "Soof";
 };
 

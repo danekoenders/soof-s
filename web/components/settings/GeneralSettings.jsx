@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   Card,
   Form,
@@ -12,6 +12,7 @@ import {
   Layout,
   SkeletonBodyText,
   SkeletonDisplayText,
+  ChoiceList,
 } from '@shopify/polaris';
 import { SaveBar } from '@shopify/app-bridge-react';
 import { useAction, useFindFirst } from '@gadgetinc/react';
@@ -34,8 +35,9 @@ export default function GeneralSettings() {
       shop: {
         exactOnline: {
           state: true,
-        }
-      }
+        },
+      },
+      options: true,
     },
   });
 
@@ -44,9 +46,20 @@ export default function GeneralSettings() {
   const [customName, setCustomName] = useState('');
   const [primaryColorText, setPrimaryColorText] = useState('#000000');
   const [secondaryColorText, setSecondaryColorText] = useState('#000000');
-  const [primaryColorPicker, setPrimaryColorPicker] = useState({ hue: 0, saturation: 0, brightness: 0 });
-  const [secondaryColorPicker, setSecondaryColorPicker] = useState({ hue: 0, saturation: 0, brightness: 0 });
+  const [primaryColorPicker, setPrimaryColorPicker] = useState({
+    hue: 0,
+    saturation: 0,
+    brightness: 0,
+  });
+  const [secondaryColorPicker, setSecondaryColorPicker] = useState({
+    hue: 0,
+    saturation: 0,
+    brightness: 0,
+  });
   const [functions, setFunctions] = useState({});
+  const [options, setOptions] = useState({
+    alignment: 'right'
+  });
 
   useEffect(() => {
     fetchChatbot();
@@ -55,12 +68,10 @@ export default function GeneralSettings() {
   useEffect(() => {
     if (data) {
       setCustomName(data.customName || '');
-
       if (data.primaryColor) {
         setPrimaryColorText(data.primaryColor);
         setPrimaryColorPicker(colorToHSB(data.primaryColor));
       }
-
       if (data.secondaryColor) {
         setSecondaryColorText(data.secondaryColor);
         setSecondaryColorPicker(colorToHSB(data.secondaryColor));
@@ -68,15 +79,20 @@ export default function GeneralSettings() {
 
       setFunctions(data.functions || {});
 
+      setOptions(data.options || { alignment: 'right' });
+
       initialDataRef.current = {
         customName: data.customName || '',
         primaryColorText: data.primaryColor || '#000000',
         secondaryColorText: data.secondaryColor || '#000000',
-        primaryColorPicker: data.primaryColor ? colorToHSB(data.primaryColor) : { hue: 0, saturation: 0, brightness: 0 },
+        primaryColorPicker: data.primaryColor
+          ? colorToHSB(data.primaryColor)
+          : { hue: 0, saturation: 0, brightness: 0 },
         secondaryColorPicker: data.secondaryColor
           ? colorToHSB(data.secondaryColor)
           : { hue: 0, saturation: 0, brightness: 0 },
         functions: data.functions || {},
+        options: data.options || { alignment: 'right' },
       };
     }
   }, [data]);
@@ -91,6 +107,7 @@ export default function GeneralSettings() {
         primaryColorPicker,
         secondaryColorPicker,
         functions,
+        options,
       };
       shopify.saveBar.hide('general-settings-save-bar');
     } else if (updateError) {
@@ -103,10 +120,11 @@ export default function GeneralSettings() {
   const handleSubmit = async () => {
     await update({
       id: data.id,
-      customName: customName,
+      customName,
       primaryColor: primaryColorText,
       secondaryColor: secondaryColorText,
-      functions: functions,
+      functions,
+      options,
     });
   };
 
@@ -118,6 +136,7 @@ export default function GeneralSettings() {
       setPrimaryColorPicker(initialDataRef.current.primaryColorPicker);
       setSecondaryColorPicker(initialDataRef.current.secondaryColorPicker);
       setFunctions(initialDataRef.current.functions);
+      setOptions(initialDataRef.current.options);
     }
     setShowErrors(false);
     shopify.saveBar.hide('general-settings-save-bar');
@@ -130,7 +149,8 @@ export default function GeneralSettings() {
       customName !== initialDataRef.current.customName ||
       primaryColorText !== initialDataRef.current.primaryColorText ||
       secondaryColorText !== initialDataRef.current.secondaryColorText ||
-      JSON.stringify(functions) !== JSON.stringify(initialDataRef.current.functions)
+      JSON.stringify(functions) !== JSON.stringify(initialDataRef.current.functions) ||
+      JSON.stringify(options) !== JSON.stringify(initialDataRef.current.options)
     );
   };
 
@@ -140,13 +160,13 @@ export default function GeneralSettings() {
     } else {
       shopify.saveBar.hide('general-settings-save-bar');
     }
-  }, [customName, primaryColorText, secondaryColorText, functions]);
+  }, [customName, primaryColorText, secondaryColorText, functions, options]);
 
   const colorToHSB = (colorString) => {
     try {
       const col = color(colorString);
       const hsv = col.hsv().object();
-  
+
       return {
         hue: hsv.h,
         saturation: hsv.s / 100,
@@ -156,7 +176,7 @@ export default function GeneralSettings() {
       return { hue: 0, saturation: 0, brightness: 0 };
     }
   };
-  
+
   const hsbToColorString = (hsb) => {
     try {
       const col = color.hsv(hsb.hue, hsb.saturation * 100, hsb.brightness * 100);
@@ -164,14 +184,14 @@ export default function GeneralSettings() {
     } catch (e) {
       return '#000000';
     }
-  };  
+  };
 
   const handlePrimaryColorTextChange = (value) => {
     setPrimaryColorText(value);
     const hsb = colorToHSB(value);
     setPrimaryColorPicker(hsb);
   };
-  
+
   const handlePrimaryColorPickerChange = (value) => {
     setPrimaryColorPicker(value);
     const hex = hsbToColorString(value);
@@ -189,6 +209,11 @@ export default function GeneralSettings() {
     const hex = hsbToColorString(value);
     setSecondaryColorText(hex);
   };
+
+  // Handle alignment changes for the "options" object
+  const handleAlignmentChange = useCallback((selected) => {
+    setOptions({ ...options, alignment: selected[0] });
+  }, [options]);
 
   if (fetching) {
     return (
@@ -220,13 +245,18 @@ export default function GeneralSettings() {
   return (
     <>
       <SaveBar id="general-settings-save-bar">
-        <button variant="primary" onClick={handleSubmit}>{t('components.settings.GeneralSettings.saveBar.save')}</button>
-        <button onClick={handleReset}>{t('components.settings.GeneralSettings.saveBar.discard')}</button>
+        <button variant="primary" onClick={handleSubmit}>
+          {t('components.settings.GeneralSettings.saveBar.save')}
+        </button>
+        <button onClick={handleReset}>
+          {t('components.settings.GeneralSettings.saveBar.discard')}
+        </button>
       </SaveBar>
       <Form>
         <Layout>
           <Layout.Section>
             <BlockStack gap={400}>
+              {/* Branding Card */}
               <Card>
                 <FormLayout>
                   <Text variant="headingLg" as="h2">
@@ -272,6 +302,7 @@ export default function GeneralSettings() {
                 </FormLayout>
               </Card>
 
+              {/* Functions Card */}
               <Card>
                 <FormLayout>
                   <Text variant="headingLg" as="h2">
@@ -326,6 +357,30 @@ export default function GeneralSettings() {
                       disabled={data?.shop.exactOnline.state !== 'has-token'}
                     />
                   </BlockStack>
+                </FormLayout>
+              </Card>
+
+              {/* Alignment Card */}
+              <Card>
+                <FormLayout>
+                  <Text variant="headingLg" as="h2">
+                    {t('components.settings.GeneralSettings.form.options.heading')}
+                  </Text>
+                  <ChoiceList
+                    title={t('components.settings.GeneralSettings.form.options.alignment.title')}
+                    choices={[
+                      {
+                        label: t('components.settings.GeneralSettings.form.options.alignment.left'),
+                        value: 'left',
+                      },
+                      {
+                        label: t('components.settings.GeneralSettings.form.options.alignment.right'),
+                        value: 'right',
+                      },
+                    ]}
+                    selected={[options.alignment]}
+                    onChange={handleAlignmentChange}
+                  />
                 </FormLayout>
               </Card>
             </BlockStack>
