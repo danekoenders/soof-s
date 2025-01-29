@@ -99,7 +99,7 @@ export default function GeneralSettings() {
 
   useEffect(() => {
     if (updateData) {
-      shopify.toast.show(t('components.settings.GeneralSettings.updateSuccessToast'));
+      shopify.toast.show(t('components.settings.toast.success'));
       initialDataRef.current = {
         customName,
         primaryColorText,
@@ -246,10 +246,10 @@ export default function GeneralSettings() {
     <>
       <SaveBar id="general-settings-save-bar">
         <button variant="primary" onClick={handleSubmit}>
-          {t('components.settings.GeneralSettings.saveBar.save')}
+          {t('components.settings.saveBar.save')}
         </button>
         <button onClick={handleReset}>
-          {t('components.settings.GeneralSettings.saveBar.discard')}
+          {t('components.settings.saveBar.discard')}
         </button>
       </SaveBar>
       <Form>

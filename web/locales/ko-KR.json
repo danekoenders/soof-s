@@ -13,16 +13,16 @@
         }
     },
     "Error": "오류",
-    "Loading": "로딩 중",
+    "Loading": "로드 중",
     "components": {
         "chats": {
             "ChatDetail": {
-                "spinnerLabel": "채팅을 로딩 중입니다",
+                "spinnerLabel": "채팅을 로드 중입니다",
                 "productRecommendations": {
-                    "title": "추천 상품:"
+                    "title": "제품 추천:" 
                 },
                 "reference": "참조",
-                "noTranscript": "이용 가능한 기록이 없습니다"
+                "noTranscript": "사용 가능한 대본이 없습니다"
             }
         },
         "integrations": {
@@ -36,15 +36,23 @@
                     "disconnected": "연결된 계정이 없습니다"
                 },
                 "terms": {
-                    "first": "",
+                    "first": "클릭하여",
                     "second": "연결",
-                    "third": "을 클릭하면 Soof AI의",
-                    "linkText": "서비스 약관"
+                    "third": "Soof AI의",
+                    "linkText": "서비스 약관" 
                 },
-                "updating": "통합 업데이트 중.."
+                "updating": "통합을 업데이트 중입니다.."
             }
         },
         "settings": {
+            "toast": {
+                "success": "설정이 저장되었습니다!",
+                "requiredFields": "필수 항목이 누락되었습니다"
+            },
+            "saveBar": {
+                "save": "저장",
+                "discard": "취소"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "배송 국가",
@@ -63,11 +71,6 @@
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "설정이 저장되었습니다!",
-                "saveBar": {
-                    "save": "저장",
-                    "discard": "취소"
-                },
                 "form": {
                     "branding": "브랜딩",
                     "name": {
@@ -82,76 +85,88 @@
                         "label": "보조 색상",
                         "helpText": "hex, rgb 또는 다른 색상 형식을 입력할 수 있습니다."
                     },
+                    "options": {
+                        "heading": "옵션",
+                        "alignment": {
+                            "title": "채팅창 정렬",
+                            "left": "왼쪽",
+                            "right": "오른쪽"
+                        }
+                    },
                     "functions": {
                         "heading": "기능",
-                        "sendToCustomerSupport": "답변을 찾지 못할 경우 지원 이메일로 채팅 전송",
-                        "fetchProductRecommendation": "상품 추천 가져오기",
-                        "fetchProductByTitle": "제목으로 상품 검색",
-                        "fetchParcelDataByEmail": "실시간 배송 정보 가져오기 (이메일)",
-                        "fetchParcelDataByOrderId": "실시간 배송 정보 가져오기 (주문 ID)",
-                        "sendInvoice": "Exact Online을 통해 송장 전송 (주문 ID)"
+                        "sendToCustomerSupport": "답변을 찾을 수 없을 경우 채팅을 지원 이메일로 전송",
+                        "fetchProductRecommendation": "제품 추천 가져오기",
+                        "fetchProductByTitle": "제목으로 제품 가져오기",
+                        "fetchParcelDataByEmail": "실시간 배송 데이터 가져오기 (이메일로)",
+                        "fetchParcelDataByOrderId": "실시간 배송 데이터 가져오기 (주문 ID로)",
+                        "sendInvoice": "Exact Online을 통해 송장 전송 (주문 ID로)"
                     }
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "설정이 저장되었습니다!",
-                "requiredFieldsToast": "필수 항목이 누락되었습니다",
-                "saveBar": {
-                    "save": "저장",
-                    "discard": "취소"
-                },
                 "form": {
                     "products": {
-                        "title": "상품",
-                        "description": "상점의 상품 정보를 관리합니다.",
+                        "title": "제품",
+                        "description": "상점의 제품 정보를 관리합니다.",
                         "productsCategory": {
-                            "heading": "상품 카테고리",
-                            "body": "상품 카테고리는 판매하는 상품의 유형을 설명합니다.",
-                            "label": "상품 카테고리",
-                            "required": "상품 카테고리가 필요합니다",
+                            "heading": "제품 카테고리",
+                            "body": "귀하의 제품 카테고리는 판매하는 제품 유형을 설명합니다.",
+                            "label": "제품 카테고리",
+                            "required": "제품 카테고리는 필수입니다",
                             "helpText": "예: 비타민 또는 스마트폰 액세서리"
                         },
                         "popularProducts": {
-                            "heading": "인기 상품",
-                            "body": "Soof가 표시할 상품을 선택하세요.",
-                            "required": "최소 한 개의 인기 상품이 필요합니다."
+                            "heading": "인기 제품",
+                            "body": "인기 제품으로 표시할 제품을 선택하십시오.",
+                            "required": "최소 하나의 인기 제품이 필요합니다."
                         }
                     },
                     "shipping": {
                         "title": "배송",
                         "description": "배송 요금과 배송 시간을 설정합니다.",
                         "deliveryAmount": {
-                            "label": "배송 요금",
-                            "required": "배송 요금이 필요합니다"
+                            "label": "배송 금액",
+                            "required": "배송 금액은 필수입니다"
                         },
                         "freeDeliveryAmount": {
-                            "label": "무료 배송 금액"
+                            "label": "무료 배송 시작 금액"
                         },
                         "minDeliveryDays": {
-                            "label": "최소 배송 일수",
-                            "required": "최소 배송 일수가 필요합니다"
+                            "label": "최소 배송일",
+                            "required": "최소 배송일은 필수입니다"
                         },
                         "maxDeliveryDays": {
-                            "label": "최대 배송 일수",
-                            "required": "최대 배송 일수가 필요합니다"
+                            "label": "최대 배송일",
+                            "required": "최대 배송일은 필수입니다"
                         }
                     },
                     "paymentOptions": {
                         "title": "결제 옵션",
-                        "description": "수락하는 결제 방법을 선택하세요.",
+                        "description": "허용하는 결제 방법을 선택하십시오.",
                         "required": "최소 하나의 결제 옵션이 필요합니다."
                     },
                     "policies": {
                         "title": "정책",
-                        "description": "반품 주소 및 환불 정책을 제공합니다.",
+                        "description": "반품 주소 및 환불 정책을 제공하십시오.",
                         "returnAddress": {
                             "label": "반품 주소"
                         },
                         "returnAndRefundPolicy": {
                             "label": "반품 및 환불 정책",
-                            "required": "반품 및 환불 정책이 필요합니다"
+                            "required": "반품 및 환불 정책은 필수입니다"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "주문 접두사",
+                    "helpText": "Shopify 상점 설정에 지정된 주문 ID 접두사입니다."
+                },
+                "orderSuffix": {
+                    "label": "주문 접미사",
+                    "helpText": "Shopify 상점 설정에 지정된 주문 ID 접미사입니다."
                 }
             }
         },
@@ -162,15 +177,15 @@
             },
             "step1": {
                 "heading": "Soof AI에 오신 것을 환영합니다! 🚀",
-                "subheading": "함께하게 되어 기쁩니다! 계정 설정을 시작해 봅시다.",
-                "chooseYourPlan": "플랜 선택",
-                "trialMessage": "모든 플랜에 7일 무료 체험이 포함되어 있습니다. 자유롭게 시도해 보세요!",
+                "subheading": "함께하게 되어 기쁩니다! 계정 설정을 시작합시다.",
+                "chooseYourPlan": "플랜을 선택하세요",
+                "trialMessage": "모든 플랜에는 7일 무료 평가판이 포함되어 있습니다. 마음껏 사용해 보세요!",
                 "continueForFree": "또는 무료 플랜을 계속 사용하세요"
             },
             "step2": {
                 "heading": "확장 기능 활성화",
-                "subheading": "훌륭합니다! 이제 플랜을 선택했으므로, 확장 기능을 활성화하여 설정을 완료할 수 있습니다. 확장 기능은 상점에 채팅 창을 직접 추가합니다.",
-                "instructions": "아래 버튼을 눌러 저장하여 확장 기능을 활성화합니다.",
+                "subheading": "훌륭합니다! 플랜을 선택했으니 이제 확장 기능을 활성화하여 설정을 완료할 수 있습니다. 우리의 확장 기능은 내장 채팅창을 귀하의 상점에 직접 추가합니다.",
+                "instructions": "아래 버튼을 눌러 저장하여 확장 기능을 활성화하세요.",
                 "enableExtensionButton": "확장 기능 활성화"
             },
             "error": {
@@ -180,15 +195,15 @@
         "shared": {
             "NoticeHeader": {
                 "trialEnd": {
-                    "title": "무료 체험 기간이 종료되었습니다.",
+                    "title": "무료 평가판이 종료되었습니다.",
                     "action": "지금 업그레이드",
-                    "message": "서비스를 계속 이용하려면 플랜을 선택하세요."
+                    "message": "서비스를 계속 사용하려면 플랜을 선택하십시오."
                 }
             }
         },
         "utils": {
             "CopyToClipboard": {
-                "copied": "클립보드에 복사됨!"
+                "copied": "클립보드에 복사되었습니다!"
             }
         }
     },
@@ -203,13 +218,13 @@
             "headings": {
                 "ref": "참조",
                 "email": "이메일",
-                "createdAt": "생성일"
+                "createdAt": "생성됨"
             },
             "emptyState": {
                 "heading": "사용 가능한 채팅이 없습니다",
-                "description": "현재 표시할 채팅이 없습니다. 여기서 대화를 시작하세요."
+                "description": "현재 표시할 채팅이 없습니다. 여기에 표시하려면 대화를 시작하세요."
             },
-            "modalTitle": "채팅 상세"
+            "modalTitle": "채팅 세부 정보"
         },
         "overview": {
             "pageTitle": "개요",
@@ -219,11 +234,11 @@
                     "content": "시작하기"
                 },
                 "description": {
-                    "item1": "이전과는 다른 방식으로 고객을 참여시키세요.",
-                    "item2": "개인화된 상호작용으로 판매를 늘리세요.",
-                    "item3": "추가 인력 없이 24/7 고객 지원 제공."
+                    "item1": "고객과 전례 없는 방식으로 소통하세요.",
+                    "item2": "개인화된 상호작용으로 매출을 늘리세요.",
+                    "item3": "추가 인력 없이 24/7 고객 지원을 제공합니다."
                 },
-                "imageAlt": "아이폰에서 Soof"
+                "imageAlt": "iPhone에서 Soof"
             },
             "chatSessions": {
                 "title": "채팅 세션",
@@ -232,17 +247,17 @@
         },
         "integrations": {
             "pageTitle": "통합",
-            "exactOnlineDescription": "Exact Online 계정을 어시스턴트에 연결합니다."
+            "exactOnlineDescription": "Exact Online 계정을 도우미에 연결하십시오."
         },
         "plans": {
             "pageTitle": "플랜",
             "backAction": {
                 "content": "상점 정보"
             },
-            "description": "모든 플랜에는 무료 7일 체험 기간이 포함됩니다. 언제든지 플랜을 변경하거나 취소할 수 있습니다.",
+            "description": "모든 플랜에는 7일 무료 평가판이 포함되어 있습니다. 언제든지 플랜을 변경하거나 취소할 수 있습니다.",
             "banner": {
-                "title": "무료 체험 중입니다",
-                "body": "무료 체험 기간이 {days}일 후에 종료됩니다."
+                "title": "무료 평가판 중입니다",
+                "body": "무료 평가판이 {days}일 후에 만료됩니다."
             },
             "cancelSubscriptionButton": "구독 취소",
             "error": {
@@ -252,7 +267,8 @@
         "settings": {
             "general": "일반",
             "knowledge": "지식",
-            "pageTitle": "어시스턴트 편집"
+            "shipping": "배송",
+            "pageTitle": "도우미 수정"
         }
     }
 }

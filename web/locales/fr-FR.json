@@ -1,15 +1,15 @@
 {
     "app": {
         "unauthenticated": {
-            "title": "L'application doit être consultée dans l'admin Shopify"
+            "title": "L'application doit être consultée dans l'Admin Shopify"
         },
         "notFound": "Page non trouvée",
         "navigation": {
-            "overview": "Vue d'ensemble",
+            "overview": "Aperçu",
             "chats": "Conversations",
             "settings": "Paramètres",
             "integrations": "Intégrations",
-            "plans": "Plans"
+            "plans": "Abonnements"
         }
     },
     "Error": "Erreur",
@@ -39,52 +39,63 @@
                     "first": "En cliquant sur",
                     "second": "Connecter",
                     "third": "vous acceptez les",
-                    "linkText": "conditions de service"
+                    "linkText": "conditions d'utilisation de Soof AI"
                 },
-                "updating": "Mise à jour de l'intégration..."
+                "updating": "Mise à jour de l'intégration.."
             }
         },
         "settings": {
+            "toast": {
+                "success": "Paramètres enregistrés !",
+                "requiredFields": "Champs obligatoires manquants"
+            },
+            "saveBar": {
+                "save": "Enregistrer",
+                "discard": "Annuler"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "Pays de livraison",
-                    "body": "Informez les clients des pays où vous livrez.",
+                    "body": "Informez vos clients des pays où vous livrez.",
                     "noneFound": "Aucun pays correspondant trouvé",
                     "addLabel": "Ajouter un pays de livraison",
                     "searchPlaceholder": "Rechercher des pays"
                 },
                 "PopularProductsList": {
                     "accessibilityLabel": "Produit populaire :",
-                    "selectButton": "Sélectionner les produits populaires",
+                    "selectButton": "Sélectionner des produits populaires",
                     "emptyState": {
-                        "heading": "Sélectionnez des produits populaires",
+                        "heading": "Sélectionner des produits populaires",
                         "action": "Sélectionner des produits"
                     }
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Paramètres enregistrés !",
-                "saveBar": {
-                    "save": "Enregistrer",
-                    "discard": "Annuler"
-                },
                 "form": {
-                    "branding": "Marque",
+                    "branding": "Image de marque",
                     "name": {
                         "label": "Nom",
                         "placeholder": "Soof"
                     },
                     "primaryColor": {
                         "label": "Couleur principale",
-                        "helpText": "Vous pouvez entrer du hex, rgb ou d'autres formats de couleur."
+                        "helpText": "Vous pouvez entrer des formats de couleur hex, rgb ou autres."
                     },
                     "secondaryColor": {
                         "label": "Couleur secondaire",
-                        "helpText": "Vous pouvez entrer du hex, rgb ou d'autres formats de couleur."
+                        "helpText": "Vous pouvez entrer des formats de couleur hex, rgb ou autres."
+                    },
+                    "options": {
+                        "heading": "Options",
+                        "alignment": {
+                            "title": "Alignement de la fenêtre de chat",
+                            "left": "Gauche",
+                            "right": "Droite"
+                        }
                     },
                     "functions": {
-                        "heading": "Fonctions",
-                        "sendToCustomerSupport": "Envoyer le chat à l'assistance si aucune réponse trouvée",
+                        "heading": "Fonctionnalités",
+                        "sendToCustomerSupport": "Envoyer la conversation à l'e-mail de support si aucune réponse n'est trouvée",
                         "fetchProductRecommendation": "Obtenir des recommandations de produits",
                         "fetchProductByTitle": "Obtenir un produit par titre",
                         "fetchParcelDataByEmail": "Obtenir des données de colis en temps réel (par e-mail)",
@@ -94,51 +105,45 @@
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Paramètres enregistrés !",
-                "requiredFieldsToast": "Champs obligatoires manquants",
-                "saveBar": {
-                    "save": "Enregistrer",
-                    "discard": "Annuler"
-                },
                 "form": {
                     "products": {
                         "title": "Produits",
-                        "description": "Gérez les informations de produits de votre boutique.",
+                        "description": "Gérez les informations sur les produits de votre boutique.",
                         "productsCategory": {
                             "heading": "Catégorie de produits",
-                            "body": "La catégorie de vos produits décrit le type de produits que vous vendez.",
+                            "body": "Votre catégorie de produits décrit le type de produits que vous vendez.",
                             "label": "Catégorie de produits",
-                            "required": "La catégorie de produits est requise",
-                            "helpText": "par ex. Vitamines ou Accessoires pour smartphone"
+                            "required": "La catégorie de produits est obligatoire",
+                            "helpText": "Par exemple : Vitamines ou Accessoires pour smartphones"
                         },
                         "popularProducts": {
                             "heading": "Produits populaires",
-                            "body": "Sélectionnez les produits que vous souhaitez que Soof mette en avant.",
+                            "body": "Sélectionnez les produits que vous souhaitez mettre en avant comme populaires.",
                             "required": "Au moins un produit populaire est requis."
                         }
                     },
                     "shipping": {
                         "title": "Livraison",
-                        "description": "Définissez vos tarifs et délais de livraison.",
+                        "description": "Définissez vos tarifs de livraison et délais de livraison.",
                         "deliveryAmount": {
                             "label": "Montant de la livraison",
-                            "required": "Le montant de la livraison est requis"
+                            "required": "Le montant de la livraison est obligatoire"
                         },
                         "freeDeliveryAmount": {
-                            "label": "Montant pour livraison gratuite"
+                            "label": "Livraison gratuite à partir de"
                         },
                         "minDeliveryDays": {
-                            "label": "Délai minimum de livraison (jours)",
-                            "required": "Le délai minimum de livraison est requis"
+                            "label": "Nombre minimum de jours de livraison",
+                            "required": "Le nombre minimum de jours de livraison est obligatoire"
                         },
                         "maxDeliveryDays": {
-                            "label": "Délai maximum de livraison (jours)",
-                            "required": "Le délai maximum de livraison est requis"
+                            "label": "Nombre maximum de jours de livraison",
+                            "required": "Le nombre maximum de jours de livraison est obligatoire"
                         }
                     },
                     "paymentOptions": {
                         "title": "Options de paiement",
-                        "description": "Sélectionnez les méthodes de paiement acceptées.",
+                        "description": "Sélectionnez les méthodes de paiement que vous acceptez.",
                         "required": "Au moins une option de paiement est requise."
                     },
                     "policies": {
@@ -149,27 +154,37 @@
                         },
                         "returnAndRefundPolicy": {
                             "label": "Politique de retour et de remboursement",
-                            "required": "La politique de retour et de remboursement est requise"
+                            "required": "La politique de retour et de remboursement est obligatoire"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Préfixe de commande",
+                    "helpText": "Le préfixe des ID de commande défini dans les paramètres de votre boutique Shopify."
+                },
+                "orderSuffix": {
+                    "label": "Suffixe de commande",
+                    "helpText": "Le suffixe des ID de commande défini dans les paramètres de votre boutique Shopify."
                 }
             }
         },
         "setupWizard": {
             "steps": {
-                "selectPlan": "Choisissez un plan",
-                "connectStore": "Connectez la boutique"
+                "selectPlan": "Sélectionner un abonnement",
+                "connectStore": "Connecter la boutique"
             },
             "step1": {
-                "heading": "Bienvenue sur Soof AI ! 🚀",
-                "subheading": "Nous sommes ravis de vous avoir avec nous ! Commençons par configurer votre compte.",
-                "chooseYourPlan": "Choisissez votre plan",
-                "trialMessage": "Tous les plans incluent un essai gratuit de 7 jours, n'hésitez pas à essayer !",
-                "continueForFree": "Ou continuez à utiliser le plan gratuit"
+                "heading": "Bienvenue chez Soof AI ! 🚀",
+                "subheading": "Nous sommes ravis de vous compter parmi nous ! Commençons par configurer votre compte.",
+                "chooseYourPlan": "Choisissez votre abonnement",
+                "trialMessage": "Tous les abonnements incluent un essai gratuit de 7 jours. Testez-les !",
+                "continueForFree": "Ou continuez avec l'abonnement gratuit"
             },
             "step2": {
                 "heading": "Activer l'extension",
-                "subheading": "Super ! Maintenant que vous avez choisi un plan, nous pouvons terminer la configuration en activant l'extension. Notre extension ajoutera une fenêtre de chat intégrée directement dans votre boutique.",
+                "subheading": "Génial ! Maintenant que vous avez choisi un abonnement, nous pouvons finaliser la configuration en activant l'extension. Notre extension ajoutera la fenêtre de chat intégrée directement à votre boutique.",
                 "instructions": "Appuyez sur le bouton ci-dessous et enregistrez pour activer l'extension.",
                 "enableExtensionButton": "Activer l'extension"
             },
@@ -181,8 +196,8 @@
             "NoticeHeader": {
                 "trialEnd": {
                     "title": "Votre essai gratuit est terminé.",
-                    "action": "Mettez à niveau maintenant",
-                    "message": "Veuillez sélectionner un plan pour continuer à utiliser nos services."
+                    "action": "Mettre à niveau maintenant",
+                    "message": "Veuillez choisir un abonnement pour continuer à utiliser nos services."
                 }
             }
         },
@@ -207,27 +222,27 @@
             },
             "emptyState": {
                 "heading": "Aucune conversation disponible",
-                "description": "Aucune conversation n'est disponible pour le moment. Démarrez une conversation pour l'afficher ici."
+                "description": "Actuellement, aucune conversation n'est disponible. Lancez une discussion pour la voir ici."
             },
-            "modalTitle": "Détail de la conversation"
+            "modalTitle": "Détails de la conversation"
         },
         "overview": {
-            "pageTitle": "Vue d'ensemble",
+            "pageTitle": "Aperçu",
             "mediaCard": {
                 "title": "Premiers pas",
                 "primaryAction": {
                     "content": "Premiers pas"
                 },
                 "description": {
-                    "item1": "Engagez vos clients comme jamais auparavant.",
-                    "item2": "Augmentez les ventes avec des interactions personnalisées.",
-                    "item3": "Assistance clientèle 24h/24 sans personnel supplémentaire."
+                    "item1": "Impliquez vos clients comme jamais auparavant.",
+                    "item2": "Augmentez vos ventes grâce à des interactions personnalisées.",
+                    "item3": "Support client 24h/24, 7j/7 sans personnel supplémentaire."
                 },
                 "imageAlt": "Soof sur iPhone"
             },
             "chatSessions": {
-                "title": "Sessions de chat",
-                "chatUsage": "Utilisation du chat"
+                "title": "Sessions de conversation",
+                "chatUsage": "Utilisation des conversations"
             }
         },
         "integrations": {
@@ -235,14 +250,14 @@
             "exactOnlineDescription": "Connectez votre compte Exact Online à votre assistant."
         },
         "plans": {
-            "pageTitle": "Plans",
+            "pageTitle": "Abonnements",
             "backAction": {
                 "content": "Informations sur la boutique"
             },
-            "description": "Chaque plan comprend un essai gratuit de 7 jours. Vous pouvez modifier ou annuler votre plan à tout moment.",
+            "description": "Chaque abonnement inclut un essai gratuit de 7 jours. Vous pouvez changer ou annuler votre abonnement à tout moment.",
             "banner": {
                 "title": "Vous êtes en essai gratuit",
-                "body": "Votre essai gratuit expire dans {days} jour(s)."
+                "body": "Votre essai gratuit expirera dans {days} jour(s)."
             },
             "cancelSubscriptionButton": "Annuler l'abonnement",
             "error": {
@@ -252,6 +267,7 @@
         "settings": {
             "general": "Général",
             "knowledge": "Connaissances",
+            "shipping": "Livraison",
             "pageTitle": "Modifier l'assistant"
         }
     }

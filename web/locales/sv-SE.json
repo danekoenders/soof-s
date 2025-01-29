@@ -1,7 +1,7 @@
 {
     "app": {
         "unauthenticated": {
-            "title": "Appen måste visas i Shopify-admin"
+            "title": "Appen måste visas i Shopify Admin"
         },
         "notFound": "Sidan kunde inte hittas",
         "navigation": {
@@ -38,18 +38,26 @@
                 "terms": {
                     "first": "Genom att klicka på",
                     "second": "Anslut",
-                    "third": "godkänner du Soof AIs",
+                    "third": "godkänner du Soof AI:s",
                     "linkText": "användarvillkor"
                 },
                 "updating": "Uppdaterar integration..."
             }
         },
         "settings": {
+            "toast": {
+                "success": "Inställningar sparade!",
+                "requiredFields": "Obligatoriska fält saknas"
+            },
+            "saveBar": {
+                "save": "Spara",
+                "discard": "Ångra"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "Leveransländer",
-                    "body": "Informera kunder om vilka länder du levererar till.",
-                    "noneFound": "Inga länder hittades som matchar",
+                    "body": "Informera dina kunder om vilka länder du levererar till.",
+                    "noneFound": "Inga matchande länder hittades",
                     "addLabel": "Lägg till leveransland",
                     "searchPlaceholder": "Sök länder"
                 },
@@ -63,11 +71,6 @@
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Inställningar sparade!",
-                "saveBar": {
-                    "save": "Spara",
-                    "discard": "Förkasta"
-                },
                 "form": {
                     "branding": "Varumärke",
                     "name": {
@@ -76,30 +79,32 @@
                     },
                     "primaryColor": {
                         "label": "Primär färg",
-                        "helpText": "Du kan ange hex, rgb eller andra färgformat."
+                        "helpText": "Du kan ange färgformat som hex, rgb eller andra."
                     },
                     "secondaryColor": {
                         "label": "Sekundär färg",
-                        "helpText": "Du kan ange hex, rgb eller andra färgformat."
+                        "helpText": "Du kan ange färgformat som hex, rgb eller andra."
+                    },
+                    "options": {
+                        "heading": "Alternativ",
+                        "alignment": {
+                            "title": "Chattfönstrets justering",
+                            "left": "Vänster",
+                            "right": "Höger"
+                        }
                     },
                     "functions": {
                         "heading": "Funktioner",
-                        "sendToCustomerSupport": "Skicka chatten till supportmailen om inget svar hittas",
+                        "sendToCustomerSupport": "Skicka chatt till supports mejl om inget svar hittas",
                         "fetchProductRecommendation": "Hämta produktrekommendationer",
                         "fetchProductByTitle": "Hämta produkt efter titel",
-                        "fetchParcelDataByEmail": "Hämta realtidsdata om paket (via e-post)",
-                        "fetchParcelDataByOrderId": "Hämta realtidsdata om paket (via order-ID)",
-                        "sendInvoice": "Skicka fakturor via Exact Online (via order-ID)"
+                        "fetchParcelDataByEmail": "Hämta leveransdata i realtid (via e-post)",
+                        "fetchParcelDataByOrderId": "Hämta leveransdata i realtid (via order-ID)",
+                        "sendInvoice": "Skicka fakturor med Exact Online (via order-ID)"
                     }
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Inställningar sparade!",
-                "requiredFieldsToast": "Saknar obligatoriska fält",
-                "saveBar": {
-                    "save": "Spara",
-                    "discard": "Förkasta"
-                },
                 "form": {
                     "products": {
                         "title": "Produkter",
@@ -108,50 +113,60 @@
                             "heading": "Produktkategori",
                             "body": "Din produktkategori beskriver vilken typ av produkter du säljer.",
                             "label": "Produktkategori",
-                            "required": "Produktkategori är obligatorisk",
-                            "helpText": "t.ex. Vitaminer eller Smartphone-tillbehör"
+                            "required": "Produktkategori är obligatoriskt",
+                            "helpText": "Exempel: Vitaminer eller smartphone-tillbehör"
                         },
                         "popularProducts": {
                             "heading": "Populära produkter",
-                            "body": "Välj de produkter du vill att Soof ska lyfta fram.",
-                            "required": "Minst en populär produkt är obligatorisk."
+                            "body": "Välj de produkter som du vill markera som populära.",
+                            "required": "Minst en populär produkt krävs."
                         }
                     },
                     "shipping": {
                         "title": "Frakt",
-                        "description": "Ställ in dina fraktkostnader och leveranstider.",
+                        "description": "Ange dina fraktavgifter och leveranstider.",
                         "deliveryAmount": {
                             "label": "Fraktkostnad",
-                            "required": "Fraktkostnad är obligatorisk"
+                            "required": "Fraktkostnad är obligatoriskt"
                         },
                         "freeDeliveryAmount": {
-                            "label": "Belopp för fri frakt"
+                            "label": "Gratis frakt från"
                         },
                         "minDeliveryDays": {
-                            "label": "Minsta antal leveransdagar",
-                            "required": "Minsta antal leveransdagar är obligatoriskt"
+                            "label": "Minsta leveransdagar",
+                            "required": "Minsta leveransdagar är obligatoriskt"
                         },
                         "maxDeliveryDays": {
-                            "label": "Maximalt antal leveransdagar",
-                            "required": "Maximalt antal leveransdagar är obligatoriskt"
+                            "label": "Maximala leveransdagar",
+                            "required": "Maximala leveransdagar är obligatoriskt"
                         }
                     },
                     "paymentOptions": {
                         "title": "Betalningsalternativ",
-                        "description": "Välj de betalningsmetoder du accepterar.",
-                        "required": "Minst ett betalningsalternativ är obligatoriskt."
+                        "description": "Välj vilka betalningsmetoder du accepterar.",
+                        "required": "Minst ett betalningsalternativ krävs."
                     },
                     "policies": {
                         "title": "Policyer",
-                        "description": "Ange din returadress och återbetalningspolicy.",
+                        "description": "Ange din returadress och din retur- och återbetalningspolicy.",
                         "returnAddress": {
                             "label": "Returadress"
                         },
                         "returnAndRefundPolicy": {
                             "label": "Retur- och återbetalningspolicy",
-                            "required": "Retur- och återbetalningspolicy är obligatorisk"
+                            "required": "Retur- och återbetalningspolicy är obligatoriskt"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Orderprefix",
+                    "helpText": "Prefixet för order-ID:n som är angivet i din Shopify-butiksinställningar."
+                },
+                "orderSuffix": {
+                    "label": "Ordersuffix",
+                    "helpText": "Suffixet för order-ID:n som är angivet i din Shopify-butiksinställningar."
                 }
             }
         },
@@ -162,14 +177,14 @@
             },
             "step1": {
                 "heading": "Välkommen till Soof AI! 🚀",
-                "subheading": "Vi är glada att ha dig med! Låt oss börja med att ställa in ditt konto.",
+                "subheading": "Vi är glada att ha dig med oss! Låt oss börja med att konfigurera ditt konto.",
                 "chooseYourPlan": "Välj din plan",
-                "trialMessage": "Alla planer inkluderar en gratis 7-dagars provperiod, prova gärna!",
+                "trialMessage": "Alla planer inkluderar en 7-dagars gratis provperiod. Testa dem gärna!",
                 "continueForFree": "Eller fortsätt använda gratisplanen"
             },
             "step2": {
                 "heading": "Aktivera tillägg",
-                "subheading": "Fantastiskt! Nu när du har valt en plan kan vi avsluta installationen genom att aktivera tillägget. Vårt tillägg lägger till en chatt direkt i din butik.",
+                "subheading": "Fantastiskt! Nu när du har valt en plan kan vi slutföra konfigurationen genom att aktivera tillägget. Vårt tillägg kommer att lägga till det inbäddade chattfönstret direkt i din butik.",
                 "instructions": "Tryck på knappen nedan och spara för att aktivera tillägget.",
                 "enableExtensionButton": "Aktivera tillägg"
             },
@@ -182,7 +197,7 @@
                 "trialEnd": {
                     "title": "Din gratis provperiod har avslutats.",
                     "action": "Uppgradera nu",
-                    "message": "Välj en plan för att fortsätta använda våra tjänster."
+                    "message": "Vänligen välj en plan för att fortsätta använda våra tjänster."
                 }
             }
         },
@@ -207,7 +222,7 @@
             },
             "emptyState": {
                 "heading": "Inga chattar tillgängliga",
-                "description": "För närvarande finns det inga chattar att visa. Starta en konversation för att se den här."
+                "description": "Det finns för närvarande inga chattar att visa. Börja en konversation för att se den här."
             },
             "modalTitle": "Chattdetaljer"
         },
@@ -221,13 +236,13 @@
                 "description": {
                     "item1": "Engagera dina kunder som aldrig förr.",
                     "item2": "Öka försäljningen med personliga interaktioner.",
-                    "item3": "24/7 kundsupport utan extra personal."
+                    "item3": "Kundsupport dygnet runt utan extra personal."
                 },
                 "imageAlt": "Soof på iPhone"
             },
             "chatSessions": {
                 "title": "Chattsessioner",
-                "chatUsage": "Användning av chatt"
+                "chatUsage": "Chattanvändning"
             }
         },
         "integrations": {
@@ -239,10 +254,10 @@
             "backAction": {
                 "content": "Butiksinformation"
             },
-            "description": "Varje plan inkluderar en gratis 7-dagars provperiod. Du kan när som helst ändra eller avbryta din plan.",
+            "description": "Varje plan inkluderar en 7-dagars gratis provperiod. Du kan ändra eller avbryta din plan när som helst.",
             "banner": {
-                "title": "Du har en gratis provperiod",
-                "body": "Din gratis provperiod upphör om {days} dag(ar)."
+                "title": "Du använder en gratis provperiod",
+                "body": "Din gratis provperiod löper ut om {days} dag(ar)."
             },
             "cancelSubscriptionButton": "Avbryt prenumeration",
             "error": {
@@ -252,6 +267,7 @@
         "settings": {
             "general": "Allmänt",
             "knowledge": "Kunskap",
+            "shipping": "Frakt",
             "pageTitle": "Redigera assistent"
         }
     }

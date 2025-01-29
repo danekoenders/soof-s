@@ -1,11 +1,11 @@
 {
     "app": {
         "unauthenticated": {
-            "title": "Die App muss im Shopify-Admin angezeigt werden"
+            "title": "App muss im Shopify-Admin angezeigt werden"
         },
         "notFound": "Seite nicht gefunden",
         "navigation": {
-            "overview": "Übersicht",
+            "overview": "Überblick",
             "chats": "Chats",
             "settings": "Einstellungen",
             "integrations": "Integrationen",
@@ -28,7 +28,7 @@
         "integrations": {
             "ExactOnline": {
                 "buttonText": {
-                    "disconnect": "Verbindung trennen",
+                    "disconnect": "Trennen",
                     "connect": "Verbinden"
                 },
                 "details": {
@@ -45,13 +45,21 @@
             }
         },
         "settings": {
+            "toast": {
+                "success": "Einstellungen gespeichert!",
+                "requiredFields": "Pflichtfelder fehlen"
+            },
+            "saveBar": {
+                "save": "Speichern",
+                "discard": "Verwerfen"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "Lieferländer",
-                    "body": "Informieren Sie Kunden, in welche Länder Sie liefern.",
+                    "body": "Teilen Sie Ihren Kunden mit, in welche Länder Sie liefern.",
                     "noneFound": "Keine passenden Länder gefunden",
                     "addLabel": "Lieferland hinzufügen",
-                    "searchPlaceholder": "Länder suchen"
+                    "searchPlaceholder": "Nach Ländern suchen"
                 },
                 "PopularProductsList": {
                     "accessibilityLabel": "Beliebtes Produkt:",
@@ -63,28 +71,31 @@
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Einstellungen gespeichert!",
-                "saveBar": {
-                    "save": "Speichern",
-                    "discard": "Verwerfen"
-                },
                 "form": {
-                    "branding": "Markenauftritt",
+                    "branding": "Branding",
                     "name": {
                         "label": "Name",
                         "placeholder": "Soof"
                     },
                     "primaryColor": {
                         "label": "Primärfarbe",
-                        "helpText": "Sie können hex, rgb oder andere Farbformate eingeben."
+                        "helpText": "Sie können Hex-, RGB- oder andere Farbformate eingeben."
                     },
                     "secondaryColor": {
                         "label": "Sekundärfarbe",
-                        "helpText": "Sie können hex, rgb oder andere Farbformate eingeben."
+                        "helpText": "Sie können Hex-, RGB- oder andere Farbformate eingeben."
+                    },
+                    "options": {
+                        "heading": "Optionen",
+                        "alignment": {
+                            "title": "Ausrichtung des Chat-Fensters",
+                            "left": "Links",
+                            "right": "Rechts"
+                        }
                     },
                     "functions": {
                         "heading": "Funktionen",
-                        "sendToCustomerSupport": "Chat an Support-E-Mail senden, wenn keine Antwort gefunden wird",
+                        "sendToCustomerSupport": "Chat an Support-E-Mail senden, wenn keine Antwort gefunden wurde",
                         "fetchProductRecommendation": "Produktvorschläge abrufen",
                         "fetchProductByTitle": "Produkt nach Titel abrufen",
                         "fetchParcelDataByEmail": "Echtzeit-Paketdaten abrufen (nach E-Mail)",
@@ -94,12 +105,6 @@
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Einstellungen gespeichert!",
-                "requiredFieldsToast": "Pflichtfelder fehlen",
-                "saveBar": {
-                    "save": "Speichern",
-                    "discard": "Verwerfen"
-                },
                 "form": {
                     "products": {
                         "title": "Produkte",
@@ -113,7 +118,7 @@
                         },
                         "popularProducts": {
                             "heading": "Beliebte Produkte",
-                            "body": "Wählen Sie die Produkte aus, die Soof anzeigen soll.",
+                            "body": "Wählen Sie die Produkte aus, die als beliebt angezeigt werden sollen.",
                             "required": "Mindestens ein beliebtes Produkt ist erforderlich."
                         }
                     },
@@ -125,7 +130,7 @@
                             "required": "Lieferbetrag ist erforderlich"
                         },
                         "freeDeliveryAmount": {
-                            "label": "Betrag für kostenlose Lieferung"
+                            "label": "Kostenlose Lieferung ab"
                         },
                         "minDeliveryDays": {
                             "label": "Minimale Lieferzeit (Tage)",
@@ -138,7 +143,7 @@
                     },
                     "paymentOptions": {
                         "title": "Zahlungsoptionen",
-                        "description": "Wählen Sie die akzeptierten Zahlungsmethoden.",
+                        "description": "Wählen Sie die Zahlungsmethoden aus, die Sie akzeptieren.",
                         "required": "Mindestens eine Zahlungsoption ist erforderlich."
                     },
                     "policies": {
@@ -153,6 +158,16 @@
                         }
                     }
                 }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Bestellpräfix",
+                    "helpText": "Das in Ihren Shopify-Einstellungen festgelegte Präfix für Bestell-IDs."
+                },
+                "orderSuffix": {
+                    "label": "Bestellsuffix",
+                    "helpText": "Das in Ihren Shopify-Einstellungen festgelegte Suffix für Bestell-IDs."
+                }
             }
         },
         "setupWizard": {
@@ -162,27 +177,27 @@
             },
             "step1": {
                 "heading": "Willkommen bei Soof AI! 🚀",
-                "subheading": "Wir freuen uns, dass Sie dabei sind! Beginnen wir mit der Einrichtung Ihres Kontos.",
+                "subheading": "Wir freuen uns, Sie an Bord zu haben! Lassen Sie uns mit der Einrichtung Ihres Kontos beginnen.",
                 "chooseYourPlan": "Wählen Sie Ihren Plan",
-                "trialMessage": "Alle Pläne enthalten eine kostenlose 7-tägige Testversion, probieren Sie es aus!",
-                "continueForFree": "Oder weiterhin den kostenlosen Plan nutzen"
+                "trialMessage": "Alle Pläne beinhalten eine 7-tägige kostenlose Testversion. Testen Sie sie aus!",
+                "continueForFree": "Oder fahren Sie mit dem kostenlosen Plan fort"
             },
             "step2": {
                 "heading": "Erweiterung aktivieren",
-                "subheading": "Super! Jetzt, wo Sie einen Plan ausgewählt haben, können wir die Einrichtung abschließen, indem wir die Erweiterung aktivieren. Unsere Erweiterung fügt direkt ein Chat-Fenster in Ihren Shop ein.",
-                "instructions": "Drücken Sie den Knopf unten und speichern Sie, um die Erweiterung zu aktivieren.",
+                "subheading": "Super! Jetzt, da Sie einen Plan ausgewählt haben, können wir die Einrichtung abschließen, indem wir die Erweiterung aktivieren. Unsere Erweiterung fügt das eingebettete Chatfenster direkt zu Ihrem Shop hinzu.",
+                "instructions": "Drücken Sie die Schaltfläche unten und speichern Sie, um die Erweiterung zu aktivieren.",
                 "enableExtensionButton": "Erweiterung aktivieren"
             },
             "error": {
-                "unableToSubscribe": "Abonnement nicht möglich: "
+                "unableToSubscribe": "Abonnement konnte nicht abgeschlossen werden: "
             }
         },
         "shared": {
             "NoticeHeader": {
                 "trialEnd": {
-                    "title": "Ihre kostenlose Testphase ist abgelaufen.",
+                    "title": "Ihre kostenlose Testversion ist abgelaufen.",
                     "action": "Jetzt upgraden",
-                    "message": "Bitte wählen Sie einen Plan, um unseren Service weiterhin zu nutzen."
+                    "message": "Bitte wählen Sie einen Plan, um unseren Service weiterhin nutzen zu können."
                 }
             }
         },
@@ -197,8 +212,8 @@
             "pageTitle": "Chats",
             "searchPlaceholder": "Suchen...",
             "resourceName": {
-                "singular": "chat",
-                "plural": "chats"
+                "singular": "Chat",
+                "plural": "Chats"
             },
             "headings": {
                 "ref": "Ref",
@@ -212,16 +227,16 @@
             "modalTitle": "Chat-Details"
         },
         "overview": {
-            "pageTitle": "Übersicht",
+            "pageTitle": "Überblick",
             "mediaCard": {
                 "title": "Erste Schritte",
                 "primaryAction": {
                     "content": "Erste Schritte"
                 },
                 "description": {
-                    "item1": "Beziehen Sie Ihre Kunden ein wie nie zuvor.",
+                    "item1": "Begeistern Sie Ihre Kunden wie nie zuvor.",
                     "item2": "Steigern Sie den Umsatz durch personalisierte Interaktionen.",
-                    "item3": "24/7 Kundenbetreuung ohne zusätzliches Personal."
+                    "item3": "24/7-Kundensupport ohne zusätzliches Personal."
                 },
                 "imageAlt": "Soof auf dem iPhone"
             },
@@ -239,19 +254,20 @@
             "backAction": {
                 "content": "Shop-Informationen"
             },
-            "description": "Jeder Plan enthält eine kostenlose 7-tägige Testversion. Sie können Ihren Plan jederzeit ändern oder kündigen.",
+            "description": "Jeder Plan beinhaltet eine 7-tägige kostenlose Testversion. Sie können Ihren Plan jederzeit ändern oder kündigen.",
             "banner": {
-                "title": "Sie nutzen eine kostenlose Testversion",
-                "body": "Ihre kostenlose Testversion endet in {days} Tag(en)."
+                "title": "Sie befinden sich in einer kostenlosen Testversion",
+                "body": "Ihre kostenlose Testversion läuft in {days} Tag(en) ab."
             },
             "cancelSubscriptionButton": "Abonnement kündigen",
             "error": {
-                "unableToSubscribe": "Abonnement nicht möglich: "
+                "unableToSubscribe": "Abonnement konnte nicht abgeschlossen werden: "
             }
         },
         "settings": {
             "general": "Allgemein",
             "knowledge": "Wissen",
+            "shipping": "Versand",
             "pageTitle": "Assistent bearbeiten"
         }
     }

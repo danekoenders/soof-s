@@ -1,7 +1,7 @@
 {
     "app": {
         "unauthenticated": {
-            "title": "Uygulama Shopify Yöneticisinde görüntülenmelidir"
+            "title": "Uygulama Shopify Yönetici Panelinde görüntülenmelidir"
         },
         "notFound": "Sayfa bulunamadı",
         "navigation": {
@@ -19,10 +19,10 @@
             "ChatDetail": {
                 "spinnerLabel": "Sohbet yükleniyor",
                 "productRecommendations": {
-                    "title": "Ürün önerileri:"
+                    "title": "Ürün Önerileri:"
                 },
                 "reference": "Referans",
-                "noTranscript": "Kayıt bulunmamaktadır"
+                "noTranscript": "Mevcut bir transkript yok"
             }
         },
         "integrations": {
@@ -32,19 +32,27 @@
                     "connect": "Bağlan"
                 },
                 "details": {
-                    "connected": "Hesap bağlı",
-                    "disconnected": "Bağlı bir hesap yok"
+                    "connected": "Hesap bağlandı",
+                    "disconnected": "Bağlı hesap yok"
                 },
                 "terms": {
                     "first": "Tıklayarak",
                     "second": "Bağlan",
-                    "third": "düğmesine bastığınızda Soof AI'nin",
-                    "linkText": "kullanım şartlarını kabul ediyorsunuz"
+                    "third": "şunları kabul ediyorsunuz",
+                    "linkText": "Soof AI Hizmet Şartları"
                 },
                 "updating": "Entegrasyon güncelleniyor..."
             }
         },
         "settings": {
+            "toast": {
+                "success": "Ayarlar kaydedildi!",
+                "requiredFields": "Gerekli alanlar eksik"
+            },
+            "saveBar": {
+                "save": "Kaydet",
+                "discard": "Vazgeç"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "Teslimat Ülkeleri",
@@ -54,24 +62,19 @@
                     "searchPlaceholder": "Ülkeleri Ara"
                 },
                 "PopularProductsList": {
-                    "accessibilityLabel": "Popüler ürün:",
+                    "accessibilityLabel": "Popüler Ürün:",
                     "selectButton": "Popüler Ürünleri Seç",
                     "emptyState": {
                         "heading": "Popüler ürünleri seç",
-                        "action": "Ürünleri Seç"
+                        "action": "Ürünleri seç"
                     }
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Ayarlar kaydedildi!",
-                "saveBar": {
-                    "save": "Kaydet",
-                    "discard": "İptal"
-                },
                 "form": {
-                    "branding": "Markalama",
+                    "branding": "Markalaşma",
                     "name": {
-                        "label": "Ad",
+                        "label": "İsim",
                         "placeholder": "Soof"
                     },
                     "primaryColor": {
@@ -82,58 +85,60 @@
                         "label": "İkincil Renk",
                         "helpText": "Hex, rgb veya diğer renk formatlarını girebilirsiniz."
                     },
+                    "options": {
+                        "heading": "Seçenekler",
+                        "alignment": {
+                            "title": "Sohbet Penceresi Hizalama",
+                            "left": "Sol",
+                            "right": "Sağ"
+                        }
+                    },
                     "functions": {
                         "heading": "Fonksiyonlar",
-                        "sendToCustomerSupport": "Yanıt bulunamadığında sohbeti destek e-postasına gönder",
-                        "fetchProductRecommendation": "Ürün önerilerini getir",
-                        "fetchProductByTitle": "Ürünü başlığa göre getir",
-                        "fetchParcelDataByEmail": "Gerçek zamanlı paket verilerini e-posta ile getir",
-                        "fetchParcelDataByOrderId": "Gerçek zamanlı paket verilerini sipariş numarasına göre getir",
-                        "sendInvoice": "Exact Online üzerinden fatura gönder (sipariş numarası ile)"
+                        "sendToCustomerSupport": "Cevap bulunamadığında sohbeti destek e-postasına gönder",
+                        "fetchProductRecommendation": "Ürün önerilerini al",
+                        "fetchProductByTitle": "Başlığa göre ürünü al",
+                        "fetchParcelDataByEmail": "E-posta ile gerçek zamanlı paket verilerini al",
+                        "fetchParcelDataByOrderId": "Sipariş ID'sine göre gerçek zamanlı paket verilerini al",
+                        "sendInvoice": "Exact Online ile faturaları gönder (Sipariş ID'sine göre)"
                     }
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Ayarlar kaydedildi!",
-                "requiredFieldsToast": "Gerekli alanlar eksik",
-                "saveBar": {
-                    "save": "Kaydet",
-                    "discard": "İptal"
-                },
                 "form": {
                     "products": {
                         "title": "Ürünler",
                         "description": "Mağazanızın ürün bilgilerini yönetin.",
                         "productsCategory": {
                             "heading": "Ürün Kategorisi",
-                            "body": "Ürün kategoriniz, sattığınız ürünlerin türünü açıklar.",
+                            "body": "Ürün kategoriniz sattığınız ürün türlerini açıklar.",
                             "label": "Ürün Kategorisi",
-                            "required": "Ürün Kategorisi gereklidir",
-                            "helpText": "örn. Vitaminler veya Akıllı Telefon Aksesuarları"
+                            "required": "Ürün Kategorisi zorunludur",
+                            "helpText": "Örneğin: Vitaminler veya Akıllı Telefon Aksesuarları"
                         },
                         "popularProducts": {
                             "heading": "Popüler Ürünler",
-                            "body": "Soof'un vurgulamasını istediğiniz ürünleri seçin.",
+                            "body": "Popüler olarak göstermek istediğiniz ürünleri seçin.",
                             "required": "En az bir popüler ürün gereklidir."
                         }
                     },
                     "shipping": {
-                        "title": "Kargo",
-                        "description": "Kargo ücretlerinizi ve teslimat sürelerinizi ayarlayın.",
+                        "title": "Teslimat",
+                        "description": "Teslimat ücretlerinizi ve teslim sürelerinizi ayarlayın.",
                         "deliveryAmount": {
-                            "label": "Kargo Ücreti",
-                            "required": "Kargo Ücreti gereklidir"
+                            "label": "Teslimat Ücreti",
+                            "required": "Teslimat Ücreti zorunludur"
                         },
                         "freeDeliveryAmount": {
-                            "label": "Ücretsiz Kargo Tutarı"
+                            "label": "Ücretsiz Teslimat Tutarı"
                         },
                         "minDeliveryDays": {
                             "label": "Minimum Teslimat Günleri",
-                            "required": "Minimum Teslimat Günleri gereklidir"
+                            "required": "Minimum Teslimat Günleri zorunludur"
                         },
                         "maxDeliveryDays": {
                             "label": "Maksimum Teslimat Günleri",
-                            "required": "Maksimum Teslimat Günleri gereklidir"
+                            "required": "Maksimum Teslimat Günleri zorunludur"
                         }
                     },
                     "paymentOptions": {
@@ -143,34 +148,44 @@
                     },
                     "policies": {
                         "title": "Politikalar",
-                        "description": "İade adresinizi ve geri ödeme politikanızı sağlayın.",
+                        "description": "İade adresinizi ve iade politikanızı sağlayın.",
                         "returnAddress": {
                             "label": "İade Adresi"
                         },
                         "returnAndRefundPolicy": {
                             "label": "İade ve Geri Ödeme Politikası",
-                            "required": "İade ve Geri Ödeme Politikası gereklidir"
+                            "required": "İade ve Geri Ödeme Politikası zorunludur"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Sipariş Ön Eki",
+                    "helpText": "Shopify mağaza ayarlarında belirlenen sipariş ID ön eki."
+                },
+                "orderSuffix": {
+                    "label": "Sipariş Son Eki",
+                    "helpText": "Shopify mağaza ayarlarında belirlenen sipariş ID son eki."
                 }
             }
         },
         "setupWizard": {
             "steps": {
-                "selectPlan": "Plan Seç",
+                "selectPlan": "Planı Seç",
                 "connectStore": "Mağazayı Bağla"
             },
             "step1": {
                 "heading": "Soof AI'ye Hoş Geldiniz! 🚀",
-                "subheading": "Aramıza katıldığınız için mutluyuz! Hesabınızı ayarlamaya başlayalım.",
-                "chooseYourPlan": "Planınızı Seçin",
-                "trialMessage": "Tüm planlar 7 günlük ücretsiz deneme süresi içerir, rahatça test edebilirsiniz!",
+                "subheading": "Bizimle birlikte olduğunuz için heyecanlıyız! Hesabınızı ayarlayarak başlayalım.",
+                "chooseYourPlan": "Planınızı seçin",
+                "trialMessage": "Tüm planlar 7 günlük ücretsiz deneme içerir. Dilediğiniz gibi deneyin!",
                 "continueForFree": "Veya ücretsiz planı kullanmaya devam edin"
             },
             "step2": {
                 "heading": "Eklentiyi Etkinleştir",
-                "subheading": "Harika! Artık bir plan seçtiğinize göre, eklentiyi etkinleştirerek kurulumu tamamlayabiliriz. Eklentimiz mağazanıza doğrudan bir sohbet penceresi ekler.",
-                "instructions": "Eklentiyi etkinleştirmek için aşağıdaki düğmeye basın ve kaydedin.",
+                "subheading": "Harika! Artık bir plan seçtiğinize göre, eklentiyi etkinleştirerek kurulumu tamamlayabiliriz. Eklentimiz, gömülü sohbet penceresini doğrudan mağazanıza ekleyecek.",
+                "instructions": "Aşağıdaki düğmeye basın ve eklentiyi etkinleştirmek için kaydedin.",
                 "enableExtensionButton": "Eklentiyi Etkinleştir"
             },
             "error": {
@@ -180,7 +195,7 @@
         "shared": {
             "NoticeHeader": {
                 "trialEnd": {
-                    "title": "Ücretsiz deneme süreniz sona erdi.",
+                    "title": "Ücretsiz denemeniz sona erdi.",
                     "action": "Şimdi Yükselt",
                     "message": "Hizmetlerimizi kullanmaya devam etmek için bir plan seçin."
                 }
@@ -201,29 +216,29 @@
                 "plural": "sohbetler"
             },
             "headings": {
-                "ref": "Ref",
+                "ref": "Referans",
                 "email": "E-posta",
                 "createdAt": "Oluşturulma Tarihi"
             },
             "emptyState": {
                 "heading": "Kullanılabilir sohbet yok",
-                "description": "Şu anda gösterilecek sohbet yok. Burada görmek için bir konuşma başlatın."
+                "description": "Şu anda görüntülenecek sohbet yok. Burada görmek için bir konuşma başlatın."
             },
             "modalTitle": "Sohbet Detayı"
         },
         "overview": {
             "pageTitle": "Genel Bakış",
             "mediaCard": {
-                "title": "Başlarken",
+                "title": "Hemen Başlayın",
                 "primaryAction": {
-                    "content": "Başlarken"
+                    "content": "Hemen Başlayın"
                 },
                 "description": {
-                    "item1": "Müşterilerinizi hiç olmadığı gibi dahil edin.",
-                    "item2": "Kişisel etkileşimlerle satışları artırın.",
-                    "item3": "Ekstra personel olmadan 7/24 müşteri desteği."
+                    "item1": "Müşterilerinizle daha önce hiç olmadığı kadar etkileşim kurun.",
+                    "item2": "Kişiselleştirilmiş etkileşimlerle satışlarınızı artırın.",
+                    "item3": "Ekstra personel olmadan 7/24 müşteri desteği sunun."
                 },
-                "imageAlt": "iPhone'da Soof"
+                "imageAlt": "Soof iPhone'da"
             },
             "chatSessions": {
                 "title": "Sohbet Oturumları",
@@ -237,12 +252,12 @@
         "plans": {
             "pageTitle": "Planlar",
             "backAction": {
-                "content": "Mağaza Bilgisi"
+                "content": "Mağaza Bilgileri"
             },
-            "description": "Her plan 7 günlük ücretsiz deneme süresi içerir. Planınızı istediğiniz zaman değiştirebilir veya iptal edebilirsiniz.",
+            "description": "Her plan 7 günlük ücretsiz deneme içerir. Planınızı istediğiniz zaman değiştirebilir veya iptal edebilirsiniz.",
             "banner": {
-                "title": "Ücretsiz deneme süresindesiniz",
-                "body": "Ücretsiz deneme süreniz {days} gün sonra sona erecek."
+                "title": "Ücretsiz denemedesiniz",
+                "body": "Ücretsiz denemeniz {days} gün içinde sona erecek."
             },
             "cancelSubscriptionButton": "Aboneliği İptal Et",
             "error": {
@@ -252,6 +267,7 @@
         "settings": {
             "general": "Genel",
             "knowledge": "Bilgi",
+            "shipping": "Teslimat",
             "pageTitle": "Asistanı Düzenle"
         }
     }

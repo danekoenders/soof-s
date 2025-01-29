@@ -101,7 +101,7 @@ export default function KnowledgeSettings() {
 
   useEffect(() => {
     if (updateData) {
-      shopify.toast.show(t('components.settings.KnowledgeSettingsJSX.updateSuccessToast'));
+      shopify.toast.show(t('components.settings.toast.success'));
     } else if (updateError) {
       shopify.toast.show(updateError.message, {
         isError: true,
@@ -112,7 +112,7 @@ export default function KnowledgeSettings() {
   const handleSubmit = async () => {
     if (!areRequiredFieldsFilled()) {
       setShowErrors(true);
-      shopify.toast.show(t('components.settings.KnowledgeSettingsJSX.requiredFieldsToast'), {
+      shopify.toast.show(t('components.settings.toast.requiredFields'), {
         isError: true,
       });
       return;
@@ -139,7 +139,7 @@ export default function KnowledgeSettings() {
     initialDataRef.current = { ...knowledgeData };
 
     setShowErrors(false);
-    shopify.saveBar.hide('my-save-bar');
+    shopify.saveBar.hide('knowledge-settings-save-bar');
   };
 
   const handleReset = () => {
@@ -156,7 +156,7 @@ export default function KnowledgeSettings() {
       setPaymentOptions(initialDataRef.current.paymentOptions);
     }
     setShowErrors(false);
-    shopify.saveBar.hide('my-save-bar');
+    shopify.saveBar.hide('knowledge-settings-save-bar');
   };
 
   const areRequiredFieldsFilled = () => {
@@ -215,9 +215,9 @@ export default function KnowledgeSettings() {
 
   useEffect(() => {
     if (isFormDirty()) {
-      shopify.saveBar.show('my-save-bar');
+      shopify.saveBar.show('knowledge-settings-save-bar');
     } else {
-      shopify.saveBar.hide('my-save-bar');
+      shopify.saveBar.hide('knowledge-settings-save-bar');
     }
   }, [
     deliveryAmount,
@@ -253,9 +253,9 @@ export default function KnowledgeSettings() {
 
   return (
     <>
-      <SaveBar id="my-save-bar">
-        <button variant="primary" onClick={handleSubmit}>{t('components.settings.KnowledgeSettingsJSX.saveBar.save')}</button>
-        <button onClick={handleReset}>{t('components.settings.KnowledgeSettingsJSX.saveBar.discard')}</button>
+      <SaveBar id="knowledge-settings-save-bar">
+        <button variant="primary" onClick={handleSubmit}>{t('components.settings.saveBar.save')}</button>
+        <button onClick={handleReset}>{t('components.settings.saveBar.discard')}</button>
       </SaveBar>
       <Form>
         <Layout>

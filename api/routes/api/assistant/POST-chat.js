@@ -30,6 +30,8 @@ export default async function route({ request, reply, api, logger, connections }
         },
         shop: {
           id: true,
+          orderNamePrefix: true,
+          orderNameSuffix: true,
         },
         thread: true,
         expiresAt: true,
@@ -110,11 +112,15 @@ export default async function route({ request, reply, api, logger, connections }
                 finalOutput = await api.assistant.functions.fetchParcelData({
                   orderId: funcArguments.orderId,
                   shopId: session.shop.id,
+                  orderNamePrefix: session.shop.orderNamePrefix,
+                  orderNameSuffix: session.shop.orderNameSuffix,
                 });
               } else if (funcName === "fetchParcelDataByEmail") {
                 finalOutput = await api.assistant.functions.fetchParcelData({
                   email: session.email,
                   shopId: session.shop.id,
+                  orderNamePrefix: session.shop.orderNamePrefix,
+                  orderNameSuffix: session.shop.orderNameSuffix,
                 });
               }
               toolsOutput.push({

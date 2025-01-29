@@ -45,6 +45,14 @@
             }
         },
         "settings": {
+            "toast": {
+                "success": "Settings saved!",
+                "requiredFields": "Missing required fields"
+            },
+            "saveBar": {
+                "save": "Save",
+                "discard": "Discard"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "Delivery Countries",
@@ -63,11 +71,6 @@
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Settings saved!",
-                "saveBar": {
-                    "save": "Save",
-                    "discard": "Discard"
-                },
                 "form": {
                     "branding": "Branding",
                     "name": {
@@ -102,12 +105,6 @@
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Settings saved!",
-                "requiredFieldsToast": "Missing required fields",
-                "saveBar": {
-                    "save": "Save",
-                    "discard": "Discard"
-                },
                 "form": {
                     "products": {
                         "title": "Products",
@@ -160,6 +157,16 @@
                             "required": "Return and Refund Policy is required"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Order Prefix",
+                    "helpText": "The order id's prefix that is set in your Shopify store settings."
+                },
+                "orderSuffix": {
+                    "label": "Order Suffix",
+                    "helpText": "The order id's suffix that is set in your Shopify store settings."
                 }
             }
         },
@@ -260,6 +267,7 @@
         "settings": {
             "general": "General",
             "knowledge": "Knowledge",
+            "shipping": "Shipping",
             "pageTitle": "Edit assistant"
         }
     }

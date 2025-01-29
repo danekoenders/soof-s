@@ -8,7 +8,7 @@
             "overview": "概要",
             "chats": "チャット",
             "settings": "設定",
-            "integrations": "連携",
+            "integrations": "統合",
             "plans": "プラン"
         }
     },
@@ -22,7 +22,7 @@
                     "title": "商品のおすすめ:"
                 },
                 "reference": "参照",
-                "noTranscript": "利用可能なトランスクリプトがありません"
+                "noTranscript": "利用可能なトランスクリプトはありません"
             }
         },
         "integrations": {
@@ -33,24 +33,32 @@
                 },
                 "details": {
                     "connected": "アカウントが接続されました",
-                    "disconnected": "接続されているアカウントがありません"
+                    "disconnected": "接続されているアカウントはありません"
                 },
                 "terms": {
-                    "first": "クリックすると",
+                    "first": "クリックすることで",
                     "second": "接続",
                     "third": "、Soof AIの",
                     "linkText": "利用規約"
                 },
-                "updating": "連携を更新しています..."
+                "updating": "統合を更新中..."
             }
         },
         "settings": {
+            "toast": {
+                "success": "設定が保存されました！",
+                "requiredFields": "必須項目が欠けています"
+            },
+            "saveBar": {
+                "save": "保存",
+                "discard": "破棄"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
-                    "title": "配送可能な国",
-                    "body": "お客様に配送可能な国を知らせます。",
-                    "noneFound": "一致する国が見つかりません",
-                    "addLabel": "配送国を追加",
+                    "title": "配達可能な国",
+                    "body": "お客様に配達可能な国を知らせましょう。",
+                    "noneFound": "該当する国が見つかりませんでした",
+                    "addLabel": "配達可能な国を追加",
                     "searchPlaceholder": "国を検索"
                 },
                 "PopularProductsList": {
@@ -63,11 +71,6 @@
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "設定が保存されました！",
-                "saveBar": {
-                    "save": "保存",
-                    "discard": "破棄"
-                },
                 "form": {
                     "branding": "ブランディング",
                     "name": {
@@ -76,56 +79,58 @@
                     },
                     "primaryColor": {
                         "label": "メインカラー",
-                        "helpText": "hex, rgbなどの色形式が使えます。"
+                        "helpText": "hex, rgb, その他の色形式を入力できます。"
                     },
                     "secondaryColor": {
                         "label": "サブカラー",
-                        "helpText": "hex, rgbなどの色形式が使えます。"
+                        "helpText": "hex, rgb, その他の色形式を入力できます。"
+                    },
+                    "options": {
+                        "heading": "オプション",
+                        "alignment": {
+                            "title": "チャットウィンドウの配置",
+                            "left": "左",
+                            "right": "右"
+                        }
                     },
                     "functions": {
                         "heading": "機能",
-                        "sendToCustomerSupport": "回答が見つからない場合、サポートメールにチャットを送信",
-                        "fetchProductRecommendation": "商品おすすめを取得",
-                        "fetchProductByTitle": "タイトルで商品を検索",
-                        "fetchParcelDataByEmail": "リアルタイムのパーセルデータを取得 (Eメールで)",
-                        "fetchParcelDataByOrderId": "リアルタイムのパーセルデータを取得 (注文IDで)",
-                        "sendInvoice": "Exact Onlineを使用して請求書を送信 (注文IDで)"
+                        "sendToCustomerSupport": "回答が見つからない場合はチャットをサポートメールに送信",
+                        "fetchProductRecommendation": "商品のおすすめを取得",
+                        "fetchProductByTitle": "タイトルで商品を取得",
+                        "fetchParcelDataByEmail": "リアルタイムの配送データを取得（メールで）",
+                        "fetchParcelDataByOrderId": "リアルタイムの配送データを取得（注文IDで）",
+                        "sendInvoice": "Exact Onlineを使用して請求書を送信（注文IDで）"
                     }
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "設定が保存されました！",
-                "requiredFieldsToast": "必須項目が不足しています",
-                "saveBar": {
-                    "save": "保存",
-                    "discard": "破棄"
-                },
                 "form": {
                     "products": {
                         "title": "商品",
                         "description": "店舗の商品情報を管理します。",
                         "productsCategory": {
-                            "heading": "商品のカテゴリ",
-                            "body": "商品カテゴリは、販売する商品の種類を示します。",
-                            "label": "商品のカテゴリ",
-                            "required": "商品のカテゴリは必須です",
-                            "helpText": "例: ビタミンやスマートフォンアクセサリ"
+                            "heading": "商品カテゴリー",
+                            "body": "商品カテゴリーは、販売する商品の種類を説明します。",
+                            "label": "商品カテゴリー",
+                            "required": "商品カテゴリーは必須です",
+                            "helpText": "例：ビタミンやスマートフォンアクセサリ"
                         },
                         "popularProducts": {
                             "heading": "人気商品",
-                            "body": "Soofに表示させたい商品を選択してください。",
-                            "required": "人気商品を少なくとも1つ選択する必要があります。"
+                            "body": "人気商品として表示したい商品を選択してください。",
+                            "required": "少なくとも1つの人気商品が必要です。"
                         }
                     },
                     "shipping": {
                         "title": "配送",
-                        "description": "配送料金と配達時間を設定します。",
+                        "description": "配送料金と配送時間を設定します。",
                         "deliveryAmount": {
                             "label": "配送料金",
                             "required": "配送料金は必須です"
                         },
                         "freeDeliveryAmount": {
-                            "label": "無料配送金額"
+                            "label": "送料無料条件"
                         },
                         "minDeliveryDays": {
                             "label": "最短配送日数",
@@ -137,21 +142,31 @@
                         }
                     },
                     "paymentOptions": {
-                        "title": "支払い方法",
-                        "description": "受け入れる支払い方法を選択します。",
-                        "required": "少なくとも1つの支払い方法が必要です。"
+                        "title": "支払いオプション",
+                        "description": "受け付ける支払い方法を選択してください。",
+                        "required": "少なくとも1つの支払いオプションが必要です。"
                     },
                     "policies": {
                         "title": "ポリシー",
-                        "description": "返品先住所と返金ポリシーを提供してください。",
+                        "description": "返品先住所と返金ポリシーを記載してください。",
                         "returnAddress": {
                             "label": "返品先住所"
                         },
                         "returnAndRefundPolicy": {
-                            "label": "返品・返金ポリシー",
-                            "required": "返品・返金ポリシーは必須です"
+                            "label": "返品および返金ポリシー",
+                            "required": "返品および返金ポリシーは必須です"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "注文プレフィックス",
+                    "helpText": "Shopifyストアの設定で指定された注文IDのプレフィックス。"
+                },
+                "orderSuffix": {
+                    "label": "注文サフィックス",
+                    "helpText": "Shopifyストアの設定で指定された注文IDのサフィックス。"
                 }
             }
         },
@@ -161,20 +176,20 @@
                 "connectStore": "ストアを接続"
             },
             "step1": {
-                "heading": "Soof AIへようこそ！🚀",
-                "subheading": "参加していただきありがとうございます！まずはアカウントの設定から始めましょう。",
-                "chooseYourPlan": "プランを選択",
-                "trialMessage": "すべてのプランに7日間の無料トライアルが含まれます。自由にお試しください！",
-                "continueForFree": "または無料プランを利用し続ける"
+                "heading": "Soof AIへようこそ！ 🚀",
+                "subheading": "ご利用ありがとうございます！ まずアカウントを設定しましょう。",
+                "chooseYourPlan": "プランを選択してください",
+                "trialMessage": "すべてのプランには7日間の無料トライアルが含まれています。お試しください！",
+                "continueForFree": "または無料プランを使用して続行"
             },
             "step2": {
                 "heading": "拡張機能を有効化",
-                "subheading": "素晴らしい！プランを選択したので、拡張機能を有効にして設定を完了できます。拡張機能により、店舗にチャットウィンドウが直接追加されます。",
-                "instructions": "下のボタンを押して保存し、拡張機能を有効化します。",
+                "subheading": "素晴らしい！プランを選択したので、拡張機能を有効化して設定を完了できます。この拡張機能は、埋め込みチャットウィンドウをストアに直接追加します。",
+                "instructions": "下のボタンを押して保存して拡張機能を有効化します。",
                 "enableExtensionButton": "拡張機能を有効化"
             },
             "error": {
-                "unableToSubscribe": "購読できませんでした: "
+                "unableToSubscribe": "登録できませんでした: "
             }
         },
         "shared": {
@@ -188,7 +203,7 @@
         },
         "utils": {
             "CopyToClipboard": {
-                "copied": "クリップボードにコピーしました！"
+                "copied": "クリップボードにコピーされました！"
             }
         }
     },
@@ -203,25 +218,25 @@
             "headings": {
                 "ref": "参照",
                 "email": "メール",
-                "createdAt": "作成日"
+                "createdAt": "作成日時"
             },
             "emptyState": {
                 "heading": "利用可能なチャットがありません",
-                "description": "現在、表示できるチャットはありません。会話を開始してここに表示されます。"
+                "description": "現在表示できるチャットはありません。会話を開始するとここに表示されます。"
             },
             "modalTitle": "チャットの詳細"
         },
         "overview": {
             "pageTitle": "概要",
             "mediaCard": {
-                "title": "はじめに",
+                "title": "始めに",
                 "primaryAction": {
-                    "content": "はじめに"
+                    "content": "始めに"
                 },
                 "description": {
-                    "item1": "これまでにない方法でお客様と交流。",
-                    "item2": "パーソナライズされたインタラクションで売上を増加。",
-                    "item3": "追加のスタッフなしで24/7のカスタマーサポート。"
+                    "item1": "これまでにない方法でお客様を惹きつけましょう。",
+                    "item2": "個別対応で売上を向上させましょう。",
+                    "item3": "追加スタッフなしで24/7のカスタマーサポートを提供します。"
                 },
                 "imageAlt": "iPhone上のSoof"
             },
@@ -231,27 +246,28 @@
             }
         },
         "integrations": {
-            "pageTitle": "連携",
+            "pageTitle": "統合",
             "exactOnlineDescription": "Exact Onlineアカウントをアシスタントに接続します。"
         },
         "plans": {
             "pageTitle": "プラン",
             "backAction": {
-                "content": "店舗情報"
+                "content": "ストア情報"
             },
-            "description": "各プランには7日間の無料トライアルが含まれています。いつでもプランを変更またはキャンセルできます。",
+            "description": "すべてのプランには7日間の無料トライアルが含まれています。いつでもプランを変更またはキャンセルできます。",
             "banner": {
                 "title": "無料トライアル中です",
-                "body": "無料トライアルは{days}日後に終了します。"
+                "body": "無料トライアルはあと{days}日で終了します。"
             },
             "cancelSubscriptionButton": "サブスクリプションをキャンセル",
             "error": {
-                "unableToSubscribe": "購読できませんでした: "
+                "unableToSubscribe": "登録できませんでした: "
             }
         },
         "settings": {
             "general": "一般",
             "knowledge": "知識",
+            "shipping": "配送",
             "pageTitle": "アシスタントを編集"
         }
     }

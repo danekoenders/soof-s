@@ -5,8 +5,8 @@
         },
         "notFound": "Página não encontrada",
         "navigation": {
-            "overview": "Visão geral",
-            "chats": "Chats",
+            "overview": "Visão Geral",
+            "chats": "Conversas",
             "settings": "Configurações",
             "integrations": "Integrações",
             "plans": "Planos"
@@ -17,7 +17,7 @@
     "components": {
         "chats": {
             "ChatDetail": {
-                "spinnerLabel": "O chat está carregando",
+                "spinnerLabel": "Carregando a conversa",
                 "productRecommendations": {
                     "title": "Recomendações de produtos:"
                 },
@@ -38,36 +38,39 @@
                 "terms": {
                     "first": "Ao clicar em",
                     "second": "Conectar",
-                    "third": "você concorda com os",
-                    "linkText": "termos de serviço do Soof AI"
+                    "third": "você aceita os",
+                    "linkText": "termos de serviço da Soof AI"
                 },
-                "updating": "Atualizando integração..."
+                "updating": "Atualizando a integração..."
             }
         },
         "settings": {
+            "toast": {
+                "success": "Configurações salvas!",
+                "requiredFields": "Campos obrigatórios ausentes"
+            },
+            "saveBar": {
+                "save": "Salvar",
+                "discard": "Descartar"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
-                    "title": "Países de entrega",
-                    "body": "Informe os clientes em quais países você entrega.",
-                    "noneFound": "Nenhum país encontrado correspondente",
-                    "addLabel": "Adicionar país de entrega",
-                    "searchPlaceholder": "Buscar países"
+                    "title": "Países de Entrega",
+                    "body": "Informe aos clientes os países para os quais você entrega.",
+                    "noneFound": "Nenhum país correspondente encontrado",
+                    "addLabel": "Adicionar País de Entrega",
+                    "searchPlaceholder": "Procurar países"
                 },
                 "PopularProductsList": {
-                    "accessibilityLabel": "Produto popular:",
-                    "selectButton": "Selecionar produtos populares",
+                    "accessibilityLabel": "Produto Popular:",
+                    "selectButton": "Selecionar Produtos Populares",
                     "emptyState": {
-                        "heading": "Selecione produtos populares",
+                        "heading": "Selecionar Produtos Populares",
                         "action": "Selecionar produtos"
                     }
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Configurações salvas!",
-                "saveBar": {
-                    "save": "Salvar",
-                    "discard": "Descartar"
-                },
                 "form": {
                     "branding": "Marca",
                     "name": {
@@ -75,103 +78,115 @@
                         "placeholder": "Soof"
                     },
                     "primaryColor": {
-                        "label": "Cor primária",
-                        "helpText": "Você pode inserir hex, rgb ou outros formatos de cor."
+                        "label": "Cor Primária",
+                        "helpText": "Você pode inserir formatos de cor hex, rgb ou outros."
                     },
                     "secondaryColor": {
-                        "label": "Cor secundária",
-                        "helpText": "Você pode inserir hex, rgb ou outros formatos de cor."
+                        "label": "Cor Secundária",
+                        "helpText": "Você pode inserir formatos de cor hex, rgb ou outros."
+                    },
+                    "options": {
+                        "heading": "Opções",
+                        "alignment": {
+                            "title": "Alinhamento da Janela de Chat",
+                            "left": "Esquerda",
+                            "right": "Direita"
+                        }
                     },
                     "functions": {
-                        "heading": "Funções",
-                        "sendToCustomerSupport": "Enviar chat para e-mail de suporte quando não houver resposta",
-                        "fetchProductRecommendation": "Buscar recomendações de produtos",
-                        "fetchProductByTitle": "Buscar produto pelo título",
-                        "fetchParcelDataByEmail": "Buscar dados de entrega em tempo real (por E-mail)",
-                        "fetchParcelDataByOrderId": "Buscar dados de entrega em tempo real (por ID do pedido)",
-                        "sendInvoice": "Enviar faturas usando Exact Online (por ID do pedido)"
+                        "heading": "Funcionalidades",
+                        "sendToCustomerSupport": "Enviar a conversa para o e-mail de suporte se nenhuma resposta for encontrada",
+                        "fetchProductRecommendation": "Obter Recomendações de Produtos",
+                        "fetchProductByTitle": "Obter Produto pelo Título",
+                        "fetchParcelDataByEmail": "Obter Dados de Encomendas em Tempo Real (por E-mail)",
+                        "fetchParcelDataByOrderId": "Obter Dados de Encomendas em Tempo Real (por ID do Pedido)",
+                        "sendInvoice": "Enviar Faturas usando Exact Online (por ID do Pedido)"
                     }
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Configurações salvas!",
-                "requiredFieldsToast": "Campos obrigatórios ausentes",
-                "saveBar": {
-                    "save": "Salvar",
-                    "discard": "Descartar"
-                },
                 "form": {
                     "products": {
                         "title": "Produtos",
-                        "description": "Gerencie as informações dos produtos de sua loja.",
+                        "description": "Gerencie as informações dos produtos da sua loja.",
                         "productsCategory": {
-                            "heading": "Categoria de produtos",
+                            "heading": "Categoria de Produtos",
                             "body": "Sua categoria de produtos descreve o tipo de produtos que você vende.",
-                            "label": "Categoria de produtos",
-                            "required": "A categoria de produtos é obrigatória",
-                            "helpText": "ex. Vitaminas ou Acessórios para Smartphone"
+                            "label": "Categoria de Produtos",
+                            "required": "A Categoria de Produtos é obrigatória",
+                            "helpText": "Ex.: Vitaminas ou Acessórios para Smartphones"
                         },
                         "popularProducts": {
-                            "heading": "Produtos populares",
-                            "body": "Selecione os produtos que deseja que o Soof destaque.",
+                            "heading": "Produtos Populares",
+                            "body": "Selecione os produtos que você deseja destacar como populares.",
                             "required": "Pelo menos um produto popular é obrigatório."
                         }
                     },
                     "shipping": {
                         "title": "Envio",
-                        "description": "Defina suas taxas e prazos de envio.",
+                        "description": "Defina suas taxas de envio e prazos de entrega.",
                         "deliveryAmount": {
-                            "label": "Valor de entrega",
-                            "required": "O valor de entrega é obrigatório"
+                            "label": "Valor do Envio",
+                            "required": "O Valor do Envio é obrigatório"
                         },
                         "freeDeliveryAmount": {
-                            "label": "Valor para entrega gratuita"
+                            "label": "Entrega Grátis a partir de"
                         },
                         "minDeliveryDays": {
-                            "label": "Dias mínimos de entrega",
-                            "required": "Dias mínimos de entrega são obrigatórios"
+                            "label": "Mínimo de Dias para Entrega",
+                            "required": "O Mínimo de Dias para Entrega é obrigatório"
                         },
                         "maxDeliveryDays": {
-                            "label": "Dias máximos de entrega",
-                            "required": "Dias máximos de entrega são obrigatórios"
+                            "label": "Máximo de Dias para Entrega",
+                            "required": "O Máximo de Dias para Entrega é obrigatório"
                         }
                     },
                     "paymentOptions": {
-                        "title": "Opções de pagamento",
-                        "description": "Selecione os métodos de pagamento aceitos.",
+                        "title": "Opções de Pagamento",
+                        "description": "Selecione os métodos de pagamento que você aceita.",
                         "required": "Pelo menos uma opção de pagamento é obrigatória."
                     },
                     "policies": {
                         "title": "Políticas",
-                        "description": "Forneça seu endereço de devolução e política de reembolso.",
+                        "description": "Forneça o endereço de devolução e a política de reembolso.",
                         "returnAddress": {
-                            "label": "Endereço de devolução"
+                            "label": "Endereço de Devolução"
                         },
                         "returnAndRefundPolicy": {
-                            "label": "Política de devolução e reembolso",
-                            "required": "A política de devolução e reembolso é obrigatória"
+                            "label": "Política de Devolução e Reembolso",
+                            "required": "A Política de Devolução e Reembolso é obrigatória"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Prefixo do Pedido",
+                    "helpText": "O prefixo do ID do pedido definido nas configurações da sua loja Shopify."
+                },
+                "orderSuffix": {
+                    "label": "Sufixo do Pedido",
+                    "helpText": "O sufixo do ID do pedido definido nas configurações da sua loja Shopify."
                 }
             }
         },
         "setupWizard": {
             "steps": {
-                "selectPlan": "Selecionar plano",
-                "connectStore": "Conectar loja"
+                "selectPlan": "Selecionar Plano",
+                "connectStore": "Conectar Loja"
             },
             "step1": {
                 "heading": "Bem-vindo ao Soof AI! 🚀",
-                "subheading": "Estamos felizes em tê-lo a bordo! Vamos começar configurando sua conta.",
+                "subheading": "Estamos empolgados por tê-lo aqui! Vamos começar configurando sua conta.",
                 "chooseYourPlan": "Escolha seu plano",
-                "trialMessage": "Todos os planos incluem um teste gratuito de 7 dias, sinta-se à vontade para testar!",
+                "trialMessage": "Todos os planos incluem uma avaliação gratuita de 7 dias. Sinta-se à vontade para testar!",
                 "continueForFree": "Ou continue usando o plano gratuito"
             },
             "step2": {
-                "heading": "Ativar extensão",
-                "subheading": "Ótimo! Agora que você escolheu um plano, podemos concluir a configuração ativando a extensão. Nossa extensão adicionará diretamente uma janela de chat à sua loja.",
+                "heading": "Ativar Extensão",
+                "subheading": "Ótimo! Agora que você escolheu um plano, podemos finalizar a configuração ativando a extensão. Nossa extensão adicionará a janela de chat integrada diretamente à sua loja.",
                 "instructions": "Pressione o botão abaixo e salve para ativar a extensão.",
-                "enableExtensionButton": "Ativar extensão"
+                "enableExtensionButton": "Ativar Extensão"
             },
             "error": {
                 "unableToSubscribe": "Não foi possível assinar: "
@@ -180,9 +195,9 @@
         "shared": {
             "NoticeHeader": {
                 "trialEnd": {
-                    "title": "Seu período de teste gratuito terminou.",
+                    "title": "Sua avaliação gratuita terminou.",
                     "action": "Atualizar agora",
-                    "message": "Selecione um plano para continuar usando nossos serviços."
+                    "message": "Por favor, escolha um plano para continuar usando nossos serviços."
                 }
             }
         },
@@ -194,11 +209,11 @@
     },
     "routes": {
         "chats": {
-            "pageTitle": "Chats",
-            "searchPlaceholder": "Pesquisar...",
+            "pageTitle": "Conversas",
+            "searchPlaceholder": "Buscar...",
             "resourceName": {
-                "singular": "chat",
-                "plural": "chats"
+                "singular": "conversa",
+                "plural": "conversas"
             },
             "headings": {
                 "ref": "Ref",
@@ -206,17 +221,17 @@
                 "createdAt": "Criado em"
             },
             "emptyState": {
-                "heading": "Nenhum chat disponível",
-                "description": "No momento, não há chats para exibir. Inicie uma conversa para vê-la aqui."
+                "heading": "Nenhuma conversa disponível",
+                "description": "Atualmente, não há conversas para mostrar. Inicie uma conversa para vê-la aqui."
             },
-            "modalTitle": "Detalhes do chat"
+            "modalTitle": "Detalhes da Conversa"
         },
         "overview": {
-            "pageTitle": "Visão geral",
+            "pageTitle": "Visão Geral",
             "mediaCard": {
-                "title": "Primeiros passos",
+                "title": "Comece Agora",
                 "primaryAction": {
-                    "content": "Primeiros passos"
+                    "content": "Comece Agora"
                 },
                 "description": {
                     "item1": "Envolva seus clientes como nunca antes.",
@@ -226,25 +241,25 @@
                 "imageAlt": "Soof no iPhone"
             },
             "chatSessions": {
-                "title": "Sessões de chat",
-                "chatUsage": "Uso de chat"
+                "title": "Sessões de Conversa",
+                "chatUsage": "Uso de Conversas"
             }
         },
         "integrations": {
             "pageTitle": "Integrações",
-            "exactOnlineDescription": "Conecte sua conta do Exact Online ao seu assistente."
+            "exactOnlineDescription": "Conecte sua conta Exact Online ao seu assistente."
         },
         "plans": {
             "pageTitle": "Planos",
             "backAction": {
-                "content": "Informações da loja"
+                "content": "Informações da Loja"
             },
-            "description": "Cada plano inclui um teste gratuito de 7 dias. Você pode alterar ou cancelar seu plano a qualquer momento.",
+            "description": "Cada plano inclui uma avaliação gratuita de 7 dias. Você pode alterar ou cancelar seu plano a qualquer momento.",
             "banner": {
-                "title": "Você está em um período de teste gratuito",
-                "body": "Seu teste gratuito expirará em {days} dia(s)."
+                "title": "Você está em uma avaliação gratuita",
+                "body": "Sua avaliação gratuita expirará em {days} dia(s)."
             },
-            "cancelSubscriptionButton": "Cancelar assinatura",
+            "cancelSubscriptionButton": "Cancelar Assinatura",
             "error": {
                 "unableToSubscribe": "Não foi possível assinar: "
             }
@@ -252,7 +267,8 @@
         "settings": {
             "general": "Geral",
             "knowledge": "Conhecimento",
-            "pageTitle": "Editar assistente"
+            "shipping": "Envio",
+            "pageTitle": "Editar Assistente"
         }
     }
 }

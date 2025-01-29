@@ -4,17 +4,25 @@ export const params = {
   orderId: { type: "string" },
   email: { type: "string" },
   shopId: { type: "string", required: true },
+  orderNamePrefix: { type: "string" },
+  orderNameSuffix: { type: "string" },
 };
 
 /**
  * @param { AssistantFunctionsFetchParcelDataGlobalActionContext } context
  */
 export async function run({ params, logger, api, connections }) {
-  const { orderId: rawOrderId, email, shopId } = params;
+  const {
+    orderId: rawOrderId,
+    email,
+    shopId,
+    orderNamePrefix,
+    orderNameSuffix,
+  } = params;
   let orderId = rawOrderId;
 
-  if (orderId && orderId.startsWith("#")) {
-    orderId = orderId.slice(1);
+  if (orderId) {
+    orderId = sanitizeOrderId(orderId, orderNamePrefix, orderNameSuffix);
   }
 
   if (orderId) {
@@ -29,6 +37,24 @@ export async function run({ params, logger, api, connections }) {
       status: "No order ID and/or email provided.",
     };
   }
+}
+
+/**
+ * @param {string} orderId - The raw order ID.
+ * @param {string} [prefix] - The prefix to remove.
+ * @param {string} [suffix] - The suffix to remove.
+ * @returns {string} - The sanitized order ID.
+ */
+function sanitizeOrderId(orderId, prefix, suffix) {
+  if (prefix && orderId.startsWith(prefix)) {
+    orderId = orderId.slice(prefix.length);
+  }
+
+  if (suffix && orderId.endsWith(suffix)) {
+    orderId = orderId.slice(0, -suffix.length);
+  }
+
+  return orderId;
 }
 
 async function getOrder({ api, identifier, shopId }) {
@@ -54,7 +80,6 @@ async function getOrder({ api, identifier, shopId }) {
       },
     },
   };
-
 
   let filter;
   if (orderId) {
@@ -119,7 +144,7 @@ function sanitizeOrderStatusUrl(url) {
     const parsedUrl = new URL(url);
     const pathnameSegments = parsedUrl.pathname.split('/');
     const authenticateIndex = pathnameSegments.findIndex(segment => segment === 'authenticate');
-    
+
     if (authenticateIndex !== -1) {
       parsedUrl.pathname = pathnameSegments.slice(0, authenticateIndex).join('/');
     }

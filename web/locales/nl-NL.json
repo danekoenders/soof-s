@@ -1,7 +1,7 @@
 {
     "app": {
         "unauthenticated": {
-            "title": "App moet worden bekeken in Shopify Admin"
+            "title": "De app moet worden geopend in Shopify Admin"
         },
         "notFound": "Pagina niet gevonden",
         "navigation": {
@@ -38,20 +38,28 @@
                 "terms": {
                     "first": "Door te klikken op",
                     "second": "Verbind",
-                    "third": "accepteert u de servicevoorwaarden van Soof AI",
-                    "linkText": "servicevoorwaarden"
+                    "third": "ga je akkoord met de",
+                    "linkText": "gebruikersvoorwaarden van Soof AI"
                 },
-                "updating": "Integratie bijwerken.."
+                "updating": "Integratie wordt bijgewerkt..."
             }
         },
         "settings": {
+            "toast": {
+                "success": "Instellingen opgeslagen!",
+                "requiredFields": "Verplichte velden ontbreken"
+            },
+            "saveBar": {
+                "save": "Opslaan",
+                "discard": "Annuleren"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
-                    "title": "Bezorglanden",
-                    "body": "Laat klanten weten in welke landen u bezorgt.",
-                    "noneFound": "Geen landen gevonden die overeenkomen met",
-                    "addLabel": "Bezorgland toevoegen",
-                    "searchPlaceholder": "Zoek landen"
+                    "title": "Leveringslanden",
+                    "body": "Laat klanten weten naar welke landen je levert.",
+                    "noneFound": "Geen overeenkomende landen gevonden",
+                    "addLabel": "Leveringsland toevoegen",
+                    "searchPlaceholder": "Zoek naar landen"
                 },
                 "PopularProductsList": {
                     "accessibilityLabel": "Populair product:",
@@ -63,11 +71,6 @@
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Instellingen opgeslagen!",
-                "saveBar": {
-                    "save": "Opslaan",
-                    "discard": "Annuleren"
-                },
                 "form": {
                     "branding": "Branding",
                     "name": {
@@ -76,50 +79,52 @@
                     },
                     "primaryColor": {
                         "label": "Primaire kleur",
-                        "helpText": "U kunt hex, rgb of andere kleurformaten invoeren."
+                        "helpText": "Je kunt hex-, rgb- of andere kleurformaten invoeren."
                     },
                     "secondaryColor": {
                         "label": "Secundaire kleur",
-                        "helpText": "U kunt hex, rgb of andere kleurformaten invoeren."
+                        "helpText": "Je kunt hex-, rgb- of andere kleurformaten invoeren."
+                    },
+                    "options": {
+                        "heading": "Opties",
+                        "alignment": {
+                            "title": "Uitlijning van het chatvenster",
+                            "left": "Links",
+                            "right": "Rechts"
+                        }
                     },
                     "functions": {
                         "heading": "Functies",
-                        "sendToCustomerSupport": "Stuur chat naar ondersteuningsmail wanneer geen antwoord gevonden",
+                        "sendToCustomerSupport": "Stuur chat naar support e-mail als er geen antwoord is gevonden",
                         "fetchProductRecommendation": "Productaanbevelingen ophalen",
                         "fetchProductByTitle": "Product ophalen op titel",
-                        "fetchParcelDataByEmail": "Pakketgegevens in realtime ophalen (op e-mail)",
-                        "fetchParcelDataByOrderId": "Pakketgegevens in realtime ophalen (op order-ID)",
-                        "sendInvoice": "Facturen verzenden met Exact Online (op order-ID)"
+                        "fetchParcelDataByEmail": "Pakketgegevens in realtime ophalen (via e-mail)",
+                        "fetchParcelDataByOrderId": "Pakketgegevens in realtime ophalen (via bestel-ID)",
+                        "sendInvoice": "Facturen verzenden via Exact Online (via bestel-ID)"
                     }
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Instellingen opgeslagen!",
-                "requiredFieldsToast": "Vereiste velden ontbreken",
-                "saveBar": {
-                    "save": "Opslaan",
-                    "discard": "Annuleren"
-                },
                 "form": {
                     "products": {
                         "title": "Producten",
-                        "description": "Beheer de productinformatie van uw winkel.",
+                        "description": "Beheer de productinformatie van je winkel.",
                         "productsCategory": {
                             "heading": "Productcategorie",
-                            "body": "Uw productcategorie beschrijft het type producten dat u verkoopt.",
+                            "body": "Je productcategorie beschrijft het type producten dat je verkoopt.",
                             "label": "Productcategorie",
                             "required": "Productcategorie is verplicht",
-                            "helpText": "bijv. Vitaminen of smartphone-accessoires"
+                            "helpText": "Bijvoorbeeld: Vitaminen of smartphone-accessoires"
                         },
                         "popularProducts": {
                             "heading": "Populaire producten",
-                            "body": "Selecteer de producten die u wilt dat Soof toont.",
-                            "required": "Er is ten minste één populair product vereist."
+                            "body": "Selecteer de producten die je als populair wilt weergeven.",
+                            "required": "Minimaal één populair product is vereist."
                         }
                     },
                     "shipping": {
                         "title": "Verzending",
-                        "description": "Stel uw verzendkosten en levertijden in.",
+                        "description": "Stel je verzendtarieven en levertijden in.",
                         "deliveryAmount": {
                             "label": "Verzendkosten",
                             "required": "Verzendkosten zijn verplicht"
@@ -137,13 +142,13 @@
                         }
                     },
                     "paymentOptions": {
-                        "title": "Betaalopties",
-                        "description": "Selecteer de betaalmethoden die u accepteert.",
-                        "required": "Ten minste één betaaloptie is verplicht."
+                        "title": "Betalingsopties",
+                        "description": "Selecteer de betaalmethoden die je accepteert.",
+                        "required": "Minimaal één betalingsoptie is verplicht."
                     },
                     "policies": {
                         "title": "Beleid",
-                        "description": "Vermeld uw retouradres en restitutiebeleid.",
+                        "description": "Geef je retouradres en retourbeleid op.",
                         "returnAddress": {
                             "label": "Retouradres"
                         },
@@ -153,25 +158,35 @@
                         }
                     }
                 }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Bestelvoorvoegsel",
+                    "helpText": "Het voorvoegsel van het bestelnummer zoals ingesteld in je Shopify-winkelinstellingen."
+                },
+                "orderSuffix": {
+                    "label": "Bestelachtervoegsel",
+                    "helpText": "Het achtervoegsel van het bestelnummer zoals ingesteld in je Shopify-winkelinstellingen."
+                }
             }
         },
         "setupWizard": {
             "steps": {
-                "selectPlan": "Selecteer plan",
-                "connectStore": "Verbind winkel"
+                "selectPlan": "Plan selecteren",
+                "connectStore": "Winkel verbinden"
             },
             "step1": {
                 "heading": "Welkom bij Soof AI! 🚀",
-                "subheading": "We zijn blij dat u erbij bent! Laten we beginnen met het instellen van uw account.",
-                "chooseYourPlan": "Kies uw plan",
-                "trialMessage": "Alle plannen hebben een gratis proefperiode van 7 dagen, probeer het gerust uit!",
+                "subheading": "We zijn blij dat je er bent! Laten we beginnen met het instellen van je account.",
+                "chooseYourPlan": "Kies je plan",
+                "trialMessage": "Alle plannen bevatten een gratis proefperiode van 7 dagen. Probeer het uit!",
                 "continueForFree": "Of ga verder met het gratis plan"
             },
             "step2": {
-                "heading": "Activeer extensie",
-                "subheading": "Geweldig! Nu u een plan heeft gekozen, kunnen we de installatie voltooien door de extensie in te schakelen. Onze extensie voegt direct een ingebouwd chatvenster toe aan uw winkel.",
-                "instructions": "Druk op de knop hieronder en druk op opslaan om de extensie in te schakelen.",
-                "enableExtensionButton": "Activeer extensie"
+                "heading": "Extensie activeren",
+                "subheading": "Geweldig! Nu je een plan hebt gekozen, kunnen we de installatie voltooien door de extensie te activeren. Onze extensie voegt het ingebouwde chatvenster direct toe aan je winkel.",
+                "instructions": "Druk op de onderstaande knop en sla op om de extensie te activeren.",
+                "enableExtensionButton": "Extensie activeren"
             },
             "error": {
                 "unableToSubscribe": "Kan niet abonneren: "
@@ -180,9 +195,9 @@
         "shared": {
             "NoticeHeader": {
                 "trialEnd": {
-                    "title": "Uw gratis proefperiode is verlopen.",
+                    "title": "Je gratis proefperiode is verlopen.",
                     "action": "Nu upgraden",
-                    "message": "Selecteer een plan om onze diensten te blijven gebruiken."
+                    "message": "Selecteer een plan om onze services te blijven gebruiken."
                 }
             }
         },
@@ -209,7 +224,7 @@
                 "heading": "Geen chats beschikbaar",
                 "description": "Er zijn momenteel geen chats om weer te geven. Start een gesprek om het hier te zien."
             },
-            "modalTitle": "Chat detail"
+            "modalTitle": "Chatdetails"
         },
         "overview": {
             "pageTitle": "Overzicht",
@@ -219,30 +234,30 @@
                     "content": "Aan de slag"
                 },
                 "description": {
-                    "item1": "Betrek uw klanten zoals nooit tevoren.",
-                    "item2": "Verhoog de omzet met gepersonaliseerde interacties.",
-                    "item3": "24/7 klantenondersteuning zonder extra personeel."
+                    "item1": "Betrek je klanten als nooit tevoren.",
+                    "item2": "Verhoog de verkoop met gepersonaliseerde interacties.",
+                    "item3": "24/7 klantenservice zonder extra personeel."
                 },
                 "imageAlt": "Soof op iPhone"
             },
             "chatSessions": {
-                "title": "Chatsessies",
+                "title": "Chat-sessies",
                 "chatUsage": "Chatgebruik"
             }
         },
         "integrations": {
             "pageTitle": "Integraties",
-            "exactOnlineDescription": "Verbind uw Exact Online-account met uw assistent."
+            "exactOnlineDescription": "Verbind je Exact Online-account met je assistent."
         },
         "plans": {
             "pageTitle": "Plannen",
             "backAction": {
                 "content": "Winkelinformatie"
             },
-            "description": "Elk plan bevat een gratis proefperiode van 7 dagen. U kunt uw plan op elk moment wijzigen of annuleren.",
+            "description": "Elk plan bevat een gratis proefperiode van 7 dagen. Je kunt je plan op elk moment wijzigen of annuleren.",
             "banner": {
-                "title": "U bent op een gratis proefperiode",
-                "body": "Uw gratis proefperiode verloopt over {days} dag(en)."
+                "title": "Je bent op een gratis proefperiode",
+                "body": "Je gratis proefperiode verloopt over {days} dag(en)."
             },
             "cancelSubscriptionButton": "Abonnement annuleren",
             "error": {
@@ -252,6 +267,7 @@
         "settings": {
             "general": "Algemeen",
             "knowledge": "Kennis",
+            "shipping": "Verzending",
             "pageTitle": "Assistent bewerken"
         }
     }

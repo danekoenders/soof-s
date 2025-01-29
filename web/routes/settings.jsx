@@ -4,6 +4,7 @@ import GeneralSettings from '../components/settings/GeneralSettings';
 import KnowledgeSettings from '../components/settings/KnowledgeSettings';
 import NoticeHeader from '../components/shared/NoticeHeader';
 import { useTranslation } from 'react-i18next';
+import ShippingSettings from '../components/settings/ShippingSettings';
 
 export default function SettingsLayout() {
   const { t } = useTranslation();
@@ -14,6 +15,7 @@ export default function SettingsLayout() {
   const tabs = [
     { id: 'general', content: t('routes.settings.general') },
     { id: 'knowledge', content: t('routes.settings.knowledge') },
+    { id: 'shipping', content: t('routes.settings.shipping') },
   ];
 
   return (
@@ -24,6 +26,7 @@ export default function SettingsLayout() {
           <Tabs tabs={tabs} selected={selectedTab} onSelect={handleTabChange}>
             {selectedTab === 0 && <GeneralSettings />}
             {selectedTab === 1 && <KnowledgeSettings />}
+            {selectedTab === 2 && <ShippingSettings />}
           </Tabs>
         </Layout.Section>
       </Layout>

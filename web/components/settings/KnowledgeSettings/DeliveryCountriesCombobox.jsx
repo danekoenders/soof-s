@@ -124,7 +124,6 @@ export function DeliveryCountriesCombobox({ deliveryCountries, setDeliveryCountr
     ) : null;
 
   const inlineContentMarkup = deliveryCountries.length > 0 ? (
-    console.log(deliveryCountries),
     <InlineStack gap={100}>
       {deliveryCountries.map((country) => (
         <Tag key={country} onRemove={removeCountry(country)}>

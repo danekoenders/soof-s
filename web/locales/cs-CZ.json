@@ -45,6 +45,14 @@
             }
         },
         "settings": {
+            "toast": {
+                "success": "Nastavení uloženo!",
+                "requiredFields": "Chybí požadovaná pole"
+            },
+            "saveBar": {
+                "save": "Uložit",
+                "discard": "Zahodit"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "Země doručení",
@@ -63,11 +71,6 @@
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Nastavení uloženo!",
-                "saveBar": {
-                    "save": "Uložit",
-                    "discard": "Zahodit"
-                },
                 "form": {
                     "branding": "Branding",
                     "name": {
@@ -82,6 +85,14 @@
                         "label": "Sekundární barva",
                         "helpText": "Můžete zadat hex, rgb nebo jiné barevné formáty."
                     },
+                    "options": {
+                        "heading": "Možnosti",
+                        "alignment": {
+                            "title": "Zarovnání okna chatu",
+                            "left": "Vlevo",
+                            "right": "Vpravo"
+                        }
+                    },
                     "functions": {
                         "heading": "Funkce",
                         "sendToCustomerSupport": "Poslat chat na e-mail podpory, pokud nebyla nalezena odpověď",
@@ -94,12 +105,6 @@
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Nastavení uloženo!",
-                "requiredFieldsToast": "Chybí požadovaná pole",
-                "saveBar": {
-                    "save": "Uložit",
-                    "discard": "Zahodit"
-                },
                 "form": {
                     "products": {
                         "title": "Produkty",
@@ -152,6 +157,16 @@
                             "required": "Zásady vrácení a refundace jsou povinné"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Předpona objednávky",
+                    "helpText": "Předpona ID objednávky nastavená v nastavení vašeho Shopify obchodu."
+                },
+                "orderSuffix": {
+                    "label": "Přípona objednávky",
+                    "helpText": "Přípona ID objednávky nastavená v nastavení vašeho Shopify obchodu."
                 }
             }
         },
@@ -252,6 +267,7 @@
         "settings": {
             "general": "Obecné",
             "knowledge": "Znalosti",
+            "shipping": "Doprava",
             "pageTitle": "Upravit asistenta"
         }
     }

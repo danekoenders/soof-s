@@ -34,6 +34,12 @@ export const schema: GadgetModel = {
       type: "encryptedString",
       storageKey: "Az23x9TxdxEE::String-Az23x9TxdxEE",
     },
+    orderNamePrefix: {
+      type: "string",
+      default: "#",
+      storageKey: "Rq6bjTbJu1c1",
+    },
+    orderNameSuffix: { type: "string", storageKey: "YxEeoqcw7quR" },
     plan: {
       type: "hasOne",
       child: { model: "plan", belongsToField: "shop" },

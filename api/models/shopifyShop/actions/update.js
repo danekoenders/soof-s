@@ -30,6 +30,8 @@ export async function run({ params, record, logger, api, connections, session })
       }
     }
 
+    record.orderNamePrefix = params.shopifyShop.orderNamePrefix;
+    record.orderNameSuffix = params.shopifyShop.orderNameSuffix;
     record.setupCompleted = params.shopifyShop.setupCompleted;
   } else {
     applyParams(params, record);

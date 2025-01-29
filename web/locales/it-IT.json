@@ -1,7 +1,7 @@
 {
     "app": {
         "unauthenticated": {
-            "title": "L'app deve essere visualizzata nell'amministrazione di Shopify"
+            "title": "L'app deve essere visualizzata nell'Admin di Shopify"
         },
         "notFound": "Pagina non trovata",
         "navigation": {
@@ -13,11 +13,11 @@
         }
     },
     "Error": "Errore",
-    "Loading": "Caricamento",
+    "Loading": "Caricamento in corso",
     "components": {
         "chats": {
             "ChatDetail": {
-                "spinnerLabel": "La chat è in fase di caricamento",
+                "spinnerLabel": "La chat è in caricamento",
                 "productRecommendations": {
                     "title": "Raccomandazioni sui prodotti:"
                 },
@@ -39,17 +39,25 @@
                     "first": "Cliccando su",
                     "second": "Connetti",
                     "third": "accetti i",
-                    "linkText": "termini di servizio"
+                    "linkText": "termini di servizio di Soof AI"
                 },
-                "updating": "Aggiornamento integrazione..."
+                "updating": "Aggiornamento dell'integrazione in corso..."
             }
         },
         "settings": {
+            "toast": {
+                "success": "Impostazioni salvate!",
+                "requiredFields": "Campi obbligatori mancanti"
+            },
+            "saveBar": {
+                "save": "Salva",
+                "discard": "Annulla"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "Paesi di consegna",
-                    "body": "Informa i clienti in quali paesi consegni.",
-                    "noneFound": "Nessun paese trovato corrispondente",
+                    "body": "Informa i clienti sui paesi in cui consegni.",
+                    "noneFound": "Nessun paese corrispondente trovato",
                     "addLabel": "Aggiungi paese di consegna",
                     "searchPlaceholder": "Cerca paesi"
                 },
@@ -63,11 +71,6 @@
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "Impostazioni salvate!",
-                "saveBar": {
-                    "save": "Salva",
-                    "discard": "Scarta"
-                },
                 "form": {
                     "branding": "Branding",
                     "name": {
@@ -82,105 +85,117 @@
                         "label": "Colore secondario",
                         "helpText": "Puoi inserire formati di colore hex, rgb o altri."
                     },
+                    "options": {
+                        "heading": "Opzioni",
+                        "alignment": {
+                            "title": "Allineamento della finestra di chat",
+                            "left": "Sinistra",
+                            "right": "Destra"
+                        }
+                    },
                     "functions": {
-                        "heading": "Funzioni",
-                        "sendToCustomerSupport": "Invia la chat all'assistenza clienti se non viene trovata una risposta",
+                        "heading": "Funzionalità",
+                        "sendToCustomerSupport": "Invia la chat all'email di supporto se non viene trovata una risposta",
                         "fetchProductRecommendation": "Ottieni raccomandazioni sui prodotti",
                         "fetchProductByTitle": "Ottieni prodotto per titolo",
-                        "fetchParcelDataByEmail": "Ottieni dati in tempo reale sui pacchi (via Email)",
-                        "fetchParcelDataByOrderId": "Ottieni dati in tempo reale sui pacchi (via ID Ordine)",
-                        "sendInvoice": "Invia fatture tramite Exact Online (via ID Ordine)"
+                        "fetchParcelDataByEmail": "Ottieni dati sul pacco in tempo reale (tramite email)",
+                        "fetchParcelDataByOrderId": "Ottieni dati sul pacco in tempo reale (tramite ID ordine)",
+                        "sendInvoice": "Invia fatture tramite Exact Online (tramite ID ordine)"
                     }
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "Impostazioni salvate!",
-                "requiredFieldsToast": "Campi obbligatori mancanti",
-                "saveBar": {
-                    "save": "Salva",
-                    "discard": "Scarta"
-                },
                 "form": {
                     "products": {
                         "title": "Prodotti",
                         "description": "Gestisci le informazioni sui prodotti del tuo negozio.",
                         "productsCategory": {
-                            "heading": "Categoria dei prodotti",
-                            "body": "La categoria dei tuoi prodotti descrive il tipo di prodotti che vendi.",
-                            "label": "Categoria dei prodotti",
-                            "required": "La categoria dei prodotti è obbligatoria",
-                            "helpText": "ad es. Vitamine o Accessori per smartphone"
+                            "heading": "Categoria di prodotti",
+                            "body": "La tua categoria di prodotti descrive il tipo di prodotti che vendi.",
+                            "label": "Categoria di prodotti",
+                            "required": "La categoria di prodotti è obbligatoria",
+                            "helpText": "Es. Vitamine o accessori per smartphone"
                         },
                         "popularProducts": {
                             "heading": "Prodotti popolari",
-                            "body": "Seleziona i prodotti che desideri mostrare con Soof.",
+                            "body": "Seleziona i prodotti che desideri mostrare come popolari.",
                             "required": "È richiesto almeno un prodotto popolare."
                         }
                     },
                     "shipping": {
                         "title": "Spedizione",
-                        "description": "Imposta le tue tariffe di spedizione e i tempi di consegna.",
+                        "description": "Imposta le tariffe di spedizione e i tempi di consegna.",
                         "deliveryAmount": {
                             "label": "Importo della consegna",
                             "required": "L'importo della consegna è obbligatorio"
                         },
                         "freeDeliveryAmount": {
-                            "label": "Importo per consegna gratuita"
+                            "label": "Consegna gratuita a partire da"
                         },
                         "minDeliveryDays": {
-                            "label": "Giorni minimi di consegna",
-                            "required": "Giorni minimi di consegna obbligatori"
+                            "label": "Numero minimo di giorni di consegna",
+                            "required": "Il numero minimo di giorni di consegna è obbligatorio"
                         },
                         "maxDeliveryDays": {
-                            "label": "Giorni massimi di consegna",
-                            "required": "Giorni massimi di consegna obbligatori"
+                            "label": "Numero massimo di giorni di consegna",
+                            "required": "Il numero massimo di giorni di consegna è obbligatorio"
                         }
                     },
                     "paymentOptions": {
                         "title": "Opzioni di pagamento",
-                        "description": "Seleziona i metodi di pagamento accettati.",
+                        "description": "Seleziona i metodi di pagamento che accetti.",
                         "required": "È richiesta almeno un'opzione di pagamento."
                     },
                     "policies": {
                         "title": "Politiche",
-                        "description": "Fornisci l'indirizzo di ritorno e la politica di rimborso.",
+                        "description": "Fornisci il tuo indirizzo di reso e la politica di rimborso.",
                         "returnAddress": {
-                            "label": "Indirizzo di ritorno"
+                            "label": "Indirizzo di reso"
                         },
                         "returnAndRefundPolicy": {
-                            "label": "Politica di ritorno e rimborso",
-                            "required": "Politica di ritorno e rimborso obbligatoria"
+                            "label": "Politica di reso e rimborso",
+                            "required": "La politica di reso e rimborso è obbligatoria"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Prefisso dell'ordine",
+                    "helpText": "Il prefisso degli ID ordine impostato nelle impostazioni del tuo negozio Shopify."
+                },
+                "orderSuffix": {
+                    "label": "Suffisso dell'ordine",
+                    "helpText": "Il suffisso degli ID ordine impostato nelle impostazioni del tuo negozio Shopify."
                 }
             }
         },
         "setupWizard": {
             "steps": {
-                "selectPlan": "Seleziona piano",
-                "connectStore": "Collega negozio"
+                "selectPlan": "Seleziona il piano",
+                "connectStore": "Collega il negozio"
             },
             "step1": {
                 "heading": "Benvenuto su Soof AI! 🚀",
-                "subheading": "Siamo entusiasti di averti a bordo! Iniziamo con la configurazione del tuo account.",
+                "subheading": "Siamo entusiasti di averti con noi! Iniziamo configurando il tuo account.",
                 "chooseYourPlan": "Scegli il tuo piano",
-                "trialMessage": "Tutti i piani includono una prova gratuita di 7 giorni, provali liberamente!",
-                "continueForFree": "Oppure continua a utilizzare il piano gratuito"
+                "trialMessage": "Tutti i piani includono una prova gratuita di 7 giorni. Provali!",
+                "continueForFree": "Oppure continua con il piano gratuito"
             },
             "step2": {
                 "heading": "Abilita estensione",
-                "subheading": "Ottimo! Ora che hai selezionato un piano, possiamo completare la configurazione abilitando l'estensione. La nostra estensione aggiungerà una finestra di chat direttamente al tuo negozio.",
+                "subheading": "Fantastico! Ora che hai selezionato un piano, possiamo completare la configurazione abilitando l'estensione. La nostra estensione aggiungerà la finestra di chat integrata direttamente al tuo negozio.",
                 "instructions": "Premi il pulsante qui sotto e salva per abilitare l'estensione.",
                 "enableExtensionButton": "Abilita estensione"
             },
             "error": {
-                "unableToSubscribe": "Impossibile iscriversi: "
+                "unableToSubscribe": "Impossibile sottoscrivere: "
             }
         },
         "shared": {
             "NoticeHeader": {
                 "trialEnd": {
-                    "title": "Il tuo periodo di prova gratuito è terminato.",
+                    "title": "La tua prova gratuita è terminata.",
                     "action": "Aggiorna ora",
                     "message": "Seleziona un piano per continuare a utilizzare i nostri servizi."
                 }
@@ -202,26 +217,26 @@
             },
             "headings": {
                 "ref": "Rif",
-                "email": "E-mail",
+                "email": "Email",
                 "createdAt": "Creato il"
             },
             "emptyState": {
                 "heading": "Nessuna chat disponibile",
-                "description": "Attualmente non ci sono chat da visualizzare. Avvia una conversazione per vederla qui."
+                "description": "Attualmente non ci sono chat disponibili. Avvia una conversazione per vederla qui."
             },
-            "modalTitle": "Dettaglio chat"
+            "modalTitle": "Dettagli della chat"
         },
         "overview": {
             "pageTitle": "Panoramica",
             "mediaCard": {
-                "title": "Primi passi",
+                "title": "Inizia subito",
                 "primaryAction": {
-                    "content": "Primi passi"
+                    "content": "Inizia subito"
                 },
                 "description": {
                     "item1": "Coinvolgi i tuoi clienti come mai prima d'ora.",
                     "item2": "Aumenta le vendite con interazioni personalizzate.",
-                    "item3": "Assistenza clienti 24/7 senza personale aggiuntivo."
+                    "item3": "Supporto clienti 24/7 senza personale aggiuntivo."
                 },
                 "imageAlt": "Soof su iPhone"
             },
@@ -239,19 +254,20 @@
             "backAction": {
                 "content": "Informazioni sul negozio"
             },
-            "description": "Ogni piano include una prova gratuita di 7 giorni. Puoi modificare o annullare il piano in qualsiasi momento.",
+            "description": "Ogni piano include una prova gratuita di 7 giorni. Puoi cambiare o annullare il tuo piano in qualsiasi momento.",
             "banner": {
-                "title": "Sei in un periodo di prova gratuito",
-                "body": "Il tuo periodo di prova gratuito scade tra {days} giorno(i)."
+                "title": "Sei in una prova gratuita",
+                "body": "La tua prova gratuita scadrà tra {days} giorno/i."
             },
             "cancelSubscriptionButton": "Annulla abbonamento",
             "error": {
-                "unableToSubscribe": "Impossibile iscriversi: "
+                "unableToSubscribe": "Impossibile sottoscrivere: "
             }
         },
         "settings": {
             "general": "Generale",
-            "knowledge": "Conoscenza",
+            "knowledge": "Conoscenze",
+            "shipping": "Spedizione",
             "pageTitle": "Modifica assistente"
         }
     }

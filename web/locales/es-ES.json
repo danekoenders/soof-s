@@ -41,15 +41,23 @@
                     "third": "aceptas los",
                     "linkText": "términos del servicio de Soof AI"
                 },
-                "updating": "Actualizando la integración..."
+                "updating": "Actualizando integración..."
             }
         },
         "settings": {
+            "toast": {
+                "success": "¡Configuraciones guardadas!",
+                "requiredFields": "Faltan campos obligatorios"
+            },
+            "saveBar": {
+                "save": "Guardar",
+                "discard": "Descartar"
+            },
             "KnowledgeSettings": {
                 "DeliveryCountriesCombobox": {
                     "title": "Países de entrega",
-                    "body": "Informa a los clientes sobre los países a los que realizas envíos.",
-                    "noneFound": "No se encontraron países coincidentes",
+                    "body": "Informa a los clientes en qué países entregas.",
+                    "noneFound": "No se encontraron países que coincidan",
                     "addLabel": "Agregar país de entrega",
                     "searchPlaceholder": "Buscar países"
                 },
@@ -57,17 +65,12 @@
                     "accessibilityLabel": "Producto popular:",
                     "selectButton": "Seleccionar productos populares",
                     "emptyState": {
-                        "heading": "Selecciona productos populares",
+                        "heading": "Seleccionar productos populares",
                         "action": "Seleccionar productos"
                     }
                 }
             },
             "GeneralSettings": {
-                "updateSuccessToast": "¡Configuraciones guardadas!",
-                "saveBar": {
-                    "save": "Guardar",
-                    "discard": "Descartar"
-                },
                 "form": {
                     "branding": "Marca",
                     "name": {
@@ -75,65 +78,67 @@
                         "placeholder": "Soof"
                     },
                     "primaryColor": {
-                        "label": "Color principal",
-                        "helpText": "Puedes ingresar hex, rgb u otros formatos de color."
+                        "label": "Color primario",
+                        "helpText": "Puedes ingresar formatos de color hex, rgb u otros."
                     },
                     "secondaryColor": {
                         "label": "Color secundario",
-                        "helpText": "Puedes ingresar hex, rgb u otros formatos de color."
+                        "helpText": "Puedes ingresar formatos de color hex, rgb u otros."
+                    },
+                    "options": {
+                        "heading": "Opciones",
+                        "alignment": {
+                            "title": "Alineación de la ventana del chat",
+                            "left": "Izquierda",
+                            "right": "Derecha"
+                        }
                     },
                     "functions": {
                         "heading": "Funciones",
-                        "sendToCustomerSupport": "Enviar chat al correo de soporte cuando no haya respuesta",
+                        "sendToCustomerSupport": "Enviar chat al correo de soporte si no se encuentra respuesta",
                         "fetchProductRecommendation": "Obtener recomendaciones de productos",
-                        "fetchProductByTitle": "Buscar producto por título",
-                        "fetchParcelDataByEmail": "Obtener datos de paquetes en tiempo real (por correo electrónico)",
-                        "fetchParcelDataByOrderId": "Obtener datos de paquetes en tiempo real (por ID de pedido)",
+                        "fetchProductByTitle": "Obtener producto por título",
+                        "fetchParcelDataByEmail": "Obtener datos de paquete en tiempo real (por correo electrónico)",
+                        "fetchParcelDataByOrderId": "Obtener datos de paquete en tiempo real (por ID de pedido)",
                         "sendInvoice": "Enviar facturas usando Exact Online (por ID de pedido)"
                     }
                 }
             },
             "KnowledgeSettingsJSX": {
-                "updateSuccessToast": "¡Configuraciones guardadas!",
-                "requiredFieldsToast": "Faltan campos obligatorios",
-                "saveBar": {
-                    "save": "Guardar",
-                    "discard": "Descartar"
-                },
                 "form": {
                     "products": {
                         "title": "Productos",
-                        "description": "Gestiona la información de los productos de tu tienda.",
+                        "description": "Administra la información de productos de tu tienda.",
                         "productsCategory": {
                             "heading": "Categoría de productos",
                             "body": "Tu categoría de productos describe el tipo de productos que vendes.",
                             "label": "Categoría de productos",
                             "required": "La categoría de productos es obligatoria",
-                            "helpText": "Ej. Vitaminas o Accesorios para smartphones"
+                            "helpText": "Por ejemplo: Vitaminas o accesorios para smartphones"
                         },
                         "popularProducts": {
                             "heading": "Productos populares",
-                            "body": "Selecciona los productos que deseas que Soof destaque.",
+                            "body": "Selecciona los productos que quieres destacar como populares.",
                             "required": "Se requiere al menos un producto popular."
                         }
                     },
                     "shipping": {
-                        "title": "Envío",
+                        "title": "Envíos",
                         "description": "Establece tus tarifas de envío y tiempos de entrega.",
                         "deliveryAmount": {
-                            "label": "Monto de envío",
-                            "required": "El monto de envío es obligatorio"
+                            "label": "Monto de entrega",
+                            "required": "El monto de entrega es obligatorio"
                         },
                         "freeDeliveryAmount": {
-                            "label": "Monto para envío gratuito"
+                            "label": "Entrega gratuita a partir de"
                         },
                         "minDeliveryDays": {
-                            "label": "Días mínimos de entrega",
-                            "required": "Se requieren los días mínimos de entrega"
+                            "label": "Mínimo de días de entrega",
+                            "required": "El mínimo de días de entrega es obligatorio"
                         },
                         "maxDeliveryDays": {
-                            "label": "Días máximos de entrega",
-                            "required": "Se requieren los días máximos de entrega"
+                            "label": "Máximo de días de entrega",
+                            "required": "El máximo de días de entrega es obligatorio"
                         }
                     },
                     "paymentOptions": {
@@ -143,7 +148,7 @@
                     },
                     "policies": {
                         "title": "Políticas",
-                        "description": "Proporciona tu dirección de devolución y política de reembolso.",
+                        "description": "Proporciona tu dirección de devolución y política de reembolsos.",
                         "returnAddress": {
                             "label": "Dirección de devolución"
                         },
@@ -152,6 +157,16 @@
                             "required": "La política de devolución y reembolso es obligatoria"
                         }
                     }
+                }
+            },
+            "ShippingSettings": {
+                "orderPrefix": {
+                    "label": "Prefijo de pedido",
+                    "helpText": "El prefijo de ID de pedido configurado en los ajustes de tu tienda Shopify."
+                },
+                "orderSuffix": {
+                    "label": "Sufijo de pedido",
+                    "helpText": "El sufijo de ID de pedido configurado en los ajustes de tu tienda Shopify."
                 }
             }
         },
@@ -162,16 +177,16 @@
             },
             "step1": {
                 "heading": "¡Bienvenido a Soof AI! 🚀",
-                "subheading": "¡Nos alegra tenerte aquí! Empecemos configurando tu cuenta.",
+                "subheading": "¡Estamos emocionados de tenerte a bordo! Comencemos configurando tu cuenta.",
                 "chooseYourPlan": "Elige tu plan",
-                "trialMessage": "Todos los planes incluyen una prueba gratuita de 7 días, ¡siéntete libre de probar!",
+                "trialMessage": "Todos los planes incluyen una prueba gratuita de 7 días. ¡Pruébalos!",
                 "continueForFree": "O continúa usando el plan gratuito"
             },
             "step2": {
-                "heading": "Activar la extensión",
-                "subheading": "¡Genial! Ahora que has elegido un plan, podemos completar la configuración activando la extensión. Nuestra extensión añadirá directamente la ventana de chat a tu tienda.",
-                "instructions": "Pulsa el botón de abajo y guarda para activar la extensión.",
-                "enableExtensionButton": "Activar extensión"
+                "heading": "Habilitar extensión",
+                "subheading": "¡Genial! Ahora que has seleccionado un plan, podemos completar la configuración habilitando la extensión. Nuestra extensión añadirá la ventana de chat integrada directamente a tu tienda.",
+                "instructions": "Presiona el botón de abajo y guarda para habilitar la extensión.",
+                "enableExtensionButton": "Habilitar extensión"
             },
             "error": {
                 "unableToSubscribe": "No se pudo suscribir: "
@@ -181,8 +196,8 @@
             "NoticeHeader": {
                 "trialEnd": {
                     "title": "Tu prueba gratuita ha terminado.",
-                    "action": "Mejorar ahora",
-                    "message": "Selecciona un plan para continuar usando nuestros servicios."
+                    "action": "Actualizar ahora",
+                    "message": "Por favor selecciona un plan para continuar usando nuestros servicios."
                 }
             }
         },
@@ -209,7 +224,7 @@
                 "heading": "No hay chats disponibles",
                 "description": "Actualmente no hay chats para mostrar. Inicia una conversación para verla aquí."
             },
-            "modalTitle": "Detalles del chat"
+            "modalTitle": "Detalle del chat"
         },
         "overview": {
             "pageTitle": "Resumen",
@@ -220,8 +235,8 @@
                 },
                 "description": {
                     "item1": "Involucra a tus clientes como nunca antes.",
-                    "item2": "Incrementa ventas con interacciones personalizadas.",
-                    "item3": "Soporte al cliente 24/7 sin personal extra."
+                    "item2": "Incrementa las ventas con interacciones personalizadas.",
+                    "item3": "Soporte al cliente 24/7 sin personal adicional."
                 },
                 "imageAlt": "Soof en iPhone"
             },
@@ -232,7 +247,7 @@
         },
         "integrations": {
             "pageTitle": "Integraciones",
-            "exactOnlineDescription": "Conecta tu cuenta Exact Online con tu asistente."
+            "exactOnlineDescription": "Conecta tu cuenta de Exact Online con tu asistente."
         },
         "plans": {
             "pageTitle": "Planes",
@@ -252,6 +267,7 @@
         "settings": {
             "general": "General",
             "knowledge": "Conocimiento",
+            "shipping": "Envíos",
             "pageTitle": "Editar asistente"
         }
     }
