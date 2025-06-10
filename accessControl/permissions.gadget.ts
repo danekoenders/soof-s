@@ -133,5 +133,8 @@ export const permissions: GadgetPermissions = {
     unauthenticated: {
       storageKey: "unauthenticated",
     },
+    langgraph: {
+      storageKey: "49KtpKl9oAPM",
+    },
   },
 };
