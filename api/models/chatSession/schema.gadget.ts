@@ -20,6 +20,11 @@ export const schema: GadgetModel = {
       validations: { required: true },
       storageKey: "y7JeWGy-QiTE",
     },
+    lgAssistant: {
+      type: "string",
+      validations: { required: true },
+      storageKey: "lKFmSe004zRB",
+    },
     localLanguage: {
       type: "string",
       validations: {

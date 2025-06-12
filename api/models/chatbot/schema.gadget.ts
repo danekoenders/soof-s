@@ -7,11 +7,6 @@ export const schema: GadgetModel = {
   type: "gadget/model-schema/v1",
   storageKey: "D6Pb7QgsXApD",
   fields: {
-    assistant: {
-      type: "string",
-      validations: { unique: true },
-      storageKey: "4gcCamQmQmnp",
-    },
     chatSessions: {
       type: "hasMany",
       children: { model: "chatSession", belongsToField: "chatbot" },
@@ -27,6 +22,11 @@ export const schema: GadgetModel = {
       type: "json",
       validations: { required: true },
       storageKey: "9_0FcnkT6kYJ",
+    },
+    lgAssistant: {
+      type: "string",
+      validations: { required: true },
+      storageKey: "4gcCamQmQmnp",
     },
     options: { type: "json", storageKey: "GirJkSWW4AnG" },
     primaryColor: {

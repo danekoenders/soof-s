@@ -38,6 +38,7 @@ export default async function route({ request, reply, api, logger, connections }
             theme: true,
             options: true,
             shop: {
+                myshopifyDomain: true,
                 name: true,
             }
         },
@@ -71,6 +72,7 @@ export default async function route({ request, reply, api, logger, connections }
             options: options,
         },
         shop: {
+            myShopifyDomain: chatbot.shop.myshopifyDomain,
             name: chatbot.shop.name,
         },
     };

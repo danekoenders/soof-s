@@ -27,7 +27,10 @@ export default async function route({ request, reply, api, logger, connections }
     }
 
     await reply.type("application/json").send({
+        langGraphUrl: process.env.LANGGRAPH_DEPLOYMENT_URL,
         token: chatSession.token,
+        thread: chatSession.thread,
+        assistant: chatSession.lgAssistant,
         expiresAt: chatSession.expiresAt
     });
 }

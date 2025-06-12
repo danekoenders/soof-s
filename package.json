@@ -13,6 +13,7 @@
     "@gadgetinc/react-shopify-app-bridge": "^0.16.5",
     "@heymantle/polaris": "^12",
     "@heymantle/react": "^0.0.30",
+    "@langchain/langgraph-sdk": "^0.0.84",
     "@pinecone-database/pinecone": "^3.0.3",
     "@sentry/node": "^7.17.3",
     "@shopify/app-bridge-react": "^4.1.5",

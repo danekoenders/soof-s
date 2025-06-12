@@ -135,6 +135,9 @@ export const permissions: GadgetPermissions = {
     },
     langgraph: {
       storageKey: "49KtpKl9oAPM",
+      actions: {
+        "utils/validateSessionToken": true,
+      },
     },
   },
 };
