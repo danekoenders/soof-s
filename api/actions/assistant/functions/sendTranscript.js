@@ -118,10 +118,6 @@ export async function run({ params, logger, api, connections, emails }) {
           </div>
           <div class="content">
               <%- transcript %>
-              <div class="message user">
-                  <div class="timestamp"><strong>Latest</strong></div>
-                  <div class="message-content"><%= lastMessage %></div>
-              </div>
           </div>
           <div class="footer">
               Powered by Soof.
@@ -139,7 +135,6 @@ export async function run({ params, logger, api, connections, emails }) {
     // The default template is an EJS string
     html: DefaultEmailTemplates.renderEmailTemplate(CustomTemplate, {
       shopName: shopName,
-      lastMessage: params.lastMessage,
       transcript: formattedTranscript,
     }),
   });
