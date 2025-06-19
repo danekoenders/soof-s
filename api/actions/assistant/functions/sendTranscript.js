@@ -1,19 +1,29 @@
-import { AssistantFunctionsSendTranscriptGlobalActionContext, DefaultEmailTemplates } from "gadget-server";
+import {
+  AssistantFunctionsSendTranscriptGlobalActionContext,
+  DefaultEmailTemplates,
+} from "gadget-server";
 import { formatTranscript } from "../../../utils/functions";
 
 export const params = {
-  sessionId: { type: "string" },
-  lastMessage: { type: "string" }
+  sessionToken: { type: "string", required: true },
+  messages: {
+    type: "array",
+    required: true,
+    items: {
+      type: "object",
+      additionalProperties: true,
+    },
+  },
+  customerEmail: { type: "string", required: true },
 };
 
 /**
  * @param { AssistantFunctionsSendTranscriptGlobalActionContext } context
  */
 export async function run({ params, logger, api, connections, emails }) {
-  const chatSession = await api.chatSession.findOne(params.sessionId, {
+  const chatSession = await api.chatSession.findByToken(params.sessionToken, {
     select: {
       id: true,
-      transcript: true,
       shop: {
         id: true,
         createdAt: true,
@@ -23,15 +33,16 @@ export async function run({ params, logger, api, connections, emails }) {
     },
   });
 
-  const email = chatSession.shop.customerEmail;
+  const supportEmail = chatSession.shop.customerEmail;
+  const customerEmail = params.customerEmail;
   const shopName = chatSession.shop.customName;
-  const rawTranscript = chatSession.transcript;
-  let formattedTranscript = '';
+  const rawTranscript = params.messages;
+  let formattedTranscript = "";
 
   if (rawTranscript) {
     formattedTranscript = formatTranscript(rawTranscript);
   } else {
-    formattedTranscript = '';
+    formattedTranscript = "";
   }
 
   // create your custom email template
@@ -121,7 +132,8 @@ export async function run({ params, logger, api, connections, emails }) {
 `;
 
   await emails.sendMail({
-    to: email,
+    to: supportEmail,
+    replyTo: customerEmail,
     subject: `Unanswered question on ${shopName}`,
     // Pass your custom template
     // The default template is an EJS string
@@ -133,9 +145,9 @@ export async function run({ params, logger, api, connections, emails }) {
   });
 
   return {
-    status: "Chat has been sent",
-    instructions: "Inform customer that the chat has been sent to the customer support team.",
+    success: true,
+    message: "Chat has been sent",
   };
-};
+}
 
 export const options = { triggers: { api: true } };
