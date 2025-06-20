@@ -136,6 +136,7 @@ export const permissions: GadgetPermissions = {
     langgraph: {
       storageKey: "49KtpKl9oAPM",
       actions: {
+        "assistant/functions/fetchParcelData": true,
         "assistant/functions/sendTranscript": true,
         "utils/validateSessionToken": true,
       },

@@ -3,9 +3,7 @@ import { AssistantFunctionsFetchParcelDataGlobalActionContext } from "gadget-ser
 export const params = {
   orderId: { type: "string" },
   email: { type: "string" },
-  shopId: { type: "string", required: true },
-  orderNamePrefix: { type: "string" },
-  orderNameSuffix: { type: "string" },
+  sessionToken: { type: "string", required: true },
 };
 
 /**
@@ -15,21 +13,29 @@ export async function run({ params, logger, api, connections }) {
   const {
     orderId: rawOrderId,
     email,
-    shopId,
-    orderNamePrefix,
-    orderNameSuffix,
   } = params;
   let orderId = rawOrderId;
 
+  const chatSession = await api.chatSession.findByToken(params.sessionToken, {
+    select: {
+      id: true,
+      shop: {
+        id: true,
+        orderNamePrefix: true,
+        orderNameSuffix: true,
+      },
+    },
+  });
+
   if (orderId) {
-    orderId = sanitizeOrderId(orderId, orderNamePrefix, orderNameSuffix);
+    orderId = sanitizeOrderId(orderId, chatSession.shop.orderNamePrefix, chatSession.shop.orderNameSuffix);
   }
 
   if (orderId) {
-    const response = await getOrder({ api, identifier: { orderId }, shopId });
+    const response = await getOrder({ api, identifier: { orderId }, shopId: chatSession.shop.id });
     return response;
   } else if (email) {
-    const response = await getOrder({ api, identifier: { email }, shopId });
+    const response = await getOrder({ api, identifier: { email }, shopId: chatSession.shop.id });
     return response;
   } else {
     return {
@@ -115,11 +121,11 @@ async function getOrder({ api, identifier, shopId }) {
       return {
         success: true,
         order: {
-          id: order.id,
           orderNumber: order.orderNumber,
           orderStatusUrl: sanitizedOrderStatusUrl,
           financialStatus: order.financialStatus,
           currentTotalPrice: order.currentTotalPrice,
+          fulfillmentStatus: order.fulfillmentStatus,
         },
         tracking: order.fulfillments.edges.length > 0,
       };
